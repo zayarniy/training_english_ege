@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Счетчик времени</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+   <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div id="app">
+      <div v-if="isCountdown" class="timer_caption timer">
+    <div>Be ready for test</div>
+    <div class='timer_caption'>{{ countdown }}</div>
+    <div>seconds</div>
+      </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+          isCountdown: true,
+        countdown: 3
+      },
+      mounted() {
+        this.startCountdown();
+      },
+      methods: {
+        startCountdown() {
+            
+          let si=setInterval(() => {
+            if (this.countdown > 0) {
+              this.countdown--;
+            } else {
+              // Переход на следующую страницу
+              //window.location.href = 'next_page.html'; // Замените 'next_page.html' на вашу следующую страницу
+                clearInterval(si)
+                this.countdown=0;
+            }
+          }, 1000); // Измените интервал, если требуется другой промежуток времени
+        }
+      }
+    });
+  </script>
+</body>
+</html>
