@@ -1,10 +1,10 @@
-let mediaRecorder;
+let mediaRecorder=null;
 let chunks = [];
 const getMicButton = document.getElementById('get-mic');
 const startRecordButton = document.getElementById('start-record');
 const stopRecordButton = document.getElementById('stop-record');
 const playRecordButton = document.getElementById('play-record');
-let audio;
+let audio=null;
 
 
 async function getMic()
@@ -37,6 +37,7 @@ function startRecording()
 
 function stopRecording(needTimerStop=true)
 {
+    if (mediaRecorder==null) return;
   if (mediaRecorder.state === 'recording') 
   {
         mediaRecorder.stop();
@@ -75,6 +76,7 @@ function playAudio()
 
 function stopAudio(needTimerStop=true)
 {
+    if (audio==null) return;
     if (needTimerStop) timerStop();
     audio.pause();
     audio.currentTime = 0;

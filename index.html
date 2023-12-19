@@ -23,15 +23,21 @@
     <div class="row">
       <div class="col">
         <img src="logo.png" alt="Logo">
-        <h1 v-html='head'></h1>
+        <h2 v-html='head'></h2>
       </div>
     </div>
       <!--Main-->
-    <div v-if='isShowMain'  class="row" style="height: 400px;">
+    <div v-if='isShowMain' style="height: 400px;">
+        <div class="row">
       <div class="col">
           <span v-html='main_text'></span>
-          <img v-bind:src="'images/' + image" class="my_image">
       </div>
+            </div>
+        <div v-if='isShowImage' class="row">
+            <div class="col">
+          <img v-bind:src="'images/' + image" class="my_image">
+                </div>
+        </div>
     </div><!--Main-->
       
       <!--TIMER-->
@@ -43,7 +49,7 @@
       </div><!--TIMER-->     
     <div v-show='isShowNav01' class="row">
       <div class='col-12'>
-        <button  class="btn btn-primary text-center" @click="Level(1)" id='get-mic'>Понятно</button>
+        <button  class="btn btn-primary text-center" @click="Level()" id='get-mic'>Понятно</button>
       </div>
     </div>
 
@@ -58,7 +64,7 @@
         <div id="progress-bar-fill" :style="'background-color: lightblue; width: ' + progressValue + '%'"></div>        
     </div>
     <h1 class='col-2' style=";">{{formatTime}}</h1>  
-    <button class='btn btn-primary col-3 my_btn' @click='Level(level)'>{{rec_nav_text}}</button>  
+    <button class='btn btn-primary col-3 my_btn' @click='Level()'>{{rec_nav_text}}</button>  
         <audio controls id="audioPlayer" style="display:none;"></audio>
                            
     </div>

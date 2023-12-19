@@ -58,11 +58,12 @@
 
 .timer_caption
 {
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .timer
 {
+    font-size: 40px;
     display: block;
     height: 100%;
     #width: 400px;
@@ -74,5 +75,5 @@
 .my_image
 {
     display: block;
-    width: 250px;
+    width: 40%;
 }
