@@ -8,6 +8,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>            
     <script src="utilites.js"></script>
+    <script src=speaker.js></script>
 
     
     <link rel="stylesheet" href="style.css">  
@@ -27,7 +28,7 @@
       </div>
     </div>
       <!--Main-->
-    <div v-if='isShowMain' style="height: 400px;">
+    <div v-if='isShowMain' style="height: 450px;">
         <div class="row">
       <div class="col">
           <span v-html='main_text'></span>
@@ -39,7 +40,11 @@
                 </div>
         </div>
     </div><!--Main-->
-      
+      <div v-if='isShowResult' style='height: 450px;' class='row'>
+          <div class="col">
+            <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
+          </div>
+      </div>
       <!--TIMER-->
       <div v-if="isShowCountdown" class="row timer_caption text-center">
         <div class='col'>
@@ -61,9 +66,9 @@
         </div>
         </div>
     <div class="col-6" id="progress-bar">
-        <div id="progress-bar-fill" :style="'background-color: lightblue; width: ' + progressValue + '%'"></div>        
+        <div id="progress-bar-fill" :style="'width: ' + progressValue + '%'"></div>        
     </div>
-    <h1 class='col-2' style=";">{{formatTime}}</h1>  
+    <h1 class='col-2'>{{formatTime}}</h1>  
     <button class='btn btn-primary col-3 my_btn' @click='Level()'>{{rec_nav_text}}</button>  
         <audio controls id="audioPlayer" style="display:none;"></audio>
                            

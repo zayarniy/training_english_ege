@@ -11,7 +11,7 @@ async function getMic()
 {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorder = new MediaRecorder(stream);
-      mediaRecorder.ondataavailable = (e) => chunks.push(e.data);    
+      mediaRecorder.ondataavailable = (e) => training.chunks.push(e.data);    
       training.micStatus=MicStatus.READYTORECORD
             training.show_nav02=true;
             training.show_nav01=false;
@@ -22,7 +22,6 @@ async function getMic()
 function startRecording()
 {
     if (mediaRecorder && mediaRecorder.state === 'inactive') {
-            chunks = [];
             mediaRecorder.start();
             timerStart();
            
@@ -40,6 +39,7 @@ function stopRecording(needTimerStop=true)
     if (mediaRecorder==null) return;
   if (mediaRecorder.state === 'recording') 
   {
+      
         mediaRecorder.stop();
       training.progressValue=0;
       if (needTimerStop) timerStop();
@@ -55,8 +55,8 @@ function stopRecording(needTimerStop=true)
 
 function playAudio()
 {
-      if (chunks.length) {
-        const blob = new Blob(chunks, { type: chunks[0].type });
+      if (training.chunks.length) {
+        const blob = new Blob(training.chunks, { type: training.chunks[0].type });
         const audioURL = URL.createObjectURL(blob);
         audio = new Audio(audioURL);
         audio.play();

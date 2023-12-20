@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Выбор голоса и произнесение текста</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .controls {
+            flex-grow: 0;
+            flex-flow: row;
+            padding-right: 20px;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="controls">
+            <label for="voiceSelect">Выберите голос:</label>
+            <select id="voiceSelect" v-model="selectedVoice">
+                <option v-for="voice in voices" :value="voice.name">{{ voice.name }}</option>
+            </select>
+        </div>
+        <div class="controls">
+            <label for="textInput">Введите текст:</label>
+            <textarea id="textInput" v-model="text"></textarea>
+        </div>
+        <div class="controls">
+                    <button @click="speak">Произнести</button>
+
+        </div>
+    </div>
+
+    <script type="application/javascript">
+        const synth = window.speechSynthesis;
+        new Vue({
+            el: '#app',
+            data: {
+                selectedVoice: '',
+                text: 'Hello! How are you?',
+                voices: []
+            },
+             mounted() {
+                // Обработка события изменения доступных голосов
+                 this.getVoices();
+                synth.addEventListener('voiceschanged', this.getVoices);
+                // alert(synth.getVoices())                 
+            },
+            methods: {
+                getVoices() {
+                    console.log('speechSynthesis' in window)
+                    if ('speechSynthesis' in window) {
+                        this.voices = synth.getVoices();
+                        console.log(synth.getVoices())
+                    }
+                },
+                speak() {
+                    if ('speechSynthesis' in window) {
+                        //var synth = window.speechSynthesis;
+                        var utterance = new SpeechSynthesisUtterance(this.text);
+                        var selectedVoice = this.voices.find(voice => voice.name === this.selectedVoice);
+                        if (selectedVoice) {
+                            utterance.voice = selectedVoice;
+                            synth.speak(utterance);
+                        }
+                    }
+                }
+            }
+        });
+        //alert('Page load')
+        function getVoices()
+        {
+                synth.addEventListener('voiceschanged', this.getVoices);
+                 //alert(synth.getVoices())
+            
+        }
+    getVoices();
+    </script>
+</body>
+</html>
