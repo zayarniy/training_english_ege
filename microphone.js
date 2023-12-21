@@ -11,7 +11,12 @@ async function getMic()
 {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorder = new MediaRecorder(stream);
-      mediaRecorder.ondataavailable = (e) => training.chunks.push(e.data);    
+      mediaRecorder.ondataavailable = (e) => {
+          training.chunks.push(e.data);    
+          training.current_chunk=[]
+          training.current_chunk.push(e.data);
+          //alert(training.current_chunk)
+      }
       training.micStatus=MicStatus.READYTORECORD
             training.show_nav02=true;
             training.show_nav01=false;
@@ -55,8 +60,8 @@ function stopRecording(needTimerStop=true)
 
 function playAudio()
 {
-      if (training.chunks.length) {
-        const blob = new Blob(training.chunks, { type: training.chunks[0].type });
+      if (training.current_chunk!=null) {
+        const blob = new Blob(training.current_chunk, { type: training.chunks[0].type });
         const audioURL = URL.createObjectURL(blob);
         audio = new Audio(audioURL);
         audio.play();
@@ -65,6 +70,7 @@ function playAudio()
           training.micStatus=MicStatus.PLAY;
           audio.addEventListener('ended', () => {
                                               console.log('Аудиофайл завершил проигрывание');
+                                              training.progressValue=0;    
                                               training.micStatus=MicStatus.READYTOPLAY;
                                               timerStop();
                                               // Ваши действия по окончании проигрывания аудиофайла

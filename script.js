@@ -22,7 +22,9 @@ let timer;
                   rec_nav_text:'Перейти к экзамену',
                   countDown: 10,
                   level:0,
-                  chunks:[]
+                  chunks:[],
+                  current_chunk:[]
+                  
                 }    
         function timerStart()
         {            
@@ -38,7 +40,14 @@ let timer;
                     }
                      
                     else
-                        timerStop();
+                        {
+                            timerStop();
+                            if (training.micStatus==MicStatus.PREPARE) 
+                            {
+                                training.micStatus=MicStatus.NOTREADY;
+                                training.Level();
+                            }
+                        }
                 },1000);
         }
 
@@ -49,11 +58,6 @@ let timer;
             if (training.micStatus==MicStatus.RECORDING)  stopRecording(false);
             clearInterval(timer);
             training.recTime=0;
-            if (training.micStatus==MicStatus.PREPARE) 
-            {
-                training.micStatus=MicStatus.NOTREADY;
-                training.Level();
-            }
         }
 
 
@@ -237,7 +241,7 @@ let timer;
                                      console.log(this.chunks);
                                      this.chunks.forEach((chunk)=>
                                                          {
-                                    const blob = new Blob(this.chunks, { type: 'audio/webm' });
+                                    const blob = new Blob([chunk], { type: 'audio/webm' });
                                     const url = window.URL.createObjectURL(blob);
                                     const link = document.createElement('a');
                                     link.href = url;
