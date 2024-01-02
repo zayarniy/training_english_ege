@@ -1,3 +1,8 @@
+.main
+{
+    height: 600px;
+    text-align: justify;
+}
 
     #progress-bar {
     
@@ -50,16 +55,40 @@
 {
     height: 45px;
     white-space: nowrap;
-    width: 180px;
+    width: 200px;
+}
+
+.fomat_time
+{
+  text-align: right;
+  width: 150px;   
+
+}
+
+.col_my
+{
+    display: flex;
+    height: 45px;
 }
 .recorder
 {
-    min-width: 800px;
-    height: 50px;
-    background-color:cornflowerblue;
-    justify-content: center;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-width: 500px;
+    height: 45px;
+    background-color:cornflowerblue;    
     border: 1px solid black;
     color:white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
 }
 
 .timer_caption
