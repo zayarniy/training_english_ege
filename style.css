@@ -14,18 +14,19 @@
       height: 15px;      
       #background-color:;      
       #display: flex;  
-        #align-items: center;
+      #align-items: center;
         
     }
     
-    #progress-bar-fill {          
-        height: 20px;
+    #progress-bar-fill 
+{          
+      height: 20px;
       background-color: #ffffff;
       #transition: width 1s linear;
-        width: 0%;        
-        position: relative;
-        top:15px;
-            
+      width: 0%;        
+      position: relative;
+      #top:15px;
+      margin: 10px;
         
     }
 
@@ -60,6 +61,8 @@
     height: 45px;
     #white-space: wrap;
     width: 200px;
+    margin: 3px;
+    
     
 }
 
@@ -99,11 +102,12 @@
 .recorder
 {
     #position: fixed;
+    box-sizing:content-box;
     left: 0px;
     bottom: 0px;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     min-width: 500px;
     height: 45px;
     background-color:cornflowerblue;    

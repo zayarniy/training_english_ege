@@ -65,13 +65,13 @@
             <i :class='currentIcon'   @click='toggleIcon'></i>
         </div>
         </div>
-    <div class="col-3" id="progress-bar">
+    <div id="progress-bar">
         <div id="progress-bar-fill" :style="'width: ' + progressValue + '%'"></div>        
     </div>
-    <div>
     <div class='format-time'>
         {{formatTime}}
         </div>
+    <div>
     <button class='btn btn-primary my_btn right' @click='Level()'>{{rec_nav_text}}</button>  
         </div>
         <audio controls id="audioPlayer" style="display:none;"></audio>
