@@ -68,10 +68,12 @@
     <div class="col-3" id="progress-bar">
         <div id="progress-bar-fill" :style="'width: ' + progressValue + '%'"></div>        
     </div>
-    <div class='col-2 format_time'>
-        <h1>{{formatTime}}</h1>  
+    <div>
+    <div class='format-time'>
+        {{formatTime}}
         </div>
-    <button class='btn btn-primary my_btn' @click='Level()'>{{rec_nav_text}}</button>  
+    <button class='btn btn-primary my_btn right' @click='Level()'>{{rec_nav_text}}</button>  
+        </div>
         <audio controls id="audioPlayer" style="display:none;"></audio>
                            
     </div>

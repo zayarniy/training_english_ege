@@ -6,6 +6,10 @@
 
     #progress-bar {
     
+      display: flex;
+      flex-basis: auto;
+      flex-grow: 1;
+        flex-shrink: 1;
         
       height: 15px;      
       #background-color:;      
@@ -54,15 +58,37 @@
 .my_btn
 {
     height: 45px;
-    white-space: nowrap;
+    #white-space: wrap;
     width: 200px;
+    
 }
 
-.fomat_time
+.right
 {
-  text-align: right;
-  width: 150px;   
+    align-content: flex-end;
+    align-items: flex-end;
+    #padding: -10px;
+    #margin: -1px;
+    height: 38px;
+    flex-basis: auto;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
 
+.left
+{
+    align-content: flex-start;
+}
+
+.format-time
+{
+  
+    display: inline-block;
+  font-size: 25px;
+  #justify-content: flex-end;
+    #align-content: flex-end;
+    text-align: right;
+    
 }
 
 .col_my
@@ -72,7 +98,7 @@
 }
 .recorder
 {
-    position: fixed;
+    #position: fixed;
     left: 0px;
     bottom: 0px;
     width: 100%;
@@ -86,9 +112,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: center;
-    align-items: center;
+    justify-content: space-between;
+    #align-content: flex-end;
+    #align-items: center;
 }
 
 .timer_caption
