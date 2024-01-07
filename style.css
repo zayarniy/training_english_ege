@@ -2,24 +2,29 @@
 {
     height: 600px;
     text-align: justify;
+    #border: 1px solid #000;  
+    min-width: 500px;
+    width: 776px;
 }
 
-    #progress-bar {
-    
+
+
+#progress-bar 
+{    
       display: flex;
       flex-basis: auto;
       flex-grow: 1;
-        flex-shrink: 1;
-        
-      height: 15px;      
+      flex-shrink: 1;
+      #border: 1px solid #0F0;    
+      height: 45px;      
       #background-color:;      
       #display: flex;  
-      #align-items: center;
-        
-    }
+      #align-items: center;        
+}
     
     #progress-bar-fill 
 {          
+     #border: 1px solid #FF0000;  
       height: 20px;
       background-color: #ffffff;
       #transition: width 1s linear;
@@ -35,13 +40,10 @@
     font-size: 32px;
 }
 
-.main
-{
-    min-width: 500px;
-    width: 500px;
-}
+
 
 .col-my {
+     #border: 1px solid #000;  
     #height: 100px;
     width: 45px;
     min-width: 45px;
@@ -58,6 +60,7 @@
 
 .my_btn
 {
+     #border: 1px solid #000;  
     height: 45px;
     #white-space: wrap;
     width: 200px;
@@ -68,6 +71,7 @@
 
 .right
 {
+     #border: 1px solid #000;  
     align-content: flex-end;
     align-items: flex-end;
     #padding: -10px;
@@ -85,7 +89,7 @@
 
 .format-time
 {
-  
+   #border: 1px solid #000;  
     display: inline-block;
   font-size: 25px;
   #justify-content: flex-end;
