@@ -22,16 +22,16 @@
 <body>
   <div  id='app' class="container" style="max-width: 800px;">
     <div class="row">
-      <div class="col">
+      <header class="col">
         <img src="logo.png" alt="Logo">
         <h2 v-html='head'></h2>
-      </div>
+      </header>
     </div>
       <!--Main-->
-    <div v-if='isShowMain' style="height: 450px;">
+    <div v-if='isShowMain' class="main">
         <div class="row">
-      <div class="col">
-          <span v-html='main_text'></span>
+      <div v-html='main_text' class="col-12">
+          <span ></span>
       </div>
             </div>
         <div v-if='isShowImage' class="row">
@@ -59,21 +59,25 @@
     </div>
 
     <!--RECORDER-->
-    <div v-show='isShowNav02' class="row recorder" >
-        <div class="col-1">
+    <div v-show='isShowNav02' class="recorder" >
+        <div>
         <div class="btn">
             <i :class='currentIcon'   @click='toggleIcon'></i>
         </div>
         </div>
-    <div class="col-6" id="progress-bar">
+    <div id="progress-bar">
         <div id="progress-bar-fill" :style="'width: ' + progressValue + '%'"></div>        
     </div>
-    <h1 class='col-2'>{{formatTime}}</h1>  
-    <button class='btn btn-primary col-3 my_btn' @click='Level()'>{{rec_nav_text}}</button>  
+    <div class='format-time'>
+        {{formatTime}}
+        </div>
+    <div>
+    <button class='btn btn-primary my_btn right' @click='Level()'>{{rec_nav_text}}</button>  
+        </div>
         <audio controls id="audioPlayer" style="display:none;"></audio>
                            
     </div>
-      <!--RECORDER-->
+      <!--END RECORDER-->
     </div>  <!--app-->    
     <script type='application/javascript' src="script.js">
     </script>
