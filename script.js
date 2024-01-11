@@ -1,6 +1,6 @@
 const MicStatus= {NOTREADY:0,READYTORECORD:1,RECORDING:2,READYTOPLAY:3,PLAY:4, PREPARE:10}
 let headers=['Внимание','Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.', "Task 2. Study the advertisement.<br>Welcome to Virtual Reality club!<br>You are considering visiting a computer club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:"]
-let mains={html:['На следующем этапе тренажёр попытается получить доступ к микрофону.У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.','Critical thinking has a long tradition in both psychological and educational research, but with different emphases. There is cross-disciplinary agreement on defining Critical Thinking as the ability to evaluate the content of information and to derive conclusions about the extent to which one can believe this information or discuss what one should think of it. Especially against the background of the increasing information density of the past three decades - since the breakthrough of the World Wide Web - the various Internet search engines and now developed chatbots - Critical Thinking is to be considered a key competence in university teaching. The promotion of Critical Thinking is one of the central educational tasks and is identified as a target category in the European Qualifications Framework for Lifelong Learning. In this respect, Critical Thinking not only subsumes individual competencies such as problem-solving competence and decision-making, but also combines them through their further development into reflective competence. Reflective competence thus is elementary for Critical Thinking because it continuously reviews or questions existing norms, values and quality criteria in the sciences, but also in the organizational academic context.','1)	location       Where is your computer club located?<br>2)	variety of games      What games can I play there?<br>3)	opening hours       What are the opening hours of your computer club?<br>4)	price per hour         What is the price per hour?'],images:['','','1-virtual.jpg']}
+let mains={html:['На следующем этапе тренажёр попытается получить доступ к микрофону.У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.','Critical thinking has a long tradition in both psychological and educational research, but with different emphases. There is cross-disciplinary agreement on defining Critical Thinking as the ability to evaluate the content of information and to derive conclusions about the extent to which one can believe this information or discuss what one should think of it. Especially against the background of the increasing information density of the past three decades - since the breakthrough of the World Wide Web - the various Internet search engines and now developed chatbots - Critical Thinking is to be considered a key competence in university teaching. The promotion of Critical Thinking is one of the central educational tasks and is identified as a target category in the European Qualifications Framework for Lifelong Learning. In this respect, Critical Thinking not only subsumes individual competencies such as problem-solving competence and decision-making, but also combines them through their further development into reflective competence. Reflective competence thus is elementary for Critical Thinking because it continuously reviews or questions existing norms, values and quality criteria in the sciences, but also in the organizational academic context.','1)	location &nbsp&nbsp&nbsp&nbsp Where is your computer club located?<br>2) variety of games &nbsp&nbsp&nbsp&nbsp What games can I play there?<br>3)	opening hours &nbsp&nbsp&nbsp&nbsp What are the opening hours of your computer club?<br>4)	price per hour &nbsp&nbsp&nbsp&nbsp What is the price per hour?'],images:['','','1-virtual.jpg']}
 let bottoms=['']
 let timer;
         
@@ -137,73 +137,30 @@ let timer;
                                     //alert(this.level)
                                     stopAudio();
                                     stopRecording();
+                                    synth.cancel();
                                     this.level++;
                                     console.log('Level:'+this.level)
                                     
                                     switch(this.level)
                                         {
                                             case 1://Mic test
-                                                  training.head=headers[0];
-                                                  training.main_text='Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести. Если вы уже делали это, можете сразу перейти к выполнению задания.';
-                                                  training.isShowNav01=false;
-                                                  training.isShowNav02=true;
-                                                  training.isShowMain=true;                  
-                                                  training.isShowCountdown=false;
-                                                  //micStatus:MicStatus.NOTREADY,
-                                                  //recTime:0,
-                                                  //progressValue:0,
-                                                  //maxRecTime:10,
-                                                  //isCountdown: true,
-                                                  //countdown: 10   
+                                                mic_test('Внимание', 'Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести. Если вы уже делали это, можете сразу перейти к выполнению задания.')
                                             break;
                                           case 2://Countdown
                                           case 5:                                                          
-                                                  speak('Be ready for test');
-                                                  training.head='';
-                                                  training.main_text='';
-                                                  training.isShowNav01=false;
-                                                  training.isShowNav02=false;
-                                                  training.isShowMain=false;                  
-                                                  training.isShowCountdown=true;
-                                                  training.countDown=3;
-                                                  training.isStartCountdown=true;
-                                                  training.startCountdown(); 
+                                                count_down('Be ready for test','','',2)
                                             break;   
                                             case 3://Prepair    
+                                                prepair(headers[1],mains.html[1],headers[1], 90)
+                                                  break;
                                             case 6:
-                                                 timerStop();
-                                                 training.head='Get ready';                                                 
-                                                 training.main_text=mains.html[1];
-                                                  training.isShowNav01=false;
-                                                  training.isShowNav02=true;
-                                                  training.isShowMain=true;                  
-                                                  training.isShowCountdown=false;
-                                                  training.micStatus=MicStatus.PREPARE;
-                                                  training.maxRecTime=20;
-                                                  timerStart();
-                                                  
+                                                //prepair(headers[2],mains.html[2],headers[2], 90)
+                                                task(headers[2],mains.html[2],headers[2], 90) 
                                                   break;
                                             case 4://task
+                                                task(headers[1],mains.html[1],'',90) 
+                                                break
                                             case 7:
-                                                  //alert(this.level)
-                                                  training.head=headers[1];
-                                                  training.main_text=mains.html[1];
-                                                  training.isShowNav01=false;
-                                                  training.isShowNav02=true;
-                                                  training.isShowMain=true;                  
-                                                  training.isShowCountdown=false;
-                                                  training.isStartCountdown=false;
-                                                  training.rec_nav_text='Завершить';
-                                                  training.micStatus=MicStatus.RECORDING;
-                                                 
-                                                  training.progressValue=0;
-                                                  training.maxRecTime=20;
-                                                  training.recTime=0;
-                                                  timerStop();
-                                                  startRecording();
-                                                  //timerStart();
-                                                //alert(this.level)
-                                            break;    
                                             case 8://download
                                                   timerStop();
                                                   training.head="Results";
@@ -253,7 +210,66 @@ let timer;
                              }
                              });
 
+function mic_test(header_text='',main_text='')
+{
+      training.head=header_text;
+      training.main_text=main_text;
+      training.isShowNav01=false;
+      training.isShowNav02=true;
+      training.isShowMain=true;                  
+      training.isShowCountdown=false;
+}
 
+function count_down(text_speak='',head_text='',main_text='',countDown=10)
+{
+      speak(text_speak);
+      training.head=head_text;
+      training.main_text=main_text;
+      training.isShowNav01=false;
+      training.isShowNav02=false;
+      training.isShowMain=false;                  
+      training.isShowCountdown=true;
+      training.countDown=countDown;
+      training.isStartCountdown=true;
+      training.startCountdown(); 
+}
 
+function prepair(head_text,main_text,text_speak, maxRecTime)
+{
+     timerStop();
+     training.head=head_text;                                                 
+     training.main_text=main_text;
+      training.isShowNav01=false;
+      training.isShowNav02=true;
+      training.isShowMain=true;                  
+      training.isShowCountdown=false;
+      training.micStatus=MicStatus.PREPARE;
+      training.maxRecTime=maxRecTime;
+    
+    speak(text_speak,()=>{
+      timerStart();    
+    });
+}
 
+function task(head_text,main_text,text_speak,maxRecTime)
+{
+      training.head=head_text;
+      training.main_text=main_text;
+      training.isShowNav01=false;
+      training.isShowNav02=true;
+      training.isShowMain=true;                  
+      training.isShowCountdown=false;
+      training.isStartCountdown=false;
+      training.rec_nav_text='Завершить';
+      training.micStatus=MicStatus.RECORDING;
+
+      training.progressValue=0;
+      training.maxRecTime=maxRecTime;
+      training.recTime=0;
+      timerStop();
+     speak(text_speak,()=>{
+      startRecording();    
+    });
+      
+}
 

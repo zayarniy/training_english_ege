@@ -6,13 +6,20 @@ function populateVoiceList() {
 
 const synth = window.speechSynthesis;
 
+
+
 populateVoiceList();
 
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = populateVoiceList;
 }
 
-function speak(text) 
+function log()
+{
+    console.log("SpeechSynthesisUtterance.onend");    
+}
+
+function speak(text,callback=log) 
 {    
     if (synth.speaking) 
     {
@@ -24,7 +31,8 @@ const utterThis = new SpeechSynthesisUtterance(text);
 
     utterThis.onend = function (event) 
     {
-       console.log("SpeechSynthesisUtterance.onend");
+       
+        callback();
     };
     
     utterThis.onerror = function (event) {

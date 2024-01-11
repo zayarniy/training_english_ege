@@ -1,3 +1,26 @@
+#app
+{
+    max-width: 800px;
+    height: 800px;
+    max-height: 800px;
+    min-width: 500px;
+
+}
+
+.my_logo
+{
+    float:none;
+}
+.my_header
+{
+    display: inline-block;
+}
+.main
+{
+    width: 800px;
+    height: 500px;
+}
+
 
     #progress-bar {
     
@@ -25,11 +48,6 @@
     font-size: 32px;
 }
 
-.main
-{
-    min-width: 500px;
-    width: 500px;
-}
 
 .col-my {
     #height: 100px;

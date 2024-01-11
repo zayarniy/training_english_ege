@@ -20,15 +20,15 @@
     
 </head>
 <body>
-  <div  id='app' class="container" style="max-width: 800px;">
+  <div  id='app' class="container">
     <div class="row">
       <div class="col">
-        <img src="logo.png" alt="Logo">
-        <h2 v-html='head'></h2>
+        <img src="logo.png" alt="Logo" class='my_logo'>
+        <h4 v-html='head'></h4>
       </div>
     </div>
       <!--Main-->
-    <div v-if='isShowMain' style="height: 450px;">
+    <div v-if='isShowMain' class='main'>
         <div class="row">
       <div class="col">
           <span v-html='main_text'></span>
@@ -40,7 +40,7 @@
                 </div>
         </div>
     </div><!--Main-->
-      <div v-if='isShowResult' style='height: 450px;' class='row'>
+      <div v-if='isShowResult' style='height: 40px;' class='row'>
           <div class="col">
             <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
           </div>
