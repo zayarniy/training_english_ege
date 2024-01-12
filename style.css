@@ -15,31 +15,41 @@
 {
     display: inline-block;
 }
+
 .main
 {
-    width: 800px;
-    height: 500px;
+    height: 600px;
+    text-align: justify;
+    #border: 1px solid #000;  
+    min-width: 500px;
+    width: 776px;
 }
 
 
-    #progress-bar {
-    
-        
-      height: 15px;      
+
+#progress-bar 
+{    
+      display: flex;
+      flex-basis: auto;
+      flex-grow: 1;
+      flex-shrink: 1;
+      #border: 1px solid #0F0;    
+      height: 45px;      
       #background-color:;      
       #display: flex;  
-        #align-items: center;
-        
-    }
+      #align-items: center;        
+}
     
-    #progress-bar-fill {          
-        height: 20px;
+    #progress-bar-fill 
+{          
+     #border: 1px solid #FF0000;  
+      height: 20px;
       background-color: #ffffff;
       #transition: width 1s linear;
-        width: 0%;        
-        position: relative;
-        top:15px;
-            
+      width: 0%;        
+      position: relative;
+      #top:15px;
+      margin: 10px;
         
     }
 
@@ -50,6 +60,7 @@
 
 
 .col-my {
+     #border: 1px solid #000;  
     #height: 100px;
     width: 45px;
     min-width: 45px;
@@ -66,18 +77,69 @@
 
 .my_btn
 {
+     #border: 1px solid #000;  
     height: 45px;
-    white-space: nowrap;
-    width: 180px;
+    #white-space: wrap;
+    width: 200px;
+    margin: 3px;
+    
+    
+}
+
+.right
+{
+     #border: 1px solid #000;  
+    align-content: flex-end;
+    align-items: flex-end;
+    #padding: -10px;
+    #margin: -1px;
+    height: 38px;
+    flex-basis: auto;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.left
+{
+    align-content: flex-start;
+}
+
+.format-time
+{
+   #border: 1px solid #000;  
+    display: inline-block;
+  font-size: 25px;
+  #justify-content: flex-end;
+    #align-content: flex-end;
+    text-align: right;
+    
+}
+
+.col_my
+{
+    display: flex;
+    height: 45px;
 }
 .recorder
 {
-    min-width: 800px;
-    height: 50px;
-    background-color:cornflowerblue;
-    justify-content: center;
+    #position: fixed;
+    box-sizing:content-box;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    min-width: 500px;
+    height: 45px;
+    background-color:cornflowerblue;    
     border: 1px solid black;
     color:white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    #align-content: flex-end;
+    #align-items: center;
 }
 
 .timer_caption
