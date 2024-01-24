@@ -27,17 +27,27 @@ let timer;
                   current_chunk:[]
                   
                 }    
-        function timerRecStart()
+        
+        //record=true,false,direct=true - forward, false - backward, time - seconds
+        function timerStart(record=false,direct=true,time=90)
         {            
             training.recTime=0;
-            training.progressValue=0;
+            training.maxRecTime=time;
+            let progressStep=100/time;
+            if (direct)
+                training.progressValue=0;
+            else 
+                {
+                    training.progressValue=100;
+                    progressStep*=-1;
+                }
             timer=setInterval(
                 ()=>
                 {
                     if (training.recTime<training.maxRecTime)
                     {
                         training.recTime++;
-                        training.progressValue+=training.progressStep;
+                        training.progressValue+=progressStep;
                     }
                      
                     else
@@ -52,9 +62,10 @@ let timer;
                 },1000);
         }
 
-        function timerRecStop()
+        function timerStop()
         {
             console.log("timer stop")
+            training.progressValue=0;
             if (training.micStatus==MicStatus.PLAY) stopAudio(false);
             if (training.micStatus==MicStatus.RECORDING)  stopRecording(false);
             clearInterval(timer);
@@ -87,11 +98,12 @@ let timer;
                                              
                                      }
                                 },
-                              progressStep()
+                              /*
+                                 progressStep()
                                  {
                                      return 100/this.maxRecTime;
                                  }
-     
+                                */
                              },
                               mounted() {
                                 this.startCountdown();
@@ -149,11 +161,11 @@ let timer;
                                             break;
                                           case 2://Countdown
                                           case 6:                                                          
-                                                count_down('Be ready for test','','',2)
+                                                count_down('Be ready for the test','','',2)
                                             break;
                                             case 3:
-                                                //read task
-                                                read_task(headers[1],'',headers[1],90)
+                                                //read task and prepair
+                                               this.Level(); //read_task(headers[1],mains.html[1],headers[1],90)
                                                 break;
                                             case 4://Prepair    
                                                 prepair(headers[1],mains.html[1],headers[1], 90)
@@ -164,10 +176,11 @@ let timer;
                                             case 7://read task                                            
                                                 //prepair(headers[2],mains.html[2],headers[2], 90)
                                                 //task(headers[2],mains.html[2],headers[2], 90) 
-                                                read_task(headers[2],mains.html[2],headers[2], 90)
+                                                //read_task(headers[2],mains.html[2],headers[2], 90)
+                                            this.Level();
                                                   break;
                                             case 8:
-                                                prepair("Get ready to speak answer",mains.html[2],headers[2],90)
+                                                prepair(headers[2],mains.html[2],headers[2],90)
                                                 break;
 
                                             case 9://task
@@ -228,6 +241,7 @@ let timer;
                              }
                              });
 
+
 function mic_test(head_text='',main_text='')
 {
       training.head=head_text;
@@ -269,7 +283,8 @@ function prepair(head_text,main_text,text_speak, maxRecTime)
     training.recTime=0;
     training.maxRecTime=maxRecTime;
     training.rec_nav_text='Готов';
-    startPrepairTimer(90);
+    //startPrepairTimer(90);
+    timerStart(false,false,90);   
       //timerStart();   
     /*
      timerStop();
@@ -329,6 +344,7 @@ function read_task(head_text,main_text,text_speak,maxRecTime)
     training.recTime=0;
     training.maxRecTime=maxRecTime;
     training.rec_nav_text='К заданию';
-      timerStart();   
+      //timerStart(record:false,direct:false,90);   
+    timerStart(false,false,90);   
 }
 
