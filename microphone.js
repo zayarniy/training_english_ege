@@ -39,6 +39,39 @@ function startRecording()
           }
 }
 
+
+function startPrepairTimer(prepairTime)
+{
+            training.recTime=prepairTime;
+            training.progressValue=100;
+            timer=setInterval(
+                ()=>
+                {
+                    if (training.recTime>0)
+                    {
+                        training.recTime--;
+                        training.progressValue-=training.progressStep;
+                    }
+                     
+                    else
+                        {
+                            timerStop();
+                            training.Level();
+                            /*
+                            if (training.micStatus==MicStatus.PREPARE) 
+                            {
+                                training.micStatus=MicStatus.NOTREADY;
+                                training.Level();
+                            }*/
+                        }
+                },1000);     
+}
+
+function stopPrepairTimer()
+{
+    timerStop();
+}
+
 function stopRecording(needTimerStop=true)
 {
     if (mediaRecorder==null) return;

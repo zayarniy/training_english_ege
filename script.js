@@ -13,6 +13,7 @@ let timer;
                   isShowMain:true,
                   isShowCountdown:false,
                   isStartCountdown:false,
+                  isShowPrepare:false,
                   isShowImage:false,
                   isShowResult:false,
                   micStatus:MicStatus.NOTREADY,
@@ -26,7 +27,7 @@ let timer;
                   current_chunk:[]
                   
                 }    
-        function timerStart()
+        function timerRecStart()
         {            
             training.recTime=0;
             training.progressValue=0;
@@ -51,7 +52,7 @@ let timer;
                 },1000);
         }
 
-        function timerStop()
+        function timerRecStop()
         {
             console.log("timer stop")
             if (training.micStatus==MicStatus.PLAY) stopAudio(false);
@@ -247,6 +248,7 @@ function count_down(text_speak='',head_text='',main_text='',countDown=10)
       training.isShowNav02=false;
       training.isShowMain=false;                  
       training.isShowCountdown=true;
+      training.isShowPrepare=true;
       training.countDown=countDown;
       training.isStartCountdown=true;
       training.startCountdown(); 
@@ -255,6 +257,7 @@ function count_down(text_speak='',head_text='',main_text='',countDown=10)
 function prepair(head_text,main_text,text_speak, maxRecTime)
 {
           timerStop();
+     training.isShowPrepare=true;
      training.head=head_text;                                                 
      training.main_text=main_text;//mains.html[1];
       training.isShowNav01=false;
@@ -266,7 +269,8 @@ function prepair(head_text,main_text,text_speak, maxRecTime)
     training.recTime=0;
     training.maxRecTime=maxRecTime;
     training.rec_nav_text='Готов';
-      timerStart();   
+    startPrepairTimer(90);
+      //timerStart();   
     /*
      timerStop();
      training.head=head_text;                                                 
@@ -297,6 +301,7 @@ function task(head_text,main_text,text_speak,maxRecTime)
       training.isShowMain=true;                  
       training.isShowCountdown=false;
       training.isStartCountdown=false;
+    training.isShowPrepare=false;
       training.rec_nav_text='Завершить';
       training.micStatus=MicStatus.RECORDING;
 
@@ -318,6 +323,7 @@ function read_task(head_text,main_text,text_speak,maxRecTime)
       training.isShowNav02=true;
       training.isShowMain=false;                  
       training.isShowCountdown=false;
+    training.isShowPrepare=false;
       training.micStatus=MicStatus.PREPARE;
     training.progressValue=0;
     training.recTime=0;
