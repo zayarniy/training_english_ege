@@ -47,6 +47,10 @@
       <div v-html='main_text' class="col-12">
           <span ></span>
       </div>
+      <!--AudioContainer-->
+<div v-show="isShowAudioContainer" id='audioContainer'>
+    
+      </div>            
             </div>
         <div v-if='isShowImage' class="row">
             <div class="col">
@@ -71,6 +75,8 @@
         <button  class="btn btn-primary text-center" @click="Level()" id='get-mic'>Понятно</button>
       </div>
     </div>
+
+
 
     <!--RECORDER-->
     <div v-show='isShowNav02' class="recorder" >

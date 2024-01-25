@@ -16,6 +16,7 @@ let timer;
                   isShowPrepare:false,
                   isShowImage:false,
                   isShowResult:false,
+                  isShowAudioContainer:false,
                   micStatus:MicStatus.NOTREADY,
                   recTime:0,
                   progressValue:0,
@@ -162,7 +163,9 @@ let timer;
                                                   training.isShowCountdown=false;
                                                   training.isStartCountdown=false;
                                                   training.isShowResult=true;
+                                                  training.isShowAudioContainer=true;
                                                   training.rec_nav_text='Завершить';
+                                                  audioContainerSet('audioContainer',this.chunks)
                                                   //training.micStatus=MicStatus.READYTORECORD;
                                                   //training.progressValue=0;
                                                   //training.maxRecTime=90;
@@ -208,6 +211,7 @@ function mic_test(head_text='',main_text='')
       training.isShowNav02=true;
       training.isShowMain=true;                  
       training.isShowCountdown=false;
+      training.isShowAudioContainer=false;
 }
 
 function count_down(text_speak='',head_text='',main_text='',countDown=10)
@@ -354,3 +358,31 @@ function read_task(head_text,main_text,text_speak,maxRecTime)
             clearInterval(timer);
             training.recTime=0;
         }
+
+function audioContainerSet(audioContainerId, chunks)
+{
+    // Создаем контейнер для аудиоплееров на веб-странице
+const audioContainer = document.getElementById(audioContainerId);
+//document.body.appendChild(audioContainer);
+
+// Проходимся по массиву "chunks" и создаем аудиоплееры
+chunks.forEach((chunk, index) => {
+  // Создаем элемент аудиоплеера
+  const audioElement = document.createElement('audio');
+  
+  // Устанавливаем данные звукового файла из массива "chunk"
+  const audioBlob = new Blob([chunk]);
+  const audioURL = URL.createObjectURL(audioBlob);
+  audioElement.src = audioURL;
+  const listItem=document.createElement('li');
+    listItem.appendChild(audioElement)
+    
+  // Устанавливаем атрибуты аудиоплеера
+  audioElement.controls = true;
+  //audioElement.autoplay = true;
+  
+  // Помещаем аудиоплеер в контейнер
+  audioContainer.appendChild(listItem);
+});
+
+}
