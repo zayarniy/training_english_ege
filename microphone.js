@@ -6,6 +6,7 @@ const stopRecordButton = document.getElementById('stop-record');
 const playRecordButton = document.getElementById('play-record');
 let audio=null;
 
+getMicButton.addEventListener('click', async () => getMic());
 
 async function getMic()
 {
@@ -22,13 +23,12 @@ async function getMic()
             training.show_nav01=false;
 }
 
-    getMicButton.addEventListener('click', async () => getMic());
 
 function startRecording()
 {
     if (mediaRecorder && mediaRecorder.state === 'inactive') {
             mediaRecorder.start();
-            timerStart();
+            timerStart(true,true,15);
            
             training.micStatus=MicStatus.RECORDING;
             console.log(training.micStatus)
@@ -39,7 +39,7 @@ function startRecording()
           }
 }
 
-
+/*
 function startPrepairTimer(prepairTime)
 {
             training.recTime=prepairTime;
@@ -57,12 +57,6 @@ function startPrepairTimer(prepairTime)
                         {
                             timerStop();
                             training.Level();
-                            /*
-                            if (training.micStatus==MicStatus.PREPARE) 
-                            {
-                                training.micStatus=MicStatus.NOTREADY;
-                                training.Level();
-                            }*/
                         }
                 },1000);     
 }
@@ -71,7 +65,7 @@ function stopPrepairTimer()
 {
     timerStop();
 }
-
+*/
 function stopRecording(needTimerStop=true)
 {
     if (mediaRecorder==null) return;

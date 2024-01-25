@@ -28,49 +28,7 @@ let timer;
                   
                 }    
         
-        //record=true,false,direct=true - forward, false - backward, time - seconds
-        function timerStart(record=false,direct=true,time=90)
-        {            
-            training.recTime=0;
-            training.maxRecTime=time;
-            let progressStep=100/time;
-            if (direct)
-                training.progressValue=0;
-            else 
-                {
-                    training.progressValue=100;
-                    progressStep*=-1;
-                }
-            timer=setInterval(
-                ()=>
-                {
-                    if (training.recTime<training.maxRecTime)
-                    {
-                        training.recTime++;
-                        training.progressValue+=progressStep;
-                    }
-                     
-                    else
-                        {
-                            timerStop();
-                            if (training.micStatus==MicStatus.PREPARE) 
-                            {
-                                training.micStatus=MicStatus.NOTREADY;
-                                training.Level();
-                            }
-                        }
-                },1000);
-        }
 
-        function timerStop()
-        {
-            console.log("timer stop")
-            training.progressValue=0;
-            if (training.micStatus==MicStatus.PLAY) stopAudio(false);
-            if (training.micStatus==MicStatus.RECORDING)  stopRecording(false);
-            clearInterval(timer);
-            training.recTime=0;
-        }
 
 
         let training=new Vue({el: '#app',data,
@@ -348,3 +306,51 @@ function read_task(head_text,main_text,text_speak,maxRecTime)
     timerStart(false,false,90);   
 }
 
+        //record=true,false,direct=true - forward, false - backward, time - seconds
+        function timerStart(record=false,direct=true,time=90)
+        {            
+            training.recTime=0;
+            training.maxRecTime=time;
+            let progressStep=100/time;
+            let t=0;
+            if (direct)
+                training.progressValue=0;
+            else 
+                {
+                    training.progressValue=100;
+                    progressStep*=-1;
+                }
+            timer=setInterval(
+                ()=>
+                {
+                    t++;
+                    if (t<time)
+                    {
+                        if (!direct)
+                            training.recTime=time-t;
+                        else
+                            training.recTime=t;
+                        training.progressValue+=progressStep;
+                    }
+                     
+                    else
+                        {
+                            timerStop();
+                            if (training.micStatus==MicStatus.PREPARE) 
+                            {
+                                training.micStatus=MicStatus.NOTREADY;
+                                training.Level();
+                            }
+                        }
+                },1000);
+        }
+
+        function timerStop()
+        {
+            console.log("timer stop")
+            training.progressValue=0;
+            if (training.micStatus==MicStatus.PLAY) stopAudio(false);
+            if (training.micStatus==MicStatus.RECORDING)  stopRecording(false);
+            clearInterval(timer);
+            training.recTime=0;
+        }
