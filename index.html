@@ -82,10 +82,10 @@
     <div v-show='isShowNav02' class="recorder" >
         <div>
         <div class="btn">
-            <i :class='currentIcon'   @click='toggleIcon'></i>
+            <i :class='currentIcon'  @click='toggleIcon'></i>
         </div>
         </div>
-    <div id="progress-bar">
+    <div id="progress-bar" style="border:0px solid black;">
         <div id="progress-bar-fill" :style="'width: ' + progressValue + '%'"></div>        
     </div>
     <div class='format-time'>
