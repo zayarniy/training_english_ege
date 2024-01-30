@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>            
     <script src="utilites.js"></script>
     <script src=speaker.js></script>
+    <script src="jszip/jszip.min.js"></script>
 
     
     <link rel="stylesheet" href="style.css">  
@@ -39,24 +40,25 @@
           </div>
       </header>        
     </div>
-    <h2 class='row' v-html='head'></h2>
-
+      <div class="row">
+    <h3 class='col-md-8 my_header' v-html='head'></h3>
+        <div v-if='isShowImage' class="col-md-4">
+          <img v-bind:src="'images/' + image" class="my_image">
+        </div>
+    </div>      
       <!--Main-->
     <div v-if='isShowMain' class="main">
         <div class="row">
-      <div v-html='main_text' class="col-12">
+      <div v-html='main_text' class="col-md-8">
           <span ></span>
       </div>
+          
       <!--AudioContainer-->
-<div v-show="isShowAudioContainer" id='audioContainer'>
+<ol v-show="isShowAudioContainer" id='audioContainer'>
     
-      </div>            
+      </ol>            
             </div>
-        <div v-if='isShowImage' class="row">
-            <div class="col">
-          <img v-bind:src="'images/' + image" class="my_image">
-                </div>
-        </div>
+
     </div><!--Main-->
       <div v-if='isShowResult' style='height: 40px;' class='row'>
           <div class="col">

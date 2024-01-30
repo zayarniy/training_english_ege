@@ -13,7 +13,8 @@
 }
 .my_header
 {
-    display: inline-block;
+    #display: inline-block;
+    text-align: justify;
 }
 
 .main

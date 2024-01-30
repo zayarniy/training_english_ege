@@ -1,5 +1,5 @@
 const MicStatus= {NOTREADY:0,READYTORECORD:1,RECORDING:2,READYTOPLAY:3,PLAY:4, PREPARE:10}
-let headers=['Внимание','Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.', "Task 2. Study the advertisement.<br>Welcome to Virtual Reality club!<br>You are considering visiting a computer club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:"]
+let headers=['Внимание','Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.', "Task 2. Study the advertisement.<br>Welcome to Virtual Reality club!You are considering visiting a computer club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:"]
 let mains={html:['На следующем этапе тренажёр попытается получить доступ к микрофону. У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.','Critical thinking has a long tradition in both psychological and educational research, but with different emphases. There is cross-disciplinary agreement on defining Critical Thinking as the ability to evaluate the content of information and to derive conclusions about the extent to which one can believe this information or discuss what one should think of it. Especially against the background of the increasing information density of the past three decades - since the breakthrough of the World Wide Web - the various Internet search engines and now developed chatbots - Critical Thinking is to be considered a key competence in university teaching. The promotion of Critical Thinking is one of the central educational tasks and is identified as a target category in the European Qualifications Framework for Lifelong Learning. In this respect, Critical Thinking not only subsumes individual competencies such as problem-solving competence and decision-making, but also combines them through their further development into reflective competence. Reflective competence thus is elementary for Critical Thinking because it continuously reviews or questions existing norms, values and quality criteria in the sciences, but also in the organizational academic context.','1)	location<br>2) variety of games<br>3)	opening hours       <br>4)	price per hour'],images:['','','1-virtual.jpg'],answers:['','Where is your computer club located?<br>What games can I play there?<br>What are the opening hours of your computer club?<br>What is the price per hour?']}
 let bottoms=['']
 let timer;
@@ -120,7 +120,7 @@ let timer;
                                             break;
                                           case 2://Countdown
                                           case 6:                                                          
-                                                count_down('Be ready for the test','','',2)
+                                                count_down('Be ready for the test','','',1)
                                             break;
                                             case 3:
                                                 //read task and prepair
@@ -139,10 +139,15 @@ let timer;
                                             this.Level();
                                                   break;
                                             case 8:
+                                                training.image=mains.images[2];
+                                                training.isShowImage=true;
                                                 prepair(headers[2],mains.html[2],headers[2],90)
                                                 break;
 
                                             case 9://task
+                                                training.image=mains.images[2];
+                                                training.isShowImage=true;
+                                                
                                                 task(headers[2],mains.html[2],'',90) 
                                                 break
                                             case 10://show answers
@@ -185,7 +190,7 @@ let timer;
                                             break;
 
                                         }
-                                },
+                                },/*
                                  downloadRecording() {
                                      console.log(this.chunks);
                                      this.chunks.forEach((chunk)=>
@@ -198,7 +203,25 @@ let timer;
                                      
                                     link.click();
                                      });
-                }
+                }*/
+                                 downloadRecording() {
+    console.log(this.chunks);
+    const zip = new JSZip();
+    let index = 1;
+    this.chunks.forEach(chunk => {
+        const blob = new Blob([chunk], { type: 'audio/webm' });
+        zip.file('recording '+index+'.webm', blob);
+        index++;
+    });
+    zip.generateAsync({ type: 'blob' })
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'download.zip';
+            link.click();
+        });
+}
                              }
                              });
 
@@ -275,7 +298,8 @@ function task(head_text,main_text,text_speak,maxRecTime)
       training.main_text=main_text;
       training.isShowNav01=false;
       training.isShowNav02=true;
-      training.isShowMain=true;                  
+      training.isShowMain=true;    
+      //training.isShowImage=true;
       training.isShowCountdown=false;
       training.isStartCountdown=false;
     training.isShowPrepare=false;
