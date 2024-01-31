@@ -28,7 +28,7 @@ function startRecording()
 {
     if (mediaRecorder && mediaRecorder.state === 'inactive') {
             mediaRecorder.start();
-            timerStart(true,true,15);
+            timerStart(true,true,training.maxRecTime);
            
             training.micStatus=MicStatus.RECORDING;
             console.log(training.micStatus)

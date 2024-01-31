@@ -1,3 +1,12 @@
+html,body
+{
+    height: 100%;
+}
+
+body
+{
+   #min-height: 100%;
+}
 #app
 {
     max-width: 800px;
@@ -124,14 +133,15 @@
 }
 .recorder
 {
-    #position: fixed;
+    position: absolute;
     box-sizing:content-box;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-    margin: 0px;
+    left: 10px;
+    bottom: 10px;
+    #width: 70%;
+    margin: 10px;
     padding: 0px;
     min-width: 500px;
+    max-width: 95%;
     height: 45px;
     background-color:cornflowerblue;    
     border: 1px solid black;
@@ -140,6 +150,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    
     #align-content: flex-end;
     #align-items: center;
 }
@@ -162,6 +173,6 @@
 }
 .my_image
 {
-    display: block;
-    width: 40%;
+    #display: block;
+    width: 180px;
 }

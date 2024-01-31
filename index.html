@@ -22,33 +22,41 @@
 </head>
 <body>
   <div  id='app' class="container">
-    <div class="row">
-      <header class="d-flex justify-content-between align-items-center">
-        <img class="mr-3" src="logo.png" alt="Logo">
-          <span>{{level}}</span>
-          <div style="text-align: right;">
+    <div class="row justify-content-md-center">
+          <div class="col-md-2">
+            <img src="logo.png" alt="Logo">
           </div>
-          <div v-if='isShowPrepare'>
-          <div class="ml-auto">
+          <div class="col-md-7"  style="text-align: right;">
+          <span style="visibility:visible;">{{level}}</span>
+          </div>
+            
+          <div class="col-md-3">
+              
+          <table v-show='isShowPrepare' border="0">
+              <tr>
+                  <td  rowspan="2">
                     <i class='fa-solid fa-clock'></i>
+                </td>
+              </tr>
+              <tr>
+              <td style='text-align: right'>Preparation 01:30</td>
+                </tr>
+              <tr>
+                  <td></td>
+                  <td style='text-align: right'>Answer 01:30</td>
+            </tr>        
+          </table>
+              
           </div>
-
-          <div class="ml-auto">                     
-            <span>Preparation 01:30</span><br>
-            <span>Answer 01:30</span>
-          </div>
-          </div>
-      </header>        
     </div>
       <div class="row">
-    <h3 class='col-md-8 my_header' v-html='head'></h3>
-        <div v-if='isShowImage' class="col-md-4">
+    <h4 class='col col-md-8 my_header' v-html='head'></h4>
+        <div v-if='isShowImage' class="col col-md-4">
           <img v-bind:src="'images/' + image" class="my_image">
         </div>
     </div>      
       <!--Main-->
-    <div v-if='isShowMain' class="main">
-        <div class="row">
+    <div v-if='isShowMain' class="row main">
       <div v-html='main_text' class="col-md-8">
           <span ></span>
       </div>
@@ -57,14 +65,14 @@
 <ol v-show="isShowAudioContainer" id='audioContainer'>
     
       </ol>            
-            </div>
 
-    </div><!--Main-->
+      
       <div v-if='isShowResult' style='height: 40px;' class='row'>
           <div class="col">
             <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
           </div>
       </div>
+    </div><!--Main-->
       <!--TIMER-->
       <div v-if="isShowCountdown" class="row timer_caption text-center">
         <div class='col'>
@@ -73,7 +81,7 @@
     <div>seconds</div></div>
       </div><!--TIMER-->     
     <div v-show='isShowNav01' class="row">
-      <div class='col-12'>
+      <div class='col-8'>
         <button  class="btn btn-primary text-center" @click="Level()" id='get-mic'>Понятно</button>
       </div>
     </div>
@@ -81,7 +89,7 @@
 
 
     <!--RECORDER-->
-    <div v-show='isShowNav02' class="recorder" >
+    <div v-show='isShowNav02' class="col-12 recorder" >
         <div>
         <div class="btn">
             <i :class='currentIcon'  @click='toggleIcon'></i>

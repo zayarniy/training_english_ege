@@ -120,7 +120,7 @@ let timer;
                                             break;
                                           case 2://Countdown
                                           case 6:                                                          
-                                                count_down('Be ready for the test','','',1)
+                                                count_down('Be ready for the test','','',10)
                                             break;
                                             case 3:
                                                 //read task and prepair
@@ -141,7 +141,7 @@ let timer;
                                             case 8:
                                                 training.image=mains.images[2];
                                                 training.isShowImage=true;
-                                                prepair(headers[2],mains.html[2],headers[2],90)
+                                               training.isShowPrepare=true; prepair(headers[2],mains.html[2],headers[2],90)
                                                 break;
 
                                             case 9://task
@@ -151,6 +151,7 @@ let timer;
                                                 task(headers[2],mains.html[2],'',90) 
                                                 break
                                             case 10://show answers
+                                                training.isShowPrepare=false;
                                                 prepair('Samples of correct answers',mains.answers[1],headers[2],90)
                                                 break;
                                             
@@ -256,7 +257,7 @@ function count_down(text_speak='',head_text='',main_text='',countDown=10)
 function prepair(head_text,main_text,text_speak, maxRecTime)
 {
           timerStop();
-     training.isShowPrepare=true;
+     //training.isShowPrepare=true;
      training.head=head_text;                                                 
      training.main_text=main_text;//mains.html[1];
       training.isShowNav01=false;
