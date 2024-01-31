@@ -49,47 +49,27 @@
               
           </div>
     </div>
-      <div class="row">
-    <h4 class='col col-md-8 my_header' v-html='head'></h4>
-        <div v-if='isShowImage' class="col col-md-4">
-          <img v-bind:src="'images/' + image" class="my_image">
+      <div v-if='isShowMain' class="row">
+    <h4 v-if='isShowHeader1'  class='col col-md-12 my_header' v-html='head1'></h4>
+    <h4 v-if='isShowHeader2' class='col-12 my_header align-center' v-html='head2'></h4>
+        <div v-if='isShowImage' class="col col-md-12">
+          <img v-bind:src="'images/' + image" class="my_image align-center">
         </div>
-    </div>      
+    <h4 v-if='isShowHeader3' class='col-12 my_header' v-html='head3'></h4>
+         
       <!--Main-->
-    <div v-if='isShowMain' class="row main">
-      <div v-html='main_text' class="col-md-8">
-          <span ></span>
+    <div class="main">
+      <div v-html='main_text' class="col-md-12">
       </div>
           
       <!--AudioContainer-->
 <ol v-show="isShowAudioContainer" id='audioContainer'>
     
       </ol>            
-
+</div> 
       
-      <div v-if='isShowResult' style='height: 40px;' class='row'>
-          <div class="col">
-            <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
-          </div>
-      </div>
-    </div><!--Main-->
-      <!--TIMER-->
-      <div v-if="isShowCountdown" class="row timer_caption text-center">
-        <div class='col'>
-    <div>Be ready for test</div>
-    <div class='timer_caption'>{{ countDown }}</div>
-    <div>seconds</div></div>
-      </div><!--TIMER-->     
-    <div v-show='isShowNav01' class="row">
-      <div class='col-8'>
-        <button  class="btn btn-primary text-center" @click="Level()" id='get-mic'>Понятно</button>
-      </div>
-    </div>
-
-
-
     <!--RECORDER-->
-    <div v-show='isShowNav02' class="col-12 recorder" >
+    <div v-show='isShowNav02' class="col-11 fixed-bottom recorder" >
         <div>
         <div class="btn">
             <i :class='currentIcon'  @click='toggleIcon'></i>
@@ -107,7 +87,31 @@
         <audio controls id="audioPlayer" style="display:none;"></audio>
                            
     </div>
-      <!--END RECORDER-->
+      <!--END RECORDER-->        
+    <div v-show='isShowNav01' class="col-12">
+      <div class='col-8'>
+        <button  class="btn btn-primary text-center btn_correct" @click="Level()" id='get-mic'>Понятно</button>
+      </div>
+      <div v-if='isShowResult' style='height: 40px;' class='col'>
+          <div class="col">
+            <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
+          </div>
+      </div>
+    </div>
+    </div><!--Main-->
+        
+      <!--TIMER-->
+      <div class='row'>
+      <div v-if="isShowCountdown" class="col-12 timer_caption text-center">
+        
+    <div>Be ready for the test</div>
+    <div class='timer_caption'>{{ countDown }}</div>
+    <div>seconds</div>
+      </div><!--TIMER-->     
+      </div>
+
+
+
     </div>  <!--app-->    
     <script type='application/javascript' src="script.js">
     </script>

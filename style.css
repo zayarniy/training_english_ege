@@ -3,9 +3,10 @@ html,body
     height: 100%;
 }
 
-body
+.btn_correct
 {
-   #min-height: 100%;
+     position: absolute;
+     bottom: 10px;
 }
 #app
 {
@@ -29,6 +30,7 @@ body
 .main
 {
     height: 600px;
+    min-height: 500px;
     text-align: justify;
     #border: 1px solid #000;  
     min-width: 500px;
