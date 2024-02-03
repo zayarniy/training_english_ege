@@ -1,3 +1,29 @@
+let Task=
+{ task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: 'Critical thinking has a long tradition in both psychological and educational research, but with different emphases. There is cross-disciplinary agreement on defining Critical Thinking as the ability to evaluate the content of information and to derive conclusions about the extent to which one can believe this information or discuss what one should think of it. Especially against the background of the increasing information density of the past three decades - since the breakthrough of the World Wide Web - the various Internet search engines and now developed chatbots - Critical Thinking is to be considered a key competence in university teaching. The promotion of Critical Thinking is one of the central educational tasks and is identified as a target category in the European Qualifications Framework for Lifelong Learning. In this respect, Critical Thinking not only subsumes individual competencies such as problem-solving competence and decision-making, but also combines them through their further development into reflective competence. Reflective competence thus is elementary for Critical Thinking because it continuously reviews or questions existing norms, values and quality criteria in the sciences, but also in the organizational academic context.'
+},
+task2:
+{
+  header1:"Task 2. Study the advertisement.",
+  headers2:"Welcome to Virtual Reality club!",
+  headers3:"You are considering visiting a computer club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+  image:'1-virtual.jpg',
+  headers4:'You have 20 seconds to ask each question.'  
+},
+task3:
+{header:'Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.',
+Interviewer:["Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss the choice of a future career. We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started. Interviewer: When was the last time you have been using a gadget. What for? Student: The last time I have been using a gadget was yesterday. I looked up some new words in an English dictionary. Interviewer: What gadgets are the most popular among the teenagers in your region and why?", "How has technology and gadgets changed the way teenagers learn?","Is it important to limit gadgets usage? Why/ why not?","How will technology affect society in the future?", "Thank you very much for your interview."]
+},
+task4:
+{
+  header:'Task 4. Imagine that you and your friend are doing a school project "Modern inventions". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:',
+  text:"explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>• mention the advantages (1-2) of the two types of modern inventions;<br> • mention the disadvantages (1-2) of the two types of modern inventions;<br>• express your opinion on the subject of the project — which modern invention you'd prefer and why.",
+  images:['2-1.jpg','2-2.jpg']
+}
+
+}
 
 let headers1 = ['Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.', "Task 2. Study the advertisement.", "Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.", 'Task 4. Imagine that you and your friend are doing a school project "Modern inventions". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:']
 

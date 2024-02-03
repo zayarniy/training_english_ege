@@ -26,12 +26,13 @@ let data = {
     countDownText: 'Be ready for the test',
     countDown: 10,
     level: 0,
+    levelTxt:'',
     chunks: [],
     current_chunk: []
 
 }
 
-
+let somevar = 5;
 
 
 let training = new Vue({
@@ -103,6 +104,7 @@ let training = new Vue({
             stopAudio();
             synth.cancel();
             this.level++;
+            this.levelTxt=Levels[this.level]
             //console.log('Level:'+this.level)
 
             switch (Levels[this.level]) {
@@ -120,16 +122,18 @@ let training = new Vue({
                     //read task and prepair
                     this.Level(); //read_task(headers[1],mains.html[1],headers[1],90)
                     break;
-                case 'prepair1'://Prepair    
+                case 'prepair1'://Prepair   
+                    training.head1=Task.task1.header;
+                    training.main_text=Task.task1.text;
                     prepair(headers1[0], tasks[0], headers1[0], 90)
                     break;
                 case 'task1'://task
-                    task('Read the text aloud', tasks[0], '', 90)
+                    task('Read the text aloud', '', '', 90)
                     break
                 case 'prepair2':
-                    training.image = mains.images[1];
-                    training.head2 = headers2[1]
-                    training.head3 = headers3[1]
+                    training.image = images[0];
+                    training.head2 = headers2[0]
+                    training.head3 = headers3[0]
                     training.isShowHeader2 = true;
                     training.isShowHeader3 = true;
                     training.isShowImage = true;
@@ -138,10 +142,10 @@ let training = new Vue({
                     break;
 
                 case 'task2'://task
-                    training.image = images[1];
+                    training.image = images[0];
                     training.isShowImage = true;
 
-                    task(headers1[2], tasks[2], '', 90);
+                    task(headers1[1], tasks[1], '', 90);
                     break
                 case 'prepair3':
                     training.image = images[1];
@@ -150,12 +154,12 @@ let training = new Vue({
                     training.isShowHeader2 = true;
                     training.isShowHeader3 = true;
                     training.isShowImage = true;
-                    training.isShowPrepare = true; prepair(headers[1], tasks[1], headers2[1], 90)
+                    training.isShowPrepare = true; prepair(headers1[2], tasks[2], headers2[2], 90)
                     break;
                 case 'task3':
                     training.image = images[2];
                     training.isShowImage = true;
-                    task(headers[3], tasks[3], '', 90);
+                    task(headers1[3], tasks[3], '', 90);
                     break;
 
                 case 'download'://download
@@ -257,8 +261,8 @@ function count_down(text_speak = '', head_text = '', main_text = '', countDown =
 function prepair(head_text, main_text, text_speak, maxRecTime) {
     timerStop();
     //training.isShowPrepare=true;
-    training.head1 = head_text;
-    training.main_text = main_text;//mains.html[1];
+    //training.head1 = head_text;
+    //training.main_text = main_text;//mains.html[1];
     training.isShowNav01 = false;
     training.isShowNav02 = true;
     training.isShowMain = true;
@@ -274,8 +278,10 @@ function prepair(head_text, main_text, text_speak, maxRecTime) {
 
 function task(head_text, main_text, text_speak, maxRecTime) {
     timerStop();
-    training.head1 = head_text;
-    training.main_text = main_text;
+    if (head_text!='')
+        training.head1 = head_text;
+    if (main_text!='')
+        training.main_text = main_text;
     training.isShowNav01 = false;
     training.isShowNav02 = true;
     training.isShowMain = true;
@@ -289,7 +295,7 @@ function task(head_text, main_text, text_speak, maxRecTime) {
     training.progressValue = 0;
     training.maxRecTime = maxRecTime;
     training.recTime = 0;
-    timerStop();
+    //timerStop();
     startRecording();
     //speak(text_speak,()=>{startRecording();    });
 
