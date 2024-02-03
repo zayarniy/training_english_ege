@@ -101,7 +101,9 @@ let training = new Vue({
         },
 
         Level() {
-            let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1', 'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task', 'task2', 'count-down-prepair', 'prepair3', 'count-down-task', 'task3', 'download'];
+            let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1',
+             'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task',
+              'task21','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3', 'download'];
             //alert(this.level)
             stopRecording();
             stopAudio();
@@ -133,7 +135,7 @@ let training = new Vue({
                 case 'task1'://task
                     training.head1 = 'Read the text aloud';
                     training.main_text = Tasks.task1.text;
-                    task('', '', '', 90)
+                    task('', '', '', 5)
                     break
                 case 'prepair2':
                     training.image1 = images[0];
@@ -151,12 +153,69 @@ let training = new Vue({
                     prepair('', '', '', 90)
                     break;
 
-                case 'task2'://task
+                case 'task21'://task
                     training.image = images[0];
                     training.isShowImage1 = true;
+                    training.isShowRecorder=true;            
+                    training.isShowCountdown=false;        
+                   // recAnswers(Tasks.task2.questions, 20);
+                    task('','', '', 20);
                     training.isShowRecorder=true;
-                    recAnswers(Tasks.task2.questions, 20);
+                    training.isShowMain=true;                    
+                     training.progressValue=0;
+                      training.maxRecTime=20;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.main_text=Tasks.task2.questions[0];
+                      training.recTime=0;
+                      //startRecording();                    
+                    break
+                    case 'task22'://task
+                    training.image = images[0];
+                    training.isShowImage1 = true;
+                    training.isShowRecorder=true;                    
+                    //recAnswers(Tasks.task2.questions, 20);
                     //task(headers1[1], tasks[1], '', 90);
+                    task('','', '', 20);
+                    training.isShowRecorder=true;
+                    training.isShowMain=true;                    
+                     training.progressValue=0;
+                      training.maxRecTime=20;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.main_text=Tasks.task2.questions[1];
+                      training.recTime=0;
+                      //startRecording();                    
+                    break
+                    case 'task23'://task
+                    training.image = images[0];
+                    training.isShowImage1 = true;
+                    training.isShowRecorder=true;                    
+                    //recAnswers(Tasks.task2.questions, 20);
+                    //task(headers1[1], tasks[1], '', 90);
+                    task('','', '', 20);
+                    training.isShowRecorder=true;
+                    training.isShowMain=true;                    
+                     training.progressValue=0;
+                      training.maxRecTime=20;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.main_text=Tasks.task2.questions[2];
+                      training.recTime=0;
+                      //startRecording();                    
+                    break
+                    case 'task24'://task
+                    training.image = images[0];
+                    training.isShowImage1 = true;
+                    training.isShowRecorder=true;                    
+                    //recAnswers(Tasks.task2.questions, 20);
+                    //task(headers1[1], tasks[1], '', 90);
+                    task('','', '', 20);
+                    training.isShowRecorder=true;
+                    training.isShowMain=true;                    
+                     training.progressValue=0;
+                      training.maxRecTime=20;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.main_text=Tasks.task2.questions[3];
+                      training.recTime=0;
+                      //startRecording();                    
                     break
                 case 'prepair3':
                     training.image1 = images[1];
@@ -173,7 +232,7 @@ let training = new Vue({
                     training.isShowImage = true;
                     training.head1 = Tasks.task3.header;
                     training.main_text = Tasks.task3.Interviewer;
-                    recAnswers(Tasks.task3.Interviewer, 40);
+                    //recAnswers(Tasks.task3.Interviewer, 40);
                     //task(headers1[3], tasks[3], '', 90);
                     break;
 
@@ -321,14 +380,15 @@ function task(head_text, main_text, text_speak, maxRecTime) {
 function recAnswers(tasks,maxRecTime)
 {
   training.isShowRecorder=true;
-  training.progressValue=0;
-  training.maxRecTime=maxRecTime;
-  for(let i=0;i<tasks.length;i++)
-  {
-    training.main_text=task[i];    
+  training.isShowMain=true;
+  
+   training.progressValue=0;
+    training.maxRecTime=maxRecTime;
+    training.micStatus = MicStatus.AUTORECORDING;
+    training.main_text=tasks[i];    
     training.recTime=0;
-    startRecording();
-  }
+    startRecording(next=false);
+ 
 }
 
 function read_task(head_text, main_text, text_speak, maxRecTime) {
@@ -350,7 +410,7 @@ function read_task(head_text, main_text, text_speak, maxRecTime) {
 }
 
 //record=true,false,direct=true - forward, false - backward, time - seconds
-function timerStart(record = false, direct = true, time = 90) {
+function timerStart(record = false, direct = true, time = 90,next=true) {
     training.recTime = 0;
     training.maxRecTime = time;
     let progressStep = 100 / time;
@@ -374,9 +434,11 @@ function timerStart(record = false, direct = true, time = 90) {
 
             else {
                 timerStop();
-                if (training.micStatus == MicStatus.PREPARE || training.micStatus == MicStatus.AUTORECORDING) {
+                if (training.micStatus == MicStatus.PREPARE ||
+                    training.micStatus == MicStatus.AUTORECORDING) {
                     training.micStatus = MicStatus.NOTREADY;
-                    training.Level();
+                    if (next)
+                      training.Level();
                 }
             }
         }, 1000);
