@@ -1,437 +1,382 @@
-const MicStatus= {NOTREADY:0,READYTORECORD:1,RECORDING:2,READYTOPLAY:3,PLAY:4,AUTORECORDING:5, PREPARE:10}
-let headers=['Внимание','Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.', "Task 2. Study the advertisement."]
-let headers2=["Welcome to Virtual Reality club!"]
-
-let headers3=["You are considering visiting a computer club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:"]
-
-let images=['','','1-virtual.jpg'];
-
-let answers=['','Where is your computer club located?<br>What games can I play there?<br>What are the opening hours of your computer club?<br>What is the price per hour?']
-
-let mains={html:['На следующем этапе тренажёр попытается получить доступ к микрофону. У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.','Critical thinking has a long tradition in both psychological and educational research, but with different emphases. There is cross-disciplinary agreement on defining Critical Thinking as the ability to evaluate the content of information and to derive conclusions about the extent to which one can believe this information or discuss what one should think of it. Especially against the background of the increasing information density of the past three decades - since the breakthrough of the World Wide Web - the various Internet search engines and now developed chatbots - Critical Thinking is to be considered a key competence in university teaching. The promotion of Critical Thinking is one of the central educational tasks and is identified as a target category in the European Qualifications Framework for Lifelong Learning. In this respect, Critical Thinking not only subsumes individual competencies such as problem-solving competence and decision-making, but also combines them through their further development into reflective competence. Reflective competence thus is elementary for Critical Thinking because it continuously reviews or questions existing norms, values and quality criteria in the sciences, but also in the organizational academic context.','1)	location<br>2) variety of games<br>3)	opening hours       <br>4)	price per hour'],images:['','','1-virtual.jpg'],answers:['','Where is your computer club located?<br>What games can I play there?<br>What are the opening hours of your computer club?<br>What is the price per hour?']}
-let bottoms=['']
+const MicStatus = { NOTREADY: 0, READYTORECORD: 1, RECORDING: 2, READYTOPLAY: 3, PLAY: 4, AUTORECORDING: 5, PREPARE: 10 }
 let timer;
-        
-        let data={
-                  head1:headers[0],
-                  main_text:mains.html[0],
-                  head2:'',
-                  head3:'',
-                  image:'1px.png',
-                  isShowNav01:true,
-                  isShowNav02:false,
-                  isShowMain:true,
-                  isShowCountdown:false,
-                  isStartCountdown:false,
-                  isShowHeader1:true,
-                  isShowHeader2:false,
-                  isShowHeader3:false,
-                  isShowPrepare:false,
-                  isShowImage:false,
-                  isShowResult:false,
-                  isShowAudioContainer:false,
-                  micStatus:MicStatus.NOTREADY,
-                  recTime:0,
-                  progressValue:0,
-                  maxRecTime:10,
-                  rec_nav_text:'Перейти к экзамену',
-                  countDown: 10,
-                  level:0,
-                  chunks:[],
-                  current_chunk:[]
-                  
-                }    
-        
+let data = {
+    head1: "Внимание",
+    main_text: 'На следующем этапе тренажёр попытается получить доступ к микрофону. У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.',
+    head2: '',
+    head3: '',
+    image: '1px.png',
+    isShowNav01: true,
+    isShowNav02: false,
+    isShowMain: true,
+    isShowCountdown: false,
+    isStartCountdown: false,
+    isShowHeader1: true,
+    isShowHeader2: false,
+    isShowHeader3: false,
+    isShowPrepare: false,
+    isShowImage: false,
+    isShowResult: false,
+    isShowAudioContainer: false,
+    micStatus: MicStatus.NOTREADY,
+    recTime: 0,
+    progressValue: 0,
+    maxRecTime: 10,
+    rec_nav_text: 'Перейти к экзамену',
+    countDownText: 'Be ready for the test',
+    countDown: 10,
+    level: 0,
+    chunks: [],
+    current_chunk: []
 
-
-
-        let training=new Vue({el: '#app',data,
-                             computed:{
-                             formatTime()
-                                 {
-                                   return (this.recTime+"").toMMSS();
-                                 },
-                             currentIcon(){
-                                 switch (this.micStatus)
-                                     {
-                                         case MicStatus.NOTREADY:
-                                            return 'fa-solid  fa-microphone-slash icon-size';
-                                         case MicStatus.READYTORECORD:
-                                            return 'fa-solid fa-record-vinyl icon-size red';
-                                         case MicStatus.READYTOPLAY:
-                                             return 'fa-solid fa-circle-play icon-size';
-                                         case MicStatus.RECORDING:
-                                             return 'fa-solid fa-circle-stop icon-size red';
-                                         case MicStatus.PLAY:
-                                             return 'fa-solid fa-circle-stop icon-size';
-                                         case MicStatus.PREPARE:
-                                             return 'fas fa-tasks icon-size'
-                                         case MicStatus.AUTORECORDING:
-                                             return 'fa-solid fa-microphone icon-size red';
-                                             
-                                             
-                                     }
-                                },
-                              /*
-                                 progressStep()
-                                 {
-                                     return 100/this.maxRecTime;
-                                 }
-                                */
-                             },
-                              mounted() {
-                                this.startCountdown();
-                              },                              
-                             methods:{
-                                 toggleIcon(){
-                                     console.log(this.micStatus)
-                                     switch(this.micStatus){
-                                      case MicStatus.NOTREADY:
-                                             getMic();
-                                             break;
-                                         case MicStatus.READYTORECORD:
-                                            startRecording();
-                                             break;
-                                         case MicStatus.READYTOPLAY:
-                                            playAudio();
-                                             break;
-                                         case MicStatus.RECORDING:
-                                             stopRecording();
-                                             break;
-                                         case MicStatus.PLAY:
-                                            stopAudio();
-                                             break;
-                                         //case MicStatus.PREPARE:
-                                         //     timerStart();
-                                        }
-                                     console.log(this.micStatus)
-                             },
-                                 startCountdown() {  
-                                 if (this.isStartCountdown){
-                                    let si=setInterval(() => {
-                                    if (this.countDown > 0) {
-                                        this.countDown--;
-                                    } else {                                                                   
-                                    clearInterval(si)
-                                    this.countDown=0;
-                                    this.Level();
-                                }
-                                }, 1000);
-                                }
-                             },
-                                 Level()                                      
-                                {
-                                    //alert(this.level)
-                                    stopAudio();
-                                    stopRecording();
-                                    synth.cancel();
-                                    this.level++;
-                                    console.log('Level:'+this.level)
-                                    
-                                    switch(this.level)
-                                        {
-                                            case 1://Mic test
-                                                mic_test('Внимание', 'Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести. Если вы уже делали это, можете сразу перейти к выполнению задания.')
-                                            break;
-                                          case 2://Countdown
-                                          case 6:                                                          
-                                                count_down('Be ready for the test','','',3)
-                                            break;
-                                            case 3:
-                                                //read task and prepair
-                                               this.Level(); //read_task(headers[1],mains.html[1],headers[1],90)
-                                                break;
-                                            case 4://Prepair    
-                                                prepair(headers[1],mains.html[1],headers[1], 90)
-                                                  break;
-                                            case 5://task
-                                                task('Read the text aloud',mains.html[1],'',90) 
-                                                break
-                                            case 7://read task                                            
-                                                //prepair(headers[2],mains.html[2],headers[2], 90)
-                                                //task(headers[2],mains.html[2],headers[2], 90) 
-                                                //read_task(headers[2],mains.html[2],headers[2], 90)
-                                            this.Level();
-                                                  break;
-                                            case 8:
-                                                training.image=mains.images[2];
-                                               training.head2=headers2[0] 
-                                               training.head3=headers3[0] 
-                                                training.isShowHeader2=true;
-                                                training.isShowHeader3=true;
-                                                training.isShowImage=true;
-                                               training.isShowPrepare=true; prepair(headers[2],mains.html[2],headers[2],90)
-                                                break;
-
-                                            case 9://task
-                                                training.image=mains.images[2];
-                                                training.isShowImage=true;
-                                                
-                                                task(headers[2],mains.html[2],'',90) 
-                                                break
-                                            case 10://show answers
-                                                training.isShowPrepare=false;
-                                                training.isShowHeader2=false;
-                                                training.isShowHeader2=false;
-                                                prepair('Samples of correct answers',mains.answers[1],headers[2],90)
-                                                break;
-                                            
-                                                break;
-                                                
-                                            case 11://download
-                                                  
-                                                  timerStop();
-                                                  training.head1="Results";
-                                                  training.isShowHeader2=false;
-                                                  training.isShowHeader2=false;
-                                                  training.main_text="To get results click button below";
-                                                  training.image='';
-                                                  training.isShowImage=false;                                             
-                                                  training.isShowNav01=false;
-                                                  training.isShowNav02=false;
-                                                  training.isShowMain=true;                  
-                                                  training.isShowCountdown=false;
-                                                  training.isStartCountdown=false;
-                                                  training.isShowResult=true;
-                                                  training.isShowAudioContainer=true;
-                                                  training.rec_nav_text='Завершить';
-                                                  audioContainerSet('audioContainer',this.chunks)
-                                                  //training.micStatus=MicStatus.READYTORECORD;
-                                                  //training.progressValue=0;
-                                                  //training.maxRecTime=90;
-                                                  //timerStart();
-                                                     
-                                            break;    
-                                                
-                                            default:
-                                                  training.level=1;
-                                                   training.head1=headers[0];
-                                                  training.main_text=mains.html[0];
-                                                  training.isShowNav01=true;
-                                                  training.isShowImage=false;
-                                                  training.isShowNav02=false;
-                                                  training.isShowMain=true;                  
-                                                  training.isShowCountdown=false;
-                                            break;
-
-                                        }
-                                },/*
-                                 downloadRecording() {
-                                     console.log(this.chunks);
-                                     this.chunks.forEach((chunk)=>
-                                                         {
-                                    const blob = new Blob([chunk], { type: 'audio/webm' });
-                                    const url = window.URL.createObjectURL(blob);
-                                    const link = document.createElement('a');
-                                    link.href = url;
-                                    link.download = 'recording.webm';
-                                     
-                                    link.click();
-                                     });
-                }*/
-                                 downloadRecording() {
-    console.log(this.chunks);
-    const zip = new JSZip();
-    let index = 1;
-    this.chunks.forEach(chunk => {
-        const blob = new Blob([chunk], { type: 'audio/webm' });
-        zip.file('recording '+index+'.webm', blob);
-        index++;
-    });
-    zip.generateAsync({ type: 'blob' })
-        .then(blob => {
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'download.zip';
-            link.click();
-        });
-}
-                             }
-                             });
-
-
-function mic_test(head_text='',main_text='')
-{
-      training.head1=head_text;
-      training.main_text=main_text;
-      training.isShowNav01=false;
-      training.isShowNav02=true;
-      training.isShowMain=true;                  
-      training.isShowCountdown=false;
-      training.isShowAudioContainer=false;
 }
 
-function count_down(text_speak='',head_text='',main_text='',countDown=10)
-{
-    timerStop();
-      //speak(text_speak);
-      training.head1=head_text;
-      training.main_text=main_text;
-      training.isShowNav01=false;
-      training.isShowNav02=false;
-      training.isShowMain=false;                  
-      training.isShowCountdown=true;
-      training.isShowPrepare=true;
-      training.countDown=countDown;
-      training.isStartCountdown=true;
-      training.startCountdown(); 
-}
 
-function prepair(head_text,main_text,text_speak, maxRecTime)
-{
-          timerStop();
-     //training.isShowPrepare=true;
-     training.head1=head_text;                                                 
-     training.main_text=main_text;//mains.html[1];
-      training.isShowNav01=false;
-      training.isShowNav02=true;
-      training.isShowMain=true;                  
-      training.isShowCountdown=false;
-      training.micStatus=MicStatus.PREPARE;
-    training.progressValue=0;
-    training.recTime=0;
-    training.maxRecTime=maxRecTime;
-    training.rec_nav_text='Готов';
-    //startPrepairTimer(90);
-    timerStart(false,true,90);   
-      //timerStart();   
+
+
+let training = new Vue({
+    el: '#app', data,
+    computed: {
+        formatTime() {
+            return (this.recTime + "").toMMSS();
+        },
+        currentIcon() {
+            switch (this.micStatus) {
+                case MicStatus.NOTREADY:
+                    return 'fa-solid  fa-microphone-slash icon-size';
+                case MicStatus.READYTORECORD:
+                    return 'fa-solid fa-record-vinyl icon-size red';
+                case MicStatus.READYTOPLAY:
+                    return 'fa-solid fa-circle-play icon-size';
+                case MicStatus.RECORDING:
+                    return 'fa-solid fa-circle-stop icon-size red';
+                case MicStatus.PLAY:
+                    return 'fa-solid fa-circle-stop icon-size';
+                case MicStatus.PREPARE:
+                    return 'fas fa-tasks icon-size'
+                case MicStatus.AUTORECORDING:
+                    return 'fa-solid fa-microphone icon-size red';
+
+
+            }
+        },
+        /*
+           progressStep()
+           {
+               return 100/this.maxRecTime;
+           }
+          */
+    },
     /*
-     timerStop();
-     training.head=head_text;                                                 
-     training.main_text=main_text;
-      training.isShowNav01=false;
-      training.isShowNav02=true;
-      training.isShowMain=true;                  
-      training.isShowCountdown=false;
-      training.micStatus=MicStatus.PREPARE;
-      training.maxRecTime=maxRecTime;
-      //training.isStartCountdown=true;
-      training.startCountdown();     
-    */
-    /*
-    speak(text_speak,()=>{
-      timerStart();    
-    });
-    */
-}
+    mounted() {
+      this.startCountdown();
+    },*/
+    methods: {
+        toggleIcon() {
+            console.log(this.micStatus)
+            switch (this.micStatus) {
+                case MicStatus.NOTREADY:
+                    getMic();
+                    break;
+                case MicStatus.READYTORECORD:
+                    startRecording();
+                    break;
+                case MicStatus.READYTOPLAY:
+                    playAudio();
+                    break;
+                case MicStatus.RECORDING:
+                    stopRecording();
+                    break;
+                case MicStatus.PLAY:
+                    stopAudio();
+                    break;
+                //case MicStatus.PREPARE:
+                //     timerStart();
+            }
+            console.log(this.micStatus)
+        },
 
-function task(head_text,main_text,text_speak,maxRecTime)
-{
-      timerStop();
-      training.head1=head_text;
-      training.main_text=main_text;
-      training.isShowNav01=false;
-      training.isShowNav02=true;
-      training.isShowMain=true;    
-      //training.isShowImage=true;
-      training.isShowCountdown=false;
-      training.isStartCountdown=false;
-    training.isShowPrepare=false;
-      training.rec_nav_text='Завершить';
-      training.micStatus=MicStatus.AUTORECORDING;
+        Level() {
+            let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1', 'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task', 'task2', 'count-down-prepair', 'prepair3', 'count-down-task', 'task3', 'download'];
+            //alert(this.level)
+            stopRecording();
+            stopAudio();
+            synth.cancel();
+            this.level++;
+            //console.log('Level:'+this.level)
 
-      training.progressValue=0;
-      training.maxRecTime=maxRecTime;
-      training.recTime=0;
-      timerStop();
-     speak(text_speak,()=>{
-      startRecording();    
-    });
-      
-}
-function read_task(head_text,main_text,text_speak,maxRecTime)
-{
-      timerStop();
-     training.head1=head_text;                                                 
-     training.main_text='';//mains.html[1];
-      training.isShowNav01=false;
-      training.isShowNav02=true;
-      training.isShowMain=false;                  
-      training.isShowCountdown=false;
-    training.isShowPrepare=false;
-      training.micStatus=MicStatus.PREPARE;
-    training.progressValue=0;
-    training.recTime=0;
-    training.maxRecTime=maxRecTime;
-    training.rec_nav_text='К заданию';
-      //timerStart(record:false,direct:false,90);   
-    timerStart(false,false,90);   
-}
+            switch (Levels[this.level]) {
+                case 'mic-test'://Mic test
+                    mic_test('Внимание', 'Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести. Если вы уже делали это, можете сразу перейти к выполнению задания.')
+                    break;
+                case 'count-down-prepair'://Countdown
+                    count_down('Be ready for the test', '', 'Be ready for the test', 1)
+                    break;
+                case 'count-down-task'://Countdown
+                    count_down('Be ready for the answer', '', 'Be ready for the answer', 1)
+                    break;
 
-        //record=true,false,direct=true - forward, false - backward, time - seconds
-        function timerStart(record=false,direct=true,time=90)
-        {            
-            training.recTime=0;
-            training.maxRecTime=time;
-            let progressStep=100/time;
-            let t=0;
-            if (direct)
-                training.progressValue=0;
-            else 
-                {
-                    training.progressValue=100;
-                    progressStep*=-1;
-                }
-            timer=setInterval(
-                ()=>
-                {
-                    t++;
-                    if (t<time)
-                    {
-                        if (!direct)
-                            training.recTime=time-t;
-                        else
-                            training.recTime=t;
-                        training.progressValue+=progressStep;
-                    }
-                     
-                    else
-                        {
-                            timerStop();
-                            if (training.micStatus==MicStatus.PREPARE || training.micStatus==MicStatus.AUTORECORDING) 
-                            {
-                                training.micStatus=MicStatus.NOTREADY;
-                                training.Level();
-                            }
-                        }
-                },1000);
+                case '':
+                    //read task and prepair
+                    this.Level(); //read_task(headers[1],mains.html[1],headers[1],90)
+                    break;
+                case 'prepair1'://Prepair    
+                    prepair(headers1[0], tasks[0], headers1[0], 90)
+                    break;
+                case 'task1'://task
+                    task('Read the text aloud', tasks[0], '', 90)
+                    break
+                case 'prepair2':
+                    training.image = mains.images[1];
+                    training.head2 = headers2[1]
+                    training.head3 = headers3[1]
+                    training.isShowHeader2 = true;
+                    training.isShowHeader3 = true;
+                    training.isShowImage = true;
+                    training.isShowPrepare = true;
+                    prepair(headers1[1], tasks[1], headers1[1], 90)
+                    break;
+
+                case 'task2'://task
+                    training.image = images[1];
+                    training.isShowImage = true;
+
+                    task(headers1[2], tasks[2], '', 90);
+                    break
+                case 'prepair3':
+                    training.image = images[1];
+                    training.head2 = headers2[1]
+                    training.head3 = headers3[1]
+                    training.isShowHeader2 = true;
+                    training.isShowHeader3 = true;
+                    training.isShowImage = true;
+                    training.isShowPrepare = true; prepair(headers[1], tasks[1], headers2[1], 90)
+                    break;
+                case 'task3':
+                    training.image = images[2];
+                    training.isShowImage = true;
+                    task(headers[3], tasks[3], '', 90);
+                    break;
+
+                case 'download'://download
+
+                    timerStop();
+                    training.head1 = "Results";
+                    training.isShowHeader2 = false;
+                    training.isShowHeader2 = false;
+                    training.main_text = "To get results click button below";
+                    training.image = '';
+                    training.isShowImage = false;
+                    training.isShowNav01 = false;
+                    training.isShowNav02 = false;
+                    training.isShowMain = true;
+                    training.isShowCountdown = false;
+                    training.isStartCountdown = false;
+                    training.isShowResult = true;
+                    training.isShowAudioContainer = true;
+                    training.rec_nav_text = 'Завершить';
+                    setTimeout(() => audioContainerSet('audioContainer', this.chunks), "300")
+
+                    break;
+
+                case 'start':
+                    training.level = 1;
+                    training.head1 = "Внимание";
+                    training.main_text = "На следующем этапе тренажёр попытается получить доступ к микрофону. У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.";
+                    training.isShowNav01 = true;
+                    training.isShowImage = false;
+                    training.isShowNav02 = false;
+                    training.isShowMain = true;
+                    training.isShowCountdown = false;
+                    break;
+
+            }
+        },
+        downloadRecording() {
+            console.log(this.chunks);
+            const zip = new JSZip();
+            let index = 1;
+            this.chunks.forEach(chunk => {
+                const blob = new Blob([chunk], { type: 'audio/webm' });
+                zip.file('recording ' + index + '.webm', blob);
+                index++;
+            });
+            zip.generateAsync({ type: 'blob' })
+                .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'download.zip';
+                    link.click();
+                });
         }
-
-        function timerStop()
-        {
-            console.log("timer stop")
-            training.progressValue=0;
-            if (training.micStatus==MicStatus.PLAY) stopAudio(false);
-            if (training.micStatus==MicStatus.RECORDING)  stopRecording(false);
-            clearInterval(timer);
-            training.recTime=0;
-        }
-
-function audioContainerSet(audioContainerId, chunks)
-{
-    // Создаем контейнер для аудиоплееров на веб-странице
-const audioContainer = document.getElementById(audioContainerId);
-//document.body.appendChild(audioContainer);
-
-// Проходимся по массиву "chunks" и создаем аудиоплееры
-chunks.forEach((chunk, index) => {
-  // Создаем элемент аудиоплеера
-  const audioElement = document.createElement('audio');
-  
-  // Устанавливаем данные звукового файла из массива "chunk"
-  const audioBlob = new Blob([chunk]);
-  const audioURL = URL.createObjectURL(audioBlob);
-  audioElement.src = audioURL;
-  const listItem=document.createElement('li');
-    listItem.appendChild(audioElement)
-    
-  // Устанавливаем атрибуты аудиоплеера
-  audioElement.controls = true;
-  //audioElement.autoplay = true;
-  
-  // Помещаем аудиоплеер в контейнер
-  audioContainer.appendChild(listItem);
+    }
 });
+
+
+function startCountdown() {
+    if (training.isStartCountdown) {
+        let si = setInterval(() => {
+            if (training.countDown > 0) {
+                training.countDown--;
+            } else {
+                clearInterval(si)
+                training.countDown = 0;
+                training.Level();
+            }
+        }, 1000);
+    }
+}
+
+function mic_test(head_text = '', main_text = '') {
+    training.head1 = head_text;
+    training.main_text = main_text;
+    training.isShowNav01 = false;
+    training.isShowNav02 = true;
+    training.isShowMain = true;
+    training.isShowCountdown = false;
+    training.isShowAudioContainer = false;
+}
+
+function count_down(text_speak = '', head_text = '', main_text = '', countDown = 10) {
+    timerStop();
+    //speak(text_speak);
+    training.head1 = head_text;
+    training.main_text = main_text;
+    training.countDownText = main_text;
+    training.isShowNav01 = false;
+    training.isShowNav02 = false;
+    training.isShowMain = false;
+    training.isShowCountdown = true;
+    training.isShowPrepare = true;
+    training.countDown = countDown;
+    training.isStartCountdown = true;
+    startCountdown();
+}
+
+function prepair(head_text, main_text, text_speak, maxRecTime) {
+    timerStop();
+    //training.isShowPrepare=true;
+    training.head1 = head_text;
+    training.main_text = main_text;//mains.html[1];
+    training.isShowNav01 = false;
+    training.isShowNav02 = true;
+    training.isShowMain = true;
+    training.isShowCountdown = false;
+    training.micStatus = MicStatus.PREPARE;
+    training.progressValue = 0;
+    training.recTime = 0;
+    training.maxRecTime = maxRecTime;
+    training.rec_nav_text = 'Готов';
+    //startPrepairTimer(90);
+    timerStart(false, true, 90);
+}
+
+function task(head_text, main_text, text_speak, maxRecTime) {
+    timerStop();
+    training.head1 = head_text;
+    training.main_text = main_text;
+    training.isShowNav01 = false;
+    training.isShowNav02 = true;
+    training.isShowMain = true;
+    //training.isShowImage=true;
+    training.isShowCountdown = false;
+    training.isStartCountdown = false;
+    training.isShowPrepare = false;
+    training.rec_nav_text = 'Завершить';
+    training.micStatus = MicStatus.AUTORECORDING;
+
+    training.progressValue = 0;
+    training.maxRecTime = maxRecTime;
+    training.recTime = 0;
+    timerStop();
+    startRecording();
+    //speak(text_speak,()=>{startRecording();    });
+
+}
+function read_task(head_text, main_text, text_speak, maxRecTime) {
+    timerStop();
+    training.head1 = head_text;
+    training.main_text = '';//mains.html[1];
+    training.isShowNav01 = false;
+    training.isShowNav02 = true;
+    training.isShowMain = false;
+    training.isShowCountdown = false;
+    training.isShowPrepare = false;
+    training.micStatus = MicStatus.PREPARE;
+    training.progressValue = 0;
+    training.recTime = 0;
+    training.maxRecTime = maxRecTime;
+    training.rec_nav_text = 'К заданию';
+    //timerStart(record:false,direct:false,90);   
+    timerStart(false, false, 90);
+}
+
+//record=true,false,direct=true - forward, false - backward, time - seconds
+function timerStart(record = false, direct = true, time = 90) {
+    training.recTime = 0;
+    training.maxRecTime = time;
+    let progressStep = 100 / time;
+    let t = 0;
+    if (direct)
+        training.progressValue = 0;
+    else {
+        training.progressValue = 100;
+        progressStep *= -1;
+    }
+    timer = setInterval(
+        () => {
+            t++;
+            if (t < time) {
+                if (!direct)
+                    training.recTime = time - t;
+                else
+                    training.recTime = t;
+                training.progressValue += progressStep;
+            }
+
+            else {
+                timerStop();
+                if (training.micStatus == MicStatus.PREPARE || training.micStatus == MicStatus.AUTORECORDING) {
+                    training.micStatus = MicStatus.NOTREADY;
+                    training.Level();
+                }
+            }
+        }, 1000);
+}
+
+function timerStop() {
+    console.log("timer stop")
+    training.progressValue = 0;
+    if (training.micStatus == MicStatus.PLAY) stopAudio(false);
+    if (training.micStatus == MicStatus.RECORDING || training.micStatus == MicStatus.AUTORECORDING) stopRecording(false);
+    clearInterval(timer);
+    training.recTime = 0;
+}
+
+function audioContainerSet(audioContainerId, chunks) {
+    // Создаем контейнер для аудиоплееров на веб-странице
+    const audioContainer = document.getElementById(audioContainerId);
+    //document.body.appendChild(audioContainer);
+
+    // Проходимся по массиву "chunks" и создаем аудиоплееры
+    chunks.forEach((chunk, index) => {
+        // Создаем элемент аудиоплеера
+        const audioElement = document.createElement('audio');
+
+        // Устанавливаем данные звукового файла из массива "chunk"
+        const audioBlob = new Blob([chunk]);
+        const audioURL = URL.createObjectURL(audioBlob);
+        audioElement.src = audioURL;
+        const listItem = document.createElement('li');
+        listItem.appendChild(audioElement)
+
+        // Устанавливаем атрибуты аудиоплеера
+        audioElement.controls = true;
+        //audioElement.autoplay = true;
+
+        // Помещаем аудиоплеер в контейнер
+        audioContainer.appendChild(listItem);
+    });
 
 }

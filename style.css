@@ -1,15 +1,14 @@
-html,body
-{
+html,
+body {
     height: 100%;
 }
 
-.btn_correct
-{
-     position: absolute;
-     bottom: 10px;
+.btn_correct {
+    position: absolute;
+    bottom: 10px;
 }
-#app
-{
+
+#app {
     max-width: 800px;
     height: 800px;
     max-height: 800px;
@@ -17,63 +16,58 @@ html,body
 
 }
 
-.my_logo
-{
-    float:none;
+.my_logo {
+    float: none;
 }
-.my_header
-{
+
+.my_header {
     #display: inline-block;
     text-align: justify;
 }
 
-.main
-{
+.main {
     height: 600px;
     min-height: 500px;
     text-align: justify;
-    #border: 1px solid #000;  
+    #border: 1px solid #000;
     min-width: 500px;
     width: 776px;
 }
 
 
 
-#progress-bar 
-{    
+#progress-bar {
     width: 100%;
-      display:inline;
-      #flex-basis: auto;
-      #flex-grow: 1;
-      #flex-shrink: 0;
-      #border: 1px solid #0F0;    
-      height: 45px;      
-      #background-color:;      
-      #display: flex;  
-      #align-items: center;        
+    display: inline;
+    #flex-basis: auto;
+    #flex-grow: 1;
+    #flex-shrink: 0;
+    #border: 1px solid #0F0;
+    height: 45px;
+    #background-color: ;
+    #display: flex;
+    #align-items: center;
 }
-    
-    #progress-bar-fill 
-{          
-     #border: 1px solid #FF0000;  
-      height: 20px;
-      background-color: #ffffff;
-      #transition: width 1s linear;
-      width: 0%;        
-      position: relative;
-      #top:15px;
-      margin-top: 10px;
-        
-    }
 
-  .icon-size
-{
+#progress-bar-fill {
+    #border: 1px solid #FF0000;
+    height: 20px;
+    background-color: #ffffff;
+    #transition: width 1s linear;
+    width: 0%;
+    position: relative;
+    #top: 15px;
+    margin-top: 10px;
+
+}
+
+.icon-size {
     font-size: 32px;
 }
 
 
 .col-my {
-     #border: 1px solid #000;  
+    #border: 1px solid #000;
     #height: 100px;
     width: 45px;
     min-width: 45px;
@@ -83,25 +77,22 @@ html,body
     justify-content: center;
 }
 
-.red
-{
-    color:red;
+.red {
+    color: red;
 }
 
-.my_btn
-{
-     #border: 1px solid #000;  
+.my_btn {
+    #border: 1px solid #000;
     height: 45px;
     #white-space: wrap;
     width: 200px;
     margin: 3px;
-    
-    
+
+
 }
 
-.right
-{
-     #border: 1px solid #000;  
+.right {
+    #border: 1px solid #000;
     align-content: flex-end;
     align-items: flex-end;
     #padding: -10px;
@@ -112,31 +103,28 @@ html,body
     flex-grow: 1;
 }
 
-.left
-{
+.left {
     align-content: flex-start;
 }
 
-.format-time
-{
-   #border: 1px solid #000;  
+.format-time {
+    #border: 1px solid #000;
     display: inline-block;
-  font-size: 25px;
-  #justify-content: flex-end;
+    font-size: 25px;
+    #justify-content: flex-end;
     #align-content: flex-end;
     text-align: right;
-    
+
 }
 
-.col_my
-{
+.col_my {
     display: flex;
     height: 45px;
 }
-.recorder
-{
+
+.recorder {
     position: absolute;
-    box-sizing:content-box;
+    box-sizing: content-box;
     left: 10px;
     bottom: 10px;
     #width: 70%;
@@ -145,25 +133,23 @@ html,body
     min-width: 500px;
     max-width: 95%;
     height: 45px;
-    background-color:cornflowerblue;    
+    background-color: cornflowerblue;
     border: 1px solid black;
-    color:white;
+    color: white;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    
+
     #align-content: flex-end;
     #align-items: center;
 }
 
-.timer_caption
-{
+.timer_caption {
     font-size: 50px;
 }
 
-.timer
-{
+.timer {
     font-size: 40px;
     display: block;
     height: 100%;
@@ -171,10 +157,10 @@ html,body
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    
+
 }
-.my_image
-{
+
+.my_image {
     #display: block;
     width: 180px;
 }

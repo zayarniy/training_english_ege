@@ -1,123 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тренажер ЕГЭ по английскому</title>    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>            
-    <script src="utilites.js"></script>
-    <script src=speaker.js></script>
-    <script src="jszip/jszip.min.js"></script>
 
-    
-    <link rel="stylesheet" href="style.css">  
-    
-    <link href="css/fontawesome.css" rel="stylesheet">
-    <link href="css/brands.css" rel="stylesheet">
-    <link href="css/solid.css" rel="stylesheet">    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тренажер ЕГЭ по английскому</title>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="utilites.js"></script>
+  <script src="speaker.js"></script>
+  <script src="jszip/jszip.min.js"></script>
+  <script src="task_data.js"></script>
+
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="css/fontawesome.css" rel="stylesheet">
+  <link href="css/brands.css" rel="stylesheet">
+  <link href="css/solid.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
 </head>
+
 <body>
-  <div  id='app' class="container">
-    <div class="row justify-content-md-center">
-          <div class="col-md-2">
-            <img src="logo.png" alt="Logo">
-          </div>
-          <div class="col-md-7"  style="text-align: right;">
+  <div id='app' class="container">
+    <header>
+      <div class="row justify-content-md-center">
+        <div class="col-md-2">
+          <img src="logo.png" alt="Logo">
+        </div>
+        <div class="col-md-7" style="text-align: center;">
           <span style="visibility:visible;">{{level}}</span>
-          </div>
-            
-          <div class="col-md-3">
-              
+        </div>
+
+        <div class="col-md-3">
+
           <table v-show='isShowPrepare' border="0">
-              <tr>
-                  <td  rowspan="2">
-                    <i class='fa-solid fa-clock'></i>
-                </td>
-              </tr>
-              <tr>
+            <tr>
+              <td rowspan="2">
+                <i class='fa-solid fa-clock'></i>
+              </td>
+            </tr>
+            <tr>
               <td style='text-align: right'>Preparation 01:30</td>
-                </tr>
-              <tr>
-                  <td></td>
-                  <td style='text-align: right'>Answer 01:30</td>
-            </tr>        
+            </tr>
+            <tr>
+              <td></td>
+              <td style='text-align: right'>Answer 01:30</td>
+            </tr>
           </table>
-              
-          </div>
-    </div>
-      <div v-if='isShowMain' class="row">
-    <h4 v-if='isShowHeader1'  class='col col-md-12 my_header' v-html='head1'></h4>
-    <h4 v-if='isShowHeader2' class='col-12 my_header align-center' v-html='head2'></h4>
-        <div v-if='isShowImage' class="col col-md-12">
-          <img v-bind:src="'images/' + image" class="my_image align-center">
+
         </div>
-    <h4 v-if='isShowHeader3' class='col-12 my_header' v-html='head3'></h4>
-         
-      <!--Main-->
-    <div class="main">
-      <div v-html='main_text' class="col-md-12">
       </div>
-          
-      <!--AudioContainer-->
-<ol v-show="isShowAudioContainer" id='audioContainer'>
-    
-      </ol>            
-</div> 
-      
-    <!--RECORDER-->
-    <div v-show='isShowNav02' class="col-11 fixed-bottom recorder" >
-        <div>
-        <div class="btn">
-            <i :class='currentIcon'  @click='toggleIcon'></i>
-        </div>
-        </div>
-    <div id="progress-bar" style="border:0px solid black;">
-        <div id="progress-bar-fill" :style="'width: ' + progressValue + '%'"></div>        
-    </div>
-    <div class='format-time'>
-        {{formatTime}}
-        </div>
-    <div>
-    <button class='btn btn-primary my_btn right' @click='Level()'>{{rec_nav_text}}</button>  
-        </div>
-        <audio controls id="audioPlayer" style="display:none;"></audio>
-                           
-    </div>
-      <!--END RECORDER-->        
-    <div v-show='isShowNav01' class="col-12">
-      <div class='col-8'>
-        <button  class="btn btn-primary text-center btn_correct" @click="Level()" id='get-mic'>Понятно</button>
+    </header>
+    <!--Main-->
+    <div v-if='isShowMain' class="row">
+      <h4 v-if='isShowHeader1' class='col col-md-12 my_header' v-html='head1'></h4>
+      <h4 v-if='isShowHeader2' class='col-12 my_header text-center' v-html='head2'></h4>
+      <div v-if='isShowImage' class="col col-md-12 text-center">
+        <img v-bind:src="'images/' + image" class="my_image align-center">
       </div>
-      <div v-if='isShowResult' style='height: 40px;' class='col'>
+      <h4 v-if='isShowHeader3' class='col-12 my_header' v-html='head3'></h4>
+
+
+      <div class="main">
+        <div v-html='main_text' class="col-md-12">
+        </div>
+
+        <!--AudioContainer-->
+        <ol v-show="isShowAudioContainer" id='audioContainer'>
+
+        </ol>
+        <div v-if='isShowResult' style='height: 40px;' class='col'>
           <div class="col">
             <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
           </div>
+        </div>
+
       </div>
-    </div>
+
+      <!--RECORDER-->
+      <div v-show='isShowNav02' class="col-11 fixed-bottom recorder">
+        <div>
+          <div class="btn">
+            <i :class='currentIcon' @click='toggleIcon'></i>
+          </div>
+        </div>
+        <div id="progress-bar" style="border:0px solid black;">
+          <div id="progress-bar-fill" :style="'width: ' + progressValue + '%'"></div>
+        </div>
+        <div class='format-time'>
+          {{formatTime}}
+        </div>
+        <div>
+          <button class='btn btn-primary my_btn right' @click='Level()'>{{rec_nav_text}}</button>
+        </div>
+        <audio controls id="audioPlayer" style="display:none;"></audio>
+
+      </div>
+      <!--END RECORDER-->
+      <div v-show='isShowNav01' class="col-12">
+        <div class='col-8'>
+          <button class="btn btn-primary text-center btn_correct" @click="Level()" id='get-mic'>Понятно</button>
+        </div>
+      </div>
+
     </div><!--Main-->
-        
-      <!--TIMER-->
-      <div class='row'>
+
+    <!--TIMER-->
+    <div class='row'>
       <div v-if="isShowCountdown" class="col-12 timer_caption text-center">
-        
-    <div>Be ready for the test</div>
-    <div class='timer_caption'>{{ countDown }}</div>
-    <div>seconds</div>
-      </div><!--TIMER-->     
-      </div>
+
+        <div>{{countDownText}}</div>
+        <div class='timer_caption'>{{ countDown }}</div>
+        <div>seconds</div>
+      </div><!--TIMER-->
+    </div>
 
 
 
-    </div>  <!--app-->    
-    <script type='application/javascript' src="script.js">
-    </script>
-    <script type='application/javascript' src='microphone.js'></script>
-    
+  </div> <!--app-->
+  <script type='application/javascript' src="script.js">
+  </script>
+  <script type='application/javascript' src='microphone.js'></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 </body>
+
 </html>
