@@ -1,4 +1,4 @@
-let Task=
+let Tasks=
 { task1:
   {
     header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
@@ -7,10 +7,12 @@ let Task=
 task2:
 {
   header1:"Task 2. Study the advertisement.",
-  headers2:"Welcome to Virtual Reality club!",
-  headers3:"You are considering visiting a computer club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+  header2:"Welcome to Virtual Reality club!",
+  header3:"You are considering visiting a computer club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
   image:'1-virtual.jpg',
-  headers4:'You have 20 seconds to ask each question.'  
+  text1:'1)	location<br>2) variety of games<br>3)	opening hours       <br>4)	price per hour',
+  text2:'You have 20 seconds to ask each question.',
+  questions: ['location','2)	variety of games','opening hours','price per hour']
 },
 task3:
 {header:'Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.',
@@ -20,7 +22,8 @@ task4:
 {
   header:'Task 4. Imagine that you and your friend are doing a school project "Modern inventions". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:',
   text:"explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>• mention the advantages (1-2) of the two types of modern inventions;<br> • mention the disadvantages (1-2) of the two types of modern inventions;<br>• express your opinion on the subject of the project — which modern invention you'd prefer and why.",
-  images:['2-1.jpg','2-2.jpg']
+  images:['2-1.jpg','2-2.jpg'],
+  text2:"You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously."
 }
 
 }

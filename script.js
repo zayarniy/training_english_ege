@@ -5,9 +5,11 @@ let data = {
     main_text: 'На следующем этапе тренажёр попытается получить доступ к микрофону. У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.',
     head2: '',
     head3: '',
-    image: '1px.png',
+    image1: '1px.png',
+    image2: '1px.png',
+    text2: '',
     isShowNav01: true,
-    isShowNav02: false,
+    isShowRecorder: false,
     isShowMain: true,
     isShowCountdown: false,
     isStartCountdown: false,
@@ -15,7 +17,8 @@ let data = {
     isShowHeader2: false,
     isShowHeader3: false,
     isShowPrepare: false,
-    isShowImage: false,
+    isShowImage1: false,
+    isShowImage2: false,
     isShowResult: false,
     isShowAudioContainer: false,
     micStatus: MicStatus.NOTREADY,
@@ -26,7 +29,7 @@ let data = {
     countDownText: 'Be ready for the test',
     countDown: 10,
     level: 0,
-    levelTxt:'',
+    levelTxt: '',
     chunks: [],
     current_chunk: []
 
@@ -104,7 +107,7 @@ let training = new Vue({
             stopAudio();
             synth.cancel();
             this.level++;
-            this.levelTxt=Levels[this.level]
+            this.levelTxt = Levels[this.level]
             //console.log('Level:'+this.level)
 
             switch (Levels[this.level]) {
@@ -123,43 +126,55 @@ let training = new Vue({
                     this.Level(); //read_task(headers[1],mains.html[1],headers[1],90)
                     break;
                 case 'prepair1'://Prepair   
-                    training.head1=Task.task1.header;
-                    training.main_text=Task.task1.text;
-                    prepair(headers1[0], tasks[0], headers1[0], 90)
+                    training.head1 = Tasks.task1.header;
+                    training.main_text = Tasks.task1.text;
+                    prepair('', '', '', 90)
                     break;
                 case 'task1'://task
-                    task('Read the text aloud', '', '', 90)
+                    training.head1 = 'Read the text aloud';
+                    training.main_text = Tasks.task1.text;
+                    task('', '', '', 90)
                     break
                 case 'prepair2':
-                    training.image = images[0];
-                    training.head2 = headers2[0]
+                    training.image1 = images[0];
+                    training.head1 = Tasks.task2.header1
+                    training.head2 = Tasks.task2.header2
                     training.head3 = headers3[0]
+                    training.main_text=Tasks.task2.text1;
+                    training.text2=Tasks.task2.text2;
+                    training.isShowHeader1=true;
                     training.isShowHeader2 = true;
                     training.isShowHeader3 = true;
-                    training.isShowImage = true;
+                    training.isShowImage1 = true;
                     training.isShowPrepare = true;
-                    prepair(headers1[1], tasks[1], headers1[1], 90)
+                    training.isShowCountdown=false;
+                    prepair('', '', '', 90)
                     break;
 
                 case 'task2'://task
                     training.image = images[0];
-                    training.isShowImage = true;
-
-                    task(headers1[1], tasks[1], '', 90);
+                    training.isShowImage1 = true;
+                    training.isShowRecorder=true;
+                    recAnswers(Tasks.task2.questions, 20);
+                    //task(headers1[1], tasks[1], '', 90);
                     break
                 case 'prepair3':
-                    training.image = images[1];
+                    training.image1 = images[1];
                     training.head2 = headers2[1]
                     training.head3 = headers3[1]
                     training.isShowHeader2 = true;
                     training.isShowHeader3 = true;
-                    training.isShowImage = true;
-                    training.isShowPrepare = true; prepair(headers1[2], tasks[2], headers2[2], 90)
+                    training.isShowImage1 = true;
+                    training.isShowPrepare = true;
+                    prepair('', '', '', 90)
                     break;
                 case 'task3':
-                    training.image = images[2];
+                    training.image1 = images[2];
                     training.isShowImage = true;
-                    task(headers1[3], tasks[3], '', 90);
+                    training.head1 = Tasks.task3.header;
+                    training.main_text = Tasks.task3.Interviewer;
+                    recAnswers(Tasks.task3.Interviewer, 40);
+                    //task(headers1[3], tasks[3], '', 90);
                     break;
 
                 case 'download'://download
@@ -169,10 +184,10 @@ let training = new Vue({
                     training.isShowHeader2 = false;
                     training.isShowHeader2 = false;
                     training.main_text = "To get results click button below";
-                    training.image = '';
-                    training.isShowImage = false;
+                    training.image1 = '';
+                    training.isShowImage1 = false;
                     training.isShowNav01 = false;
-                    training.isShowNav02 = false;
+                    training.isShowRecorder = false;
                     training.isShowMain = true;
                     training.isShowCountdown = false;
                     training.isStartCountdown = false;
@@ -187,9 +202,11 @@ let training = new Vue({
                     training.level = 1;
                     training.head1 = "Внимание";
                     training.main_text = "На следующем этапе тренажёр попытается получить доступ к микрофону. У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.";
+                    training.text2 = "";
                     training.isShowNav01 = true;
-                    training.isShowImage = false;
-                    training.isShowNav02 = false;
+                    training.isShowImage1 = false;
+                    training.isShowImage2 = false;
+                    training.isShowRecorder = false;
                     training.isShowMain = true;
                     training.isShowCountdown = false;
                     break;
@@ -236,7 +253,7 @@ function mic_test(head_text = '', main_text = '') {
     training.head1 = head_text;
     training.main_text = main_text;
     training.isShowNav01 = false;
-    training.isShowNav02 = true;
+    training.isShowRecorder = true;
     training.isShowMain = true;
     training.isShowCountdown = false;
     training.isShowAudioContainer = false;
@@ -249,7 +266,7 @@ function count_down(text_speak = '', head_text = '', main_text = '', countDown =
     training.main_text = main_text;
     training.countDownText = main_text;
     training.isShowNav01 = false;
-    training.isShowNav02 = false;
+    training.isShowRecorder = false;
     training.isShowMain = false;
     training.isShowCountdown = true;
     training.isShowPrepare = true;
@@ -264,7 +281,7 @@ function prepair(head_text, main_text, text_speak, maxRecTime) {
     //training.head1 = head_text;
     //training.main_text = main_text;//mains.html[1];
     training.isShowNav01 = false;
-    training.isShowNav02 = true;
+    training.isShowRecorder = true;
     training.isShowMain = true;
     training.isShowCountdown = false;
     training.micStatus = MicStatus.PREPARE;
@@ -278,12 +295,12 @@ function prepair(head_text, main_text, text_speak, maxRecTime) {
 
 function task(head_text, main_text, text_speak, maxRecTime) {
     timerStop();
-    if (head_text!='')
+    if (head_text != '')
         training.head1 = head_text;
-    if (main_text!='')
+    if (main_text != '')
         training.main_text = main_text;
     training.isShowNav01 = false;
-    training.isShowNav02 = true;
+    training.isShowRecorder = true;
     training.isShowMain = true;
     //training.isShowImage=true;
     training.isShowCountdown = false;
@@ -300,12 +317,26 @@ function task(head_text, main_text, text_speak, maxRecTime) {
     //speak(text_speak,()=>{startRecording();    });
 
 }
+
+function recAnswers(tasks,maxRecTime)
+{
+  training.isShowRecorder=true;
+  training.progressValue=0;
+  training.maxRecTime=maxRecTime;
+  for(let i=0;i<tasks.length;i++)
+  {
+    training.main_text=task[i];    
+    training.recTime=0;
+    startRecording();
+  }
+}
+
 function read_task(head_text, main_text, text_speak, maxRecTime) {
     timerStop();
     training.head1 = head_text;
     training.main_text = '';//mains.html[1];
     training.isShowNav01 = false;
-    training.isShowNav02 = true;
+    training.isShowRecorder = true;
     training.isShowMain = false;
     training.isShowCountdown = false;
     training.isShowPrepare = false;
