@@ -28,7 +28,7 @@ let data = {
     rec_nav_text: 'Перейти к экзамену',
     countDownText: 'Be ready for the test',
     countDown: 10,
-    level: 10,
+    level: 14,
     levelTxt: '',
     chunks: [],
     current_chunk: []
@@ -218,7 +218,7 @@ let training = new Vue({
                       //startRecording();                    
                     break
                 case 'prepair3':
-                    training.image1 = images[1];
+                    training.isShowImage1=false;
                     training.head1=Tasks.task3.header;
                     training.isShowHeader1=true;
                     //training.head2 = headers2[1]
@@ -229,11 +229,12 @@ let training = new Vue({
                     training.isShowPrepare = true;
                     training.isShowCountdown=false;
                     training.main_text='';
+                    training.micStatus=MicStatus.NOTREADY;
                     prepair('', '', '', 90)
                     break;
                 case 'task3':
-                    training.image1 = images[2];
-                    training.isShowImage = true;
+                    
+                    training.isShowImage = false;
                     training.isShowHeader1=true;
                     training.head1 = Tasks.task3.header;
                     training.isShowPrepare=false;                    

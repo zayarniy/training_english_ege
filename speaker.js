@@ -1,17 +1,21 @@
+const synth = window.speechSynthesis;
 let voices = [];
+let voice;
 
-function populateVoiceList() {
+function populateVoiceList() 
+{
+
   voices = voices.filter(a => a.lang.includes("en") && a.lang.includes("GB"))
 }
 
-const synth = window.speechSynthesis;
+//voices=synth.getVoices();
 
 
 
-populateVoiceList();
+//populateVoiceList();
 
-if (speechSynthesis.onvoiceschanged !== undefined) {
-  speechSynthesis.onvoiceschanged = populateVoiceList;
+if (synth.onvoiceschanged !== undefined) {
+  synth.onvoiceschanged = populateVoiceList;
 }
 
 function log() {
@@ -34,9 +38,43 @@ function speak(text, callback = log) {
   utterThis.onerror = function (event) {
     console.error("SpeechSynthesisUtterance.onerror");
   };
-  utterThis.voice = voices[0]
+  utterThis.voice = voice;//voices[1]
+  //alert(voices)
   utterThis.pitch = 1;
   utterThis.rate = 0.8;
   utterThis.lang = "en-GB";
   synth.speak(utterThis);
+}
+
+///////////////////////////////////////////////////////////////////
+function populateVoiceList() {
+  if (typeof synth === "undefined") {
+    return;
+  }
+
+  const voices = synth.getVoices();
+
+  for (let i = 0; i < voices.length; i++) {
+    const option = document.createElement("option");
+    option.textContent = `${voices[i].name} (${voices[i].lang})`;
+
+    if (voices[i].default) {
+      option.textContent += " — DEFAULT";
+    }
+
+    option.setAttribute("data-lang", voices[i].lang);
+    option.setAttribute("data-name", voices[i].name);
+    
+    document.getElementById("voiceSelect").appendChild(option);
+    document.getElementById("voiceSelect").onchange=(e)=>{alert(e);}
+  }
+}
+
+populateVoiceList();
+if (
+  typeof synth !== "undefined" &&
+  synth.onvoiceschanged !== undefined
+) 
+{
+  synth.onvoiceschanged = populateVoiceList;
 }
