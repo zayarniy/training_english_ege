@@ -28,14 +28,13 @@ let data = {
     rec_nav_text: 'Перейти к экзамену',
     countDownText: 'Be ready for the test',
     countDown: 10,
-    level: 0,
+    level: 10,
     levelTxt: '',
     chunks: [],
     current_chunk: []
 
 }
 
-let somevar = 5;
 
 
 let training = new Vue({
@@ -103,7 +102,7 @@ let training = new Vue({
         Level() {
             let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1',
              'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task',
-              'task21','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3', 'download'];
+              'task21','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3', 'task31', 'download'];
             //alert(this.level)
             stopRecording();
             stopAudio();
@@ -135,7 +134,7 @@ let training = new Vue({
                 case 'task1'://task
                     training.head1 = 'Read the text aloud';
                     training.main_text = Tasks.task1.text;
-                    task('', '', '', 5)
+                    task('', '', '', 90)
                     break
                 case 'prepair2':
                     training.image1 = images[0];
@@ -157,7 +156,8 @@ let training = new Vue({
                     training.image = images[0];
                     training.isShowImage1 = true;
                     training.isShowRecorder=true;            
-                    training.isShowCountdown=false;        
+                    training.isShowCountdown=false; 
+                    training.text2='';       
                    // recAnswers(Tasks.task2.questions, 20);
                     task('','', '', 20);
                     training.isShowRecorder=true;
@@ -219,21 +219,32 @@ let training = new Vue({
                     break
                 case 'prepair3':
                     training.image1 = images[1];
-                    training.head2 = headers2[1]
-                    training.head3 = headers3[1]
-                    training.isShowHeader2 = true;
-                    training.isShowHeader3 = true;
+                    training.head1=Tasks.task3.header;
+                    training.isShowHeader1=true;
+                    //training.head2 = headers2[1]
+                    //training.head3 = headers3[1]
+                    training.isShowHeader2 = false;
+                    training.isShowHeader3 = false;
                     training.isShowImage1 = true;
                     training.isShowPrepare = true;
+                    training.isShowCountdown=false;
+                    training.main_text='';
                     prepair('', '', '', 90)
                     break;
                 case 'task3':
                     training.image1 = images[2];
                     training.isShowImage = true;
+                    training.isShowHeader1=true;
                     training.head1 = Tasks.task3.header;
-                    training.main_text = Tasks.task3.Interviewer;
+                    training.isShowPrepare=false;                    
+                    training.main_text = Tasks.task3.introduction;
+                    speak(Tasks.task3.introduction);
+                    prepair('', '', '', 30)
                     //recAnswers(Tasks.task3.Interviewer, 40);
-                    //task(headers1[3], tasks[3], '', 90);
+                    //task('','', '', 90);                    
+                    break;
+                case 'task31':
+                    speak(Tasks.task3.interviewer[0],()=>{startRecording();    });
                     break;
 
                 case 'download'://download
@@ -258,7 +269,7 @@ let training = new Vue({
                     break;
 
                 case 'start':
-                    training.level = 1;
+                    training.level = 0;
                     training.head1 = "Внимание";
                     training.main_text = "На следующем этапе тренажёр попытается получить доступ к микрофону. У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.";
                     training.text2 = "";
@@ -435,7 +446,8 @@ function timerStart(record = false, direct = true, time = 90,next=true) {
             else {
                 timerStop();
                 if (training.micStatus == MicStatus.PREPARE ||
-                    training.micStatus == MicStatus.AUTORECORDING) {
+                    training.micStatus == MicStatus.AUTORECORDING) 
+                {
                     training.micStatus = MicStatus.NOTREADY;
                     if (next)
                       training.Level();

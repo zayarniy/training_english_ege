@@ -11,12 +11,14 @@ task2:
   header3:"You are considering visiting a computer club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
   image:'1-virtual.jpg',
   text1:'1)	location<br>2) variety of games<br>3)	opening hours       <br>4)	price per hour',
-  text2:'You have 20 seconds to ask each question.',
-  questions: ['location','2)	variety of games','opening hours','price per hour']
+  text2:'<br><strong>You have 20 seconds to ask each question.</strong>',
+  questions: ['location','variety of games','opening hours','price per hour']
 },
 task3:
-{header:'Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.',
-Interviewer:["Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss the choice of a future career. We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started. Interviewer: When was the last time you have been using a gadget. What for? Student: The last time I have been using a gadget was yesterday. I looked up some new words in an English dictionary. Interviewer: What gadgets are the most popular among the teenagers in your region and why?", "How has technology and gadgets changed the way teenagers learn?","Is it important to limit gadgets usage? Why/ why not?","How will technology affect society in the future?", "Thank you very much for your interview."]
+{ 
+  header:'Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.',
+  introduction: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss the choice of a future career. We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started",
+  interviewer:["Interviewer: When was the last time you have been using a gadget. What for? Student: The last time I have been using a gadget was yesterday. I looked up some new words in an English dictionary. Interviewer: What gadgets are the most popular among the teenagers in your region and why?", "How has technology and gadgets changed the way teenagers learn?","Is it important to limit gadgets usage? Why/ why not?","How will technology affect society in the future?", "Thank you very much for your interview."]
 },
 task4:
 {

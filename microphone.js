@@ -42,41 +42,15 @@ function startRecording() {
   }
 }
 
-/*
-function startPrepairTimer(prepairTime)
-{
-            training.recTime=prepairTime;
-            training.progressValue=100;
-            timer=setInterval(
-                ()=>
-                {
-                    if (training.recTime>0)
-                    {
-                        training.recTime--;
-                        training.progressValue-=training.progressStep;
-                    }
-                     
-                    else
-                        {
-                            timerStop();
-                            training.Level();
-                        }
-                },1000);     
-}
-
-function stopPrepairTimer()
-{
-    timerStop();
-}
-*/
-function stopRecording(needTimerStop = true) {
+function stopRecording(needTimerStop = true,) {
   if (mediaRecorder == null) return;
   if (mediaRecorder.state === 'recording') {
 
     mediaRecorder.stop();
     training.progressValue = 0;
     if (needTimerStop) timerStop();
-    training.micStatus = MicStatus.READYTOPLAY;
+    if (training.micStatus!=MicStatus.AUTORECORDING)
+       training.micStatus = MicStatus.READYTOPLAY;
     //console.log('Recording stopped');
   }
   else {
