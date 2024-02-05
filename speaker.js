@@ -1,18 +1,27 @@
 const synth = window.speechSynthesis;
 let voices = [];
-let voice;
+//let voice;
 
 function populateVoiceList() 
 {
-
-  voices = voices.filter(a => a.lang.includes("en") && a.lang.includes("GB"))
+  voices=synth.getVoices();
+  voices = voices.filter(a => a.lang.includes("en") && a.lang.includes("GB") && a.name.includes("Google"));
+  //if not exists Google voices
+  if (voices.length==0)
+  {
+    voices = voices.filter(a => a.lang.includes("en") && a.lang.includes("GB"));
+  }
+  //console.log(voices);
 }
 
 //voices=synth.getVoices();
 
 
 
-//populateVoiceList();
+setTimeout(() => {
+  
+  populateVoiceList();  
+}, 1000); 
 
 if (synth.onvoiceschanged !== undefined) {
   synth.onvoiceschanged = populateVoiceList;
@@ -22,31 +31,35 @@ function log() {
   console.log("SpeechSynthesisUtterance.onend");
 }
 
-function speak(text, callback = log) {
+function speak(text, callback = log,delay=4000) {
   if (synth.speaking) {
     console.error("speechSynthesis.speaking");
     return;
   }
 
-  const utterThis = new SpeechSynthesisUtterance(text);
+  setTimeout(() => {
+    const utterThis = new SpeechSynthesisUtterance(text);
 
-  utterThis.onend = function (event) {
-
-    callback();
-  };
-
-  utterThis.onerror = function (event) {
-    console.error("SpeechSynthesisUtterance.onerror");
-  };
-  utterThis.voice = voice;//voices[1]
-  //alert(voices)
-  utterThis.pitch = 1;
-  utterThis.rate = 0.8;
-  utterThis.lang = "en-GB";
-  synth.speak(utterThis);
+    utterThis.onend = function (event) {
+     console.log('speak end');
+      callback();
+    };
+  
+    utterThis.onerror = function (event) {
+      console.error("SpeechSynthesisUtterance.onerror");
+    };
+    utterThis.voice = voices[0]
+      //alert(voices)
+    utterThis.pitch = 1;
+    utterThis.rate = 0.8;
+    utterThis.lang = "en-GB";
+    synth.speak(utterThis);  
+  }, 250);
+  
 }
 
 ///////////////////////////////////////////////////////////////////
+/*
 function populateVoiceList() {
   if (typeof synth === "undefined") {
     return;
@@ -77,4 +90,4 @@ if (
 ) 
 {
   synth.onvoiceschanged = populateVoiceList;
-}
+}*/

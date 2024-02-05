@@ -28,7 +28,7 @@ let data = {
     rec_nav_text: 'Перейти к экзамену',
     countDownText: 'Be ready for the test',
     countDown: 10,
-    level: 14,
+    level: 0,
     levelTxt: '',
     chunks: [],
     current_chunk: []
@@ -102,7 +102,7 @@ let training = new Vue({
         Level() {
             let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1',
              'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task',
-              'task21','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3', 'task31', 'download'];
+              'task21','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task31','task32', 'task33', 'task34', 'task35','prepair4','task4', 'download'];
             //alert(this.level)
             stopRecording();
             stopAudio();
@@ -221,16 +221,18 @@ let training = new Vue({
                     training.isShowImage1=false;
                     training.head1=Tasks.task3.header;
                     training.isShowHeader1=true;
+                    training.isShowImage1=false;
+                    training.isShowImage2=false;
                     //training.head2 = headers2[1]
                     //training.head3 = headers3[1]
                     training.isShowHeader2 = false;
                     training.isShowHeader3 = false;
-                    training.isShowImage1 = true;
                     training.isShowPrepare = true;
                     training.isShowCountdown=false;
-                    training.main_text='';
-                    training.micStatus=MicStatus.NOTREADY;
-                    prepair('', '', '', 90)
+                    training.main_text = Tasks.task3.introduction1+Tasks.task3.introduction2;
+                    training.micStatus=MicStatus.PREPARE;
+                    speak(Tasks.task3.introduction1,()=>{speak(Tasks.task3.introduction2,console.log("..."))});
+                    prepair('', '', '', 30)
                     break;
                 case 'task3':
                     
@@ -238,16 +240,104 @@ let training = new Vue({
                     training.isShowHeader1=true;
                     training.head1 = Tasks.task3.header;
                     training.isShowPrepare=false;                    
-                    training.main_text = Tasks.task3.introduction;
-                    speak(Tasks.task3.introduction);
+                    speak(Tasks.task3.introduction1,()=>{speak(Tasks.task3.introduction2,console.log("..."))});
                     prepair('', '', '', 30)
                     //recAnswers(Tasks.task3.Interviewer, 40);
                     //task('','', '', 90);                    
                     break;
-                case 'task31':
+                case 'task31':                    
+                    training.isShowImage1 = false;
+                    training.isShowRecorder=true;                    
+                    //recAnswers(Tasks.task2.questions, 20);
+                    //task(headers1[1], tasks[1], '', 90);
+                    //task('','', '', 40);
+                    training.isShowMain=true;  
+                    training.isShowCountdown=false;                  
+                     training.progressValue=0;
+                      training.maxRecTime=40;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.recTime=0;                    
+                    training.main_text = Tasks.task3.interviewer[0];
                     speak(Tasks.task3.interviewer[0],()=>{startRecording();    });
                     break;
-
+                    case 'task32':                    
+                    training.isShowImage1 = false;
+                    training.isShowRecorder=true;                    
+                    //recAnswers(Tasks.task2.questions, 20);
+                    //task(headers1[1], tasks[1], '', 90);
+                    //task('','', '', 40);
+                    training.isShowMain=true;                    
+                     training.progressValue=0;
+                      training.maxRecTime=40;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.recTime=0;                    
+                    training.main_text = Tasks.task3.interviewer[1];
+                    speak(Tasks.task3.interviewer[1],()=>{startRecording();    });
+                    break;
+                    case 'task33':                    
+                    training.isShowImage1 = false;
+                    training.isShowRecorder=true;                    
+                    //recAnswers(Tasks.task2.questions, 20);
+                    //task(headers1[1], tasks[1], '', 90);
+                    //task('','', '', 40);
+                    training.isShowMain=true;                    
+                     training.progressValue=0;
+                      training.maxRecTime=40;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.recTime=0;                    
+                    training.main_text = Tasks.task3.interviewer[2];
+                    speak(Tasks.task3.interviewer[2],()=>{startRecording();    });
+                    break;
+                    case 'task34':                    
+                    training.isShowImage1 = false;
+                    training.isShowRecorder=true;                    
+                    //recAnswers(Tasks.task2.questions, 20);
+                    //task(headers1[1], tasks[1], '', 90);
+                    //task('','', '', 40);
+                    training.isShowMain=true;                    
+                     training.progressValue=0;
+                      training.maxRecTime=40;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.recTime=0;                    
+                    training.main_text = Tasks.task3.interviewer[3];
+                    speak(Tasks.task3.interviewer[3],()=>{startRecording();    });
+                    break;
+                    case 'task35':                    
+                    training.isShowImage1 = false;
+                    training.isShowRecorder=true;                    
+                    //recAnswers(Tasks.task2.questions, 20);
+                    //task(headers1[1], tasks[1], '', 90);
+                    //task('','', '', 40);
+                    training.isShowMain=true;                    
+                     training.progressValue=0;
+                      training.maxRecTime=40;
+                      training.micStatus = MicStatus.AUTORECORDING;
+                      training.recTime=0;                    
+                    training.main_text = Tasks.task3.interviewer[4];
+                    speak(Tasks.task3.interviewer[4],()=>{startRecording();    });
+                    break;                    
+                    case 'prepair4':
+                        training.isShowImage1=true;
+                        training.image1=Tasks.task4.images[0]
+                        training.image2=Tasks.task4.images[1]
+                        training.isShowImage2=true;
+                        training.head1=Tasks.task4.header;
+                        training.isShowHeader1=true;
+                        training.isShowHeader2 = false;
+                        training.isShowHeader3 = false;
+                        training.isShowPrepare = true;
+                        training.isShowCountdown=false;
+                        training.main_text = Tasks.task4.text;
+                        training.text2=Tasks.task4.text2;
+                        training.micStatus=MicStatus.PREPARE;
+                        //speak(Tasks.task3.introduction1,()=>{speak(Tasks.task3.introduction2,console.log("..."))});
+                        prepair('', '', '', 150)
+                        break;
+                    case 'task4':                    
+                        //training.head1 = 'Read the text aloud';
+                        //training.main_text = Tasks.task1.text;
+                        task('', '', '', 180)
+                        break     
                 case 'download'://download
 
                     timerStop();
@@ -361,7 +451,7 @@ function prepair(head_text, main_text, text_speak, maxRecTime) {
     training.maxRecTime = maxRecTime;
     training.rec_nav_text = 'Готов';
     //startPrepairTimer(90);
-    timerStart(false, true, 90);
+    timerStart(false, true, maxRecTime);
 }
 
 function task(head_text, main_text, text_speak, maxRecTime) {

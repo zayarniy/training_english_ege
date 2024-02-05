@@ -17,8 +17,9 @@ task2:
 task3:
 { 
   header:'Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.',
-  introduction: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss the choice of a future career. We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started",
-  interviewer:["Interviewer: When was the last time you have been using a gadget. What for? Student: The last time I have been using a gadget was yesterday. I looked up some new words in an English dictionary. Interviewer: What gadgets are the most popular among the teenagers in your region and why?", "How has technology and gadgets changed the way teenagers learn?","Is it important to limit gadgets usage? Why/ why not?","How will technology affect society in the future?", "Thank you very much for your interview."]
+  introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss the choice of a future career.",
+  introduction2:"We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started",
+  interviewer:["When was the last time you have been using a gadget. What for?","What gadgets are the most popular among the teenagers in your region and why?", "How has technology and gadgets changed the way teenagers learn?","Is it important to limit gadgets usage? Why/ why not?","How will technology affect society in the future?", "Thank you very much for your interview."]
 },
 task4:
 {
