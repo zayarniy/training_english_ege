@@ -23,7 +23,6 @@ async function getMic() {
   mediaRecorder.onstop = (e) => {
     console.log('Recording stoped');
   }
-  training.micStatus = MicStatus.READYTORECORD
   training.show_nav02 = true;
   training.show_nav01 = false;
 }

@@ -31,8 +31,9 @@ let data = {
     level: 0,
     levelTxt: '',
     chunks: [],
-    current_chunk: []
-
+    current_chunk: [],
+    preparationTimeText:'Preparation 01:30',
+    answerTimeText:'Answer 01:30'
 }
 
 
@@ -53,6 +54,9 @@ let training = new Vue({
                     return 'fa-solid fa-circle-play icon-size';
                 case MicStatus.RECORDING:
                     return 'fa-solid fa-circle-stop icon-size red';
+                case MicStatus.AUTORECORDING:
+                    return 'fa-solid fa-circle-stop icon-size red';
+                                        
                 case MicStatus.PLAY:
                     return 'fa-solid fa-circle-stop icon-size';
                 case MicStatus.PREPARE:
@@ -87,7 +91,7 @@ let training = new Vue({
                 case MicStatus.READYTOPLAY:
                     playAudio();
                     break;
-                case MicStatus.RECORDING:
+                case MicStatus.RECORDING:                    
                     stopRecording();
                     break;
                 case MicStatus.PLAY:
@@ -102,7 +106,7 @@ let training = new Vue({
         Level() {
             let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1',
              'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task',
-              'task21','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task31','task32', 'task33', 'task34', 'task35','prepair4','task4', 'download'];
+              'task21','count-down-task','task22','count-down-task','task23','count-down-task','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3','task31','task32', 'task33', 'task34', 'task35','count-down-prepair','prepair4','count-down-task','task4', 'download'];
             //alert(this.level)
             stopRecording();
             stopAudio();
@@ -113,6 +117,7 @@ let training = new Vue({
 
             switch (Levels[this.level]) {
                 case 'mic-test'://Mic test
+                  training.micStatus = MicStatus.READYTORECORD;
                     mic_test('Внимание', 'Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести. Если вы уже делали это, можете сразу перейти к выполнению задания.')
                     break;
                 case 'count-down-prepair'://Countdown
@@ -137,10 +142,10 @@ let training = new Vue({
                     task('', '', '', 90)
                     break
                 case 'prepair2':
-                    training.image1 = images[0];
+                    training.image1 = Tasks.task2.image;
                     training.head1 = Tasks.task2.header1
                     training.head2 = Tasks.task2.header2
-                    training.head3 = headers3[0]
+                    training.head3 = Tasks.task2.header3;
                     training.main_text=Tasks.task2.text1;
                     training.text2=Tasks.task2.text2;
                     training.isShowHeader1=true;
@@ -149,14 +154,16 @@ let training = new Vue({
                     training.isShowImage1 = true;
                     training.isShowPrepare = true;
                     training.isShowCountdown=false;
+                    training.answerTimeText="Answer 00:20"
                     prepair('', '', '', 90)
                     break;
 
                 case 'task21'://task
-                    training.image = images[0];
+                    training.image = Tasks.task2.image;
                     training.isShowImage1 = true;
                     training.isShowRecorder=true;            
                     training.isShowCountdown=false; 
+                    training.isShowHeader3=false;
                     training.text2='';       
                    // recAnswers(Tasks.task2.questions, 20);
                     task('','', '', 20);
@@ -170,7 +177,7 @@ let training = new Vue({
                       //startRecording();                    
                     break
                     case 'task22'://task
-                    training.image = images[0];
+                    training.image = Tasks.task2.image;
                     training.isShowImage1 = true;
                     training.isShowRecorder=true;                    
                     //recAnswers(Tasks.task2.questions, 20);
@@ -186,7 +193,7 @@ let training = new Vue({
                       //startRecording();                    
                     break
                     case 'task23'://task
-                    training.image = images[0];
+                    training.image = Tasks.task2.image;
                     training.isShowImage1 = true;
                     training.isShowRecorder=true;                    
                     //recAnswers(Tasks.task2.questions, 20);
@@ -202,7 +209,7 @@ let training = new Vue({
                       //startRecording();                    
                     break
                     case 'task24'://task
-                    training.image = images[0];
+                    training.image = Tasks.task2.image;
                     training.isShowImage1 = true;
                     training.isShowRecorder=true;                    
                     //recAnswers(Tasks.task2.questions, 20);
@@ -229,24 +236,31 @@ let training = new Vue({
                     training.isShowHeader3 = false;
                     training.isShowPrepare = true;
                     training.isShowCountdown=false;
-                    training.main_text = Tasks.task3.introduction1+Tasks.task3.introduction2;
+                    training.main_text = "";
+                    training.isShowMain=false;
                     training.micStatus=MicStatus.PREPARE;
-                    speak(Tasks.task3.introduction1,()=>{speak(Tasks.task3.introduction2,console.log("..."))});
+                    training.preparationTimeText='';
+                    training.answerTimeText='Answer 00:40';
                     prepair('', '', '', 30)
                     break;
                 case 'task3':
-                    
+                    training.micStatus = MicStatus.AUTORECORDING;
+                    training.isShowMain=true;
                     training.isShowImage = false;
                     training.isShowHeader1=true;
-                    training.head1 = Tasks.task3.header;
-                    training.isShowPrepare=false;                    
-                    speak(Tasks.task3.introduction1,()=>{speak(Tasks.task3.introduction2,console.log("..."))});
-                    prepair('', '', '', 30)
+                    training.isShowCountdown=false;
+                    training.head1 = 'Interview';
+                    training.isShowPrepare=true;                    
+                    training.main_text = Tasks.task3.introduction1+' '+Tasks.task3.introduction2;
+                    speak(Tasks.task3.introduction1,()=>{speak(Tasks.task3.introduction2,()=>{training.isShowRecorder=true;})});
+                    //playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[0],()=>{startRecording();});
+                    //prepair('', '', '', 30)
                     //recAnswers(Tasks.task3.Interviewer, 40);
                     //task('','', '', 90);                    
                     break;
                 case 'task31':                    
                     training.isShowImage1 = false;
+                    training.isShowHeader1=false;
                     training.isShowRecorder=true;                    
                     //recAnswers(Tasks.task2.questions, 20);
                     //task(headers1[1], tasks[1], '', 90);
@@ -258,7 +272,12 @@ let training = new Vue({
                       training.micStatus = MicStatus.AUTORECORDING;
                       training.recTime=0;                    
                     training.main_text = Tasks.task3.interviewer[0];
-                    speak(Tasks.task3.interviewer[0],()=>{startRecording();    });
+                    /*
+                    playSoundAndCallFunction('sounds/line_open.mp3',
+                    ()=>{speak(Tasks.task3.interviewer[0],
+                        playSoundAndCallFunction('sounds/line_open.mp3', ()=>{startRecording();}))});
+                        */
+                        playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[0],()=>{startRecording();});
                     break;
                     case 'task32':                    
                     training.isShowImage1 = false;
@@ -272,7 +291,8 @@ let training = new Vue({
                       training.micStatus = MicStatus.AUTORECORDING;
                       training.recTime=0;                    
                     training.main_text = Tasks.task3.interviewer[1];
-                    speak(Tasks.task3.interviewer[1],()=>{startRecording();    });
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[1],()=>{startRecording();});
+
                     break;
                     case 'task33':                    
                     training.isShowImage1 = false;
@@ -286,7 +306,9 @@ let training = new Vue({
                       training.micStatus = MicStatus.AUTORECORDING;
                       training.recTime=0;                    
                     training.main_text = Tasks.task3.interviewer[2];
-                    speak(Tasks.task3.interviewer[2],()=>{startRecording();    });
+                    //speak(Tasks.task3.interviewer[2],()=>{startRecording();    });
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[2],()=>{startRecording();});
+
                     break;
                     case 'task34':                    
                     training.isShowImage1 = false;
@@ -300,7 +322,8 @@ let training = new Vue({
                       training.micStatus = MicStatus.AUTORECORDING;
                       training.recTime=0;                    
                     training.main_text = Tasks.task3.interviewer[3];
-                    speak(Tasks.task3.interviewer[3],()=>{startRecording();    });
+                    //speak(Tasks.task3.interviewer[3],()=>{startRecording();    });
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[3],()=>{startRecording();});
                     break;
                     case 'task35':                    
                     training.isShowImage1 = false;
@@ -314,7 +337,8 @@ let training = new Vue({
                       training.micStatus = MicStatus.AUTORECORDING;
                       training.recTime=0;                    
                     training.main_text = Tasks.task3.interviewer[4];
-                    speak(Tasks.task3.interviewer[4],()=>{startRecording();    });
+                    //speak(Tasks.task3.interviewer[4],()=>{startRecording();    });
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[4],()=>{startRecording();});
                     break;                    
                     case 'prepair4':
                         training.isShowImage1=true;
@@ -330,10 +354,14 @@ let training = new Vue({
                         training.main_text = Tasks.task4.text;
                         training.text2=Tasks.task4.text2;
                         training.micStatus=MicStatus.PREPARE;
+                        training.preparationTimeText='Preparation 02:30';
+                        training.answerTimeText='Answer 03:00';
                         //speak(Tasks.task3.introduction1,()=>{speak(Tasks.task3.introduction2,console.log("..."))});
                         prepair('', '', '', 150)
                         break;
-                    case 'task4':                    
+                    case 'task4':      
+                        training.text2='';    
+                        training.main_text='';          
                         //training.head1 = 'Read the text aloud';
                         //training.main_text = Tasks.task1.text;
                         task('', '', '', 180)
@@ -344,6 +372,8 @@ let training = new Vue({
                     training.head1 = "Results";
                     training.isShowHeader2 = false;
                     training.isShowHeader2 = false;
+                    training.isShowImage2=false;
+                    training.text2="";
                     training.main_text = "To get results click button below";
                     training.image1 = '';
                     training.isShowImage1 = false;

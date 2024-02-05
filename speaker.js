@@ -58,6 +58,37 @@ function speak(text, callback = log,delay=4000) {
   
 }
 
+
+function playSoundAndCallFunction(soundFile, callback,delay=250) {
+
+  setTimeout(()=>{
+    const audio = new Audio(soundFile);
+  
+    audio.onended = function() {callback();};
+  
+  audio.play();
+  },delay);
+}
+
+function playSoundSayTextAndPlaySoundAgain(soundFile, text, callback1) {
+  const audio = new Audio(soundFile);
+  
+  audio.onended = function() {
+    speak(text, function() {
+      const audioAgain = new Audio(soundFile);
+      
+      audioAgain.onended = function() {
+        callback1();
+      };
+      
+      audioAgain.play();
+    });
+  };
+  
+  audio.play();
+}
+
+
 ///////////////////////////////////////////////////////////////////
 /*
 function populateVoiceList() {

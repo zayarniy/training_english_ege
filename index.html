@@ -25,8 +25,7 @@
 
 <body>
   <div id='app' class="container-fluid">
-    <header>
-      <select id="voiceSelect"></select>
+    <header>      
       <div class="row justify-content-center">
         <div class="col-md-2">
           <img src="logo.png" alt="Logo">
@@ -44,11 +43,11 @@
               </td>
             </tr>
             <tr>
-              <td style='text-align: right'>Preparation 01:30</td>
+              <td style='text-align: right'>{{preparationTimeText}}</td>
             </tr>
             <tr>
               <td></td>
-              <td style='text-align: right'>Answer 01:30</td>
+              <td style='text-align: right'>{{answerTimeText}}</td>
             </tr>
           </table>
 
@@ -59,17 +58,18 @@
     <div v-if='isShowMain' class="row">
       <h4 v-if='isShowHeader1' class='col col-md-12 my_header' v-html='head1'></h4>
       <h4 v-if='isShowHeader2' class='col-12 my_header text-center' v-html='head2'></h4>
-      <div v-if='isShowImage1' class="col col-md-12 text-center">
+      <div v-if='isShowImage1' class="col col text-center">
         <img v-bind:src="'images/' + image1" class="my_image align-center">
       </div>
+      <div v-if='isShowImage2' class="col col text-center">
+        <img v-bind:src="'images/' + image2" class="my_image align-center">
+      </div>
+
       <h4 v-if='isShowHeader3' class='col-12 my_header' v-html='head3'></h4>
 
 
       <div class="main">
         <div v-html='main_text' class="col-md-12">
-        </div>
-        <div v-if='isShowImage2' class="col col-md-12 text-center">
-          <img v-bind:src="'images/' + image2" class="my_image align-center">
         </div>
         <div v-html='text2' class="col-md-12 font-weight-bold">
         </div>

@@ -81,6 +81,11 @@ body {
     color: red;
 }
 
+.blue
+{
+    color: blue;
+}
+
 .my_btn {
     #border: 1px solid #000;
     height: 45px;
