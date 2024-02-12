@@ -25,13 +25,15 @@ body {
     text-align: justify;
 }
 
-.main {
-    height: 600px;
-    min-height: 500px;
-    text-align: justify;
+.main 
+{
+    font-size:25px;
+    #height: 800px;
+    #min-height: 500px;
+    text-align: justify;    
     #border: 1px solid #000;
-    min-width: 500px;
-    width: 776px;
+    #min-width: 500px;
+    #width: 776px;
 }
 
 
@@ -167,5 +169,5 @@ body {
 
 .my_image {
     #display: block;
-    width: 180px;
+    width: 360px;
 }

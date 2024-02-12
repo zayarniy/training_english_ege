@@ -17,6 +17,7 @@ task2:
 task3:
 { 
   header:'Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.',
+  introduction:"Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.",
   introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss the choice of a future career.",
   introduction2:"We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started",
   interviewer:["When was the last time you have been using a gadget. What for?","What gadgets are the most popular among the teenagers in your region and why?", "How has technology and gadgets changed the way teenagers learn?","Is it important to limit gadgets usage? Why/ why not?","How will technology affect society in the future?", "Thank you very much for your interview."]
@@ -24,7 +25,7 @@ task3:
 task4:
 {
   header:'Task 4. Imagine that you and your friend are doing a school project "Modern inventions". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:',
-  text:"explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>• mention the advantages (1-2) of the two types of modern inventions;<br> • mention the disadvantages (1-2) of the two types of modern inventions;<br>• express your opinion on the subject of the project — which modern invention you'd prefer and why.",
+  text:"• explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>• mention the advantages (1-2) of the two types of modern inventions;<br> • mention the disadvantages (1-2) of the two types of modern inventions;<br>• express your opinion on the subject of the project — which modern invention you'd prefer and why.",
   images:['2-1.jpg','2-2.jpg'],
   text2:"You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously."
 }
@@ -32,7 +33,7 @@ task4:
 }
 
 let Sounds={
-  sound1:'sounds/audio1.mp3',
+  sound1:'sounds/sound01.mp3',
   sound2:'sounds/audio2.mp3', 
   sound3:'sounds/line_open.mp3'
 }
