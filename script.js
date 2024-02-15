@@ -145,6 +145,7 @@ let training = new Vue({
                     training.head1 = 'Read the text aloud';
                     training.main_text = Tasks.task1.text;
                     task('', '', '', 90)
+                    training.answerTimeText="Answer 00:20"     
                     break
                 case 'prepair2':
                     training.image1 = Tasks.task2.image;
@@ -159,7 +160,7 @@ let training = new Vue({
                     training.isShowImage1 = true;
                     training.isShowPrepare = true;
                     training.isShowCountdown=false;
-                    training.answerTimeText="Answer 00:20"
+                    training.answerTimeText="Answer 00:20"                    
                     prepair('', '', '', 90)
                     break;
 
@@ -179,6 +180,9 @@ let training = new Vue({
                       training.micStatus = MicStatus.AUTORECORDING;
                       training.main_text='Question 1: '+Tasks.task2.questions[0];
                       training.recTime=0;
+                      training.isShowPrepare=false;
+                      training.answerTimeText='';
+                      training.preparationTimeText='';
                       //startRecording();                    
                     break
                     case 'task22'://task
@@ -227,6 +231,8 @@ let training = new Vue({
                       training.micStatus = MicStatus.AUTORECORDING;
                       training.main_text='Question 4: '+Tasks.task2.questions[3];
                       training.recTime=0;
+                      training.preparationTimeText="Preparation 01:30"
+                      training.answerTimeText='Answer 00:40';
                       //startRecording();                    
                     break
                 case 'prepair3':
@@ -244,8 +250,8 @@ let training = new Vue({
                     training.main_text = "";
                     training.isShowMain=false;
                     training.micStatus=MicStatus.PREPARE;
-                    training.preparationTimeText='';
-                    training.answerTimeText='Answer 00:40';
+                    //training.preparationTimeText='';
+                    //training.answerTimeText='Answer 00:40';
                     prepair('', '', '', 30)
                     break;
                 case 'task3':
@@ -284,7 +290,7 @@ let training = new Vue({
                     ()=>{speak(Tasks.task3.interviewer[0],
                         playSoundAndCallFunction('sounds/line_open.mp3', ()=>{startRecording();}))});
                         */
-                        playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[0],()=>{startRecording();});
+                        playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[0],()=>{startRecording(false, false, true,training.maxRecTime);});
                     break;
                     case 'task32':                    
                     training.isShowImage1 = false;
@@ -300,7 +306,7 @@ let training = new Vue({
                       training.micStatus = MicStatus.AUTORECORDING;
                       training.recTime=0;                    
                     training.main_text ='';// Tasks.task3.interviewer[1];
-                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[1],()=>{startRecording();});
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[1],()=>{startRecording(false, false, true,training.maxRecTime);});
 
                     break;
                     case 'task33':                    
@@ -317,7 +323,7 @@ let training = new Vue({
                       training.recTime=0;                    
                     training.main_text ='';// Tasks.task3.interviewer[2];
                     //speak(Tasks.task3.interviewer[2],()=>{startRecording();    });
-                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[2],()=>{startRecording();});
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[2],()=>{startRecording(false, false, true,training.maxRecTime);});
 
                     break;
                     case 'task34':                    
@@ -334,7 +340,7 @@ let training = new Vue({
                       training.recTime=0;                    
                     training.main_text = '';//Tasks.task3.interviewer[3];
                     //speak(Tasks.task3.interviewer[3],()=>{startRecording();    });
-                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[3],()=>{startRecording();});
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[3],()=>{startRecording(false, false, true,training.maxRecTime);});
                     break;
                     case 'task35':                    
                     training.isShowImage1 = false;
@@ -349,7 +355,7 @@ let training = new Vue({
                       training.recTime=0;                    
                     training.main_text ='';// Tasks.task3.interviewer[4];
                     //speak(Tasks.task3.interviewer[4],()=>{startRecording();    });
-                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[4],()=>{startRecording();});
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[4],()=>{startRecording(false, false, true,training.maxRecTime);});
                     break;                    
                     case 'prepair4':
                         training.isShowImage1=true;
@@ -514,7 +520,7 @@ function prepair(head_text, main_text, text_speak, maxRecTime) {
     training.maxRecTime = maxRecTime;
     training.rec_nav_text = 'Готов';
     //startPrepairTimer(90);
-    timerStart(false, true, maxRecTime);
+    timerStart(false, false, true, maxRecTime);
 }
 
 function task(head_text, main_text, text_speak, maxRecTime) {
@@ -537,7 +543,7 @@ function task(head_text, main_text, text_speak, maxRecTime) {
     training.maxRecTime = maxRecTime;
     training.recTime = 0;
     //timerStop();
-    startRecording();
+    startRecording(false, false, true, maxRecTime);
     //speak(text_speak,()=>{startRecording();    });
 
 }
@@ -571,26 +577,29 @@ function read_task(head_text, main_text, text_speak, maxRecTime) {
     training.maxRecTime = maxRecTime;
     training.rec_nav_text = 'К заданию';
     //timerStart(record:false,direct:false,90);   
-    timerStart(false, false, 90);
+    timerStart(false, false,true, 90);
 }
 
-//record=true,false,direct=true - forward, false - backward, time - seconds
-function timerStart(record = false, direct = true, time = 90,next=true) {
+//record=true,
+//directTimer - направление счета таймера true - forward, false - backward
+//directProgress - направление прогресса
+// time - seconds
+function timerStart(record = false, directTimer = true,directProgress=true, time = 90,next=true) {
     training.recTime = 0;
     training.maxRecTime = time;
     let progressStep = 100 / time;
-    let t = 0;
-    if (direct)
+    if (directProgress)
         training.progressValue = 0;
     else {
         training.progressValue = 100;
         progressStep *= -1;
     }
+    let t = 0;
     timer = setInterval(
         () => {
             t++;
             if (t < time) {
-                if (!direct)
+                if (!directTimer)
                     training.recTime = time - t;
                 else
                     training.recTime = t;
@@ -642,7 +651,7 @@ function audioContainerSet(audioContainerId, chunks) {
             textElement.innerHTML='Task 3';
             audioContainer.appendChild(textElement);
         }
-        if (index==9) {
+        if (index==10) {
             const textElement=document.createElement('p');
             textElement.innerHTML='Task 4';
             audioContainer.appendChild(textElement);
