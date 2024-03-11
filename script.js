@@ -107,7 +107,7 @@ let training = new Vue({
         Level() {
             let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1',
              'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task',
-              'task2','count-down-task','task22','count-down-task','task23','count-down-task','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3','task31','task32', 'task33', 'task34', 'task35','count-down-prepair','prepair4','count-down-task','task4', 'download','start'];
+              'task2','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3','task31','task32', 'task33', 'task34', 'task35','count-down-prepair','prepair4','count-down-task','task4', 'download','start'];
             //alert(this.level)
             stopRecording();
             stopAudio();
@@ -261,6 +261,7 @@ let training = new Vue({
                     training.isShowHeader1=true;
                     training.isShowCountdown=false;
                     training.head1 = 'Interview';
+                    training.isShowPrepare=false;
                     training.isShowPrepare=true;                    
                     training.main_text =Tasks.task3.introduction; //Tasks.task3.introduction1+' '+Tasks.task3.introduction2;
                     speak(Tasks.task3.introduction1,()=>{speak(Tasks.task3.introduction2,()=>{training.isShowRecorder=true;this.Level();})});

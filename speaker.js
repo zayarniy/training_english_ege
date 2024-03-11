@@ -51,8 +51,8 @@ function speak(text, callback = log,delay=4000) {
     utterThis.voice = voices[0]
       //alert(voices)
     utterThis.pitch = 1;
-    utterThis.rate = 0.8;
-    utterThis.lang = "en-GB";
+    utterThis.rate = 1;
+    utterThis.lang = "en-GB"; 
     synth.speak(utterThis);  
   }, 250);
   
