@@ -20,6 +20,7 @@ let data = {
     isShowImage1: false,
     isShowImage2: false,
     isShowResult: false,
+    isShowCaption: false,
     isShowAudioContainer: false,
     micStatus: MicStatus.NOTREADY,
     recTime: 0,
@@ -107,7 +108,7 @@ let training = new Vue({
         Level() {
             let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1',
              'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task',
-              'task2','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3','task31','task32', 'task33', 'task34', 'task35','count-down-prepair','prepair4','count-down-task','task4', 'download','start'];
+              'task2','task22','task23','task24','count-down-prepair', 'prepair3', 'count-down-task', 'task3','task31','task32', 'task33', 'task34', 'task35','count-down-prepair', 'prepair4','count-down-task','task4', 'download','start'];
             //alert(this.level)
             stopRecording();
             stopAudio();
@@ -124,6 +125,7 @@ let training = new Vue({
                     
                     break;
                 case 'count-down-prepair'://Countdown
+                    
                     count_down(Levels[this.level+3], '', 'Be ready for the test', 5)
                     break;
                 case 'count-down-task'://Countdown
@@ -167,6 +169,7 @@ let training = new Vue({
                 case 'task2'://task
                     training.image = Tasks.task2.image;
                     training.isShowImage1 = true;
+                    training.isShowCaption=false;
                     training.isShowRecorder=true;            
                     training.isShowCountdown=false; 
                     training.isShowHeader3=false;
@@ -252,7 +255,7 @@ let training = new Vue({
                     training.micStatus=MicStatus.PREPARE;
                     //training.preparationTimeText='';
                     //training.answerTimeText='Answer 00:40';
-                    prepair('', '', '', 30)
+                    prepair('', '', '', 90)
                     break;
                 case 'task3':
                     training.micStatus = MicStatus.AUTORECORDING;
@@ -359,6 +362,7 @@ let training = new Vue({
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[4],()=>{startRecording(false, false, true,training.maxRecTime);});
                     break;                    
                     case 'prepair4':
+                        training.isShowCaption=true;
                         training.isShowImage1=true;
                         training.image1=Tasks.task4.images[0]
                         training.image2=Tasks.task4.images[1]
@@ -467,7 +471,7 @@ let training = new Vue({
 function startCountdown() {
     if (training.isStartCountdown) {
         let si = setInterval(() => {
-            if (training.countDown > 0) {
+            if (training.countDown > 1) {
                 training.countDown--;
             } else {
                 clearInterval(si)

@@ -27,7 +27,7 @@ task4:
   header:'Task 4. Imagine that you and your friend are doing a school project "Modern inventions". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:',
   text:"• explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>• mention the advantages (1-2) of the two types of modern inventions;<br> • mention the disadvantages (1-2) of the two types of modern inventions;<br>• express your opinion on the subject of the project — which modern invention you'd prefer and why.",
   images:['2-1.jpg','2-2.jpg'],
-  text2:"You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously."
+  text2:"<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
 }
 
 }

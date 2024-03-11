@@ -56,36 +56,47 @@
       </div>
     </header>
     <!--Main-->
-    <div v-if='isShowMain' class="row">
+    <div v-if="isShowMain">
+    <div v-if='isShowMain' class="row" >
       <h4 v-if='isShowHeader1' class='col col-md-12 my_header' v-html='head1'></h4>
       <h4 v-if='isShowHeader2' class='col-12 my_header text-center' v-html='head2'></h4>
-      <h4 v-if='isShowHeader3' class='col-12 my_header' v-html='head3'></h4>
-      <div class="col-md main float-left">
+    </div>
+      <div class="row d-flex justify-content-center flex-wrap">
+        <div v-if='isShowImage1' class="col-md-6 text-center">
+          <figure class="figure">
+            <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold;">Photo 1</figcaption>
+            <img v-bind:src="'images/' + image1" class="my_image">
+           </figure>
+        </div>
+        <div v-if='isShowImage2' class="col-md-6 text-center">
+          <figure class="figure">
+            <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold;">Photo 2</figcaption>
+            <img v-bind:src="'images/' + image2" class="my_image">
+            </figure>
+        </div>
+      </div>      
+      <div class="row">
+      <h4 v-if='isShowHeader3' class='my_header' v-html='head3'></h4>
+
+        <div v-if="isShowMain" class="col-md main">
         <div v-html='main_text'>
         </div>
         <div v-html='text2' class="col-md font-weight-bold">
         </div>
       </div>
-<div v-if='isShowImage1' class="col-md float-right">
-      <div v-if='isShowImage1' class="col img-fluid float-right">
-        <img v-bind:src="'images/' + image1" class="my_image">
-      </div>
-      <div v-if='isShowImage2' class="col img-fluid float-right">
-        <img v-bind:src="'images/' + image2" class="my_image">
-      </div>
-    </div>
+    
         <!--AudioContainer-->
         <ol v-show="isShowAudioContainer" id='audioContainer'>
 
         </ol>
-        <div v-if='isShowResult' style='height: 40px;' class='col'>
-          <div class="col">
+        <div v-if='isShowResult' style='height: 40px;' class='col-6 float-right'>
             <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
-          </div>
         </div>
 
       
-    </div><!--Main-->
+    </div>
+  </div>
+    <!--Main-->
 
       <!--RECORDER-->
       <div v-show='isShowRecorder' class="col-11 fixed-bottom recorder">
