@@ -26,7 +26,7 @@
 
 <body>
   <div id='app' class="container-fluid">
-    <header>      
+    <header>
       <div class="row justify-content-center">
         <div class="col-md-2">
           <img src="images/logo02.png" alt="Logo">
@@ -57,48 +57,83 @@
     </header>
     <!--Main-->
     <div v-if="isShowMain">
-    <div v-if='isShowMain' class="row" >
-      <h4 v-if='isShowHeader1' class='col col-md-12 my_header' v-html='head1'></h4>
-      <h4 v-if='isShowHeader2' class='col-12 my_header text-center' v-html='head2'></h4>
-    </div>
+      <div v-if='isShowMain' class="row">
+        <h4 v-if='isShowHeader1' class='col col-md-12 my_header' v-html='head1'></h4>
+        <h4 v-if='isShowHeader2' class='col-12 my_header text-center' v-html='head2'></h4>
+      </div>
+      <hr>
       <div class="row d-flex justify-content-center flex-wrap">
+        <h4 v-if='isShowHeader3' class='my_header' v-html='head3'></h4>
+        <div v-if="isShowMain" class="col-md main">
+          <div v-html='main_text'>
+          </div>
+          <div v-html='text2' class="col-md font-weight-bold">
+          </div>
+        </div>
         <div v-if='isShowImage1' class="col-md-6 text-center">
           <figure class="figure">
             <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold;">Photo 1</figcaption>
             <img v-bind:src="'images/' + image1" class="my_image">
-           </figure>
+          </figure>
         </div>
         <div v-if='isShowImage2' class="col-md-6 text-center">
           <figure class="figure">
             <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold;">Photo 2</figcaption>
             <img v-bind:src="'images/' + image2" class="my_image">
-            </figure>
-        </div>
-      </div>      
-      <div class="row">
-      <h4 v-if='isShowHeader3' class='my_header' v-html='head3'></h4>
-
-        <div v-if="isShowMain" class="col-md main">
-        <div v-html='main_text'>
-        </div>
-        <div v-html='text2' class="col-md font-weight-bold">
+          </figure>
         </div>
       </div>
-    
-        <!--AudioContainer-->
-        <ol v-show="isShowAudioContainer" id='audioContainer'>
-
-        </ol>
-        <div v-if='isShowResult' style='height: 40px;' class='col-6 float-right'>
-            <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
-        </div>
-
-      
     </div>
-  </div>
     <!--Main-->
+    <!--Main 2 - для задания с двумя картинками -->
 
-      <!--RECORDER-->
+    <div v-if="isShowMain2">
+      <div v-if='isShowMain2' class="row">
+        <h4 v-if='isShowHeader1' class='col col-md-12 my_header' v-html='head1'></h4>
+        <h4 v-if='isShowHeader2' class='col-md-12 my_header text-center' v-html='head2'></h4>
+      </div>
+      <hr>
+      <div v-if="isShowMain2" class="row main">
+        <div v-html='main_text'>
+        </div>
+        <div v-html='text2' class="col-md-12font-weight-bold">
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center flex-wrap">
+        <h4 v-if='isShowHeader3' class='my_header' v-html='head3'></h4>
+        <div v-if='isShowImage1' class="col-md-6 text-center">
+          <figure class="figure">
+            <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold; font-size: large;">Photo 1
+            </figcaption>
+            <img v-bind:src="'images/' + image1" class="my_image">
+          </figure>
+        </div>
+        <div v-if='isShowImage2' class="col-md-6 text-center">
+          <figure class="figure">
+            <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold; font-size: large;">Photo 2
+            </figcaption>
+            <img v-bind:src="'images/' + image2" class="my_image">
+          </figure>
+        </div>
+      </div>
+
+    </div>
+    <!---->
+    <div class="row">
+      <!--AudioContainer-->
+      <div v-show="isShowAudioContainer" id='audioContainer' style="margin-left: 20px;">
+
+      </div>
+      <div v-if='isShowResult' style='height: 40px;' class='col-6 float-right'>
+        <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
+      </div>
+      <!--AudioContainer-->
+
+
+    </div>
+    <!--RECORDER-->
+    <div class="row">
       <div v-show='isShowRecorder' class="col-11 fixed-bottom recorder">
         <div>
           <div class="btn">
@@ -112,7 +147,7 @@
           {{formatTime}}
         </div>
         <div>
-          <button class='btn btn-primary my_btn right' @click='Level()'>{{rec_nav_text}}</button>
+          <button id="btnRecNav" class='btn btn-primary my_btn right' @click='Level()'>{{rec_nav_text}}</button>
         </div>
         <audio controls id="audioPlayer" style="display:none;"></audio>
 
@@ -120,10 +155,11 @@
       <!--END RECORDER-->
       <div v-show='isShowNav01' class="col-12">
         <div class='col-8'>
-          <button class="btn btn-primary text-center btn_correct" @click="Level()" id='get-mic'>{{primary_button}}</button>
+          <button class="btn btn-primary text-center btn_correct" @click="Level()"
+            id='get-mic'>{{primary_button}}</button>
         </div>
       </div>
-
+    </div>
 
     <!--TIMER-->
     <div class='row'>

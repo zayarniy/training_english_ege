@@ -2,7 +2,7 @@ const MicStatus = { NOTREADY: 0, READYTORECORD: 1, RECORDING: 2, READYTOPLAY: 3,
 let timer;
 let data = {
     head1: "Внимание",
-    main_text: 'На следующем этапе тренажёр попытается получить доступ к микрофону. У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.',
+    main_text: 'На следующем этапе тренажёр попытается получить доступ к микрофону.<br> У Вас появится запрос на использование сайтом микрофона.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.',
     head2: '',
     head3: '',
     image1: '1px.png',
@@ -11,6 +11,7 @@ let data = {
     isShowNav01: true,
     isShowRecorder: false,
     isShowMain: true,
+    isShowMain2: false,
     isShowCountdown: false,
     isStartCountdown: false,
     isShowHeader1: true,
@@ -120,7 +121,7 @@ let training = new Vue({
             switch (Levels[this.level]) {
                 case 'mic-test'://Mic test
                     training.micStatus = MicStatus.READYTORECORD;
-                    mic_test('Внимание', 'Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести. Если вы уже делали это, можете сразу перейти к выполнению задания.')
+                    mic_test('Внимание', 'Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести.<br> Если вы уже делали это, можете сразу перейти к выполнению задания.')
 
 
                     break;
@@ -141,13 +142,18 @@ let training = new Vue({
                     if (this.chunks.length > 0) this.chunks.pop();
                     training.head1 = Tasks.task1.header;
                     training.main_text = Tasks.task1.text;
+                    training.isShowMain = true;
                     prepair('', '', '', 90)
                     break;
                 case 'task1'://task
                     training.head1 = 'Read the text aloud';
                     training.main_text = Tasks.task1.text;
+                    training.isShowMain = true;
                     task('', '', '', 90)
                     training.answerTimeText = "Answer 00:20"
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
+
                     break
                 case 'prepair2':
                     training.image1 = Tasks.task2.image;
@@ -156,6 +162,7 @@ let training = new Vue({
                     training.head3 = Tasks.task2.header3;
                     training.main_text = Tasks.task2.text1;
                     training.text2 = Tasks.task2.text2;
+                    training.isShowMain = true;
                     training.isShowHeader1 = true;
                     training.isShowHeader2 = true;
                     training.isShowHeader3 = true;
@@ -174,6 +181,7 @@ let training = new Vue({
                     training.isShowCountdown = false;
                     training.isShowHeader3 = false;
                     training.text2 = '';
+                    training.isShowMain = true;
                     // recAnswers(Tasks.task2.questions, 20);
                     task('', '', '', 20);
                     training.isShowRecorder = true;
@@ -186,6 +194,8 @@ let training = new Vue({
                     training.isShowPrepare = false;
                     training.answerTimeText = '';
                     training.preparationTimeText = '';
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
                     //startRecording();                    
                     break
                 case 'task22'://task
@@ -202,6 +212,8 @@ let training = new Vue({
                     training.micStatus = MicStatus.AUTORECORDING;
                     training.main_text = 'Question 2: ' + Tasks.task2.questions[1];
                     training.recTime = 0;
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
                     //startRecording();                    
                     break
                 case 'task23'://task
@@ -218,6 +230,8 @@ let training = new Vue({
                     training.micStatus = MicStatus.AUTORECORDING;
                     training.main_text = 'Question 3: ' + Tasks.task2.questions[2];
                     training.recTime = 0;
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
                     //startRecording();                    
                     break
                 case 'task24'://task
@@ -236,6 +250,8 @@ let training = new Vue({
                     training.recTime = 0;
                     training.preparationTimeText = "Preparation 01:30"
                     training.answerTimeText = 'Answer 00:40';
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
                     //startRecording();                    
                     break
                 case 'prepair3':
@@ -251,7 +267,7 @@ let training = new Vue({
                     training.isShowPrepare = true;
                     training.isShowCountdown = false;
                     training.main_text = "";
-                    training.isShowMain = false;
+                    training.isShowMain = true;
                     training.micStatus = MicStatus.PREPARE;
                     //training.preparationTimeText='';
                     //training.answerTimeText='Answer 00:40';
@@ -267,7 +283,9 @@ let training = new Vue({
                     training.isShowPrepare = false;
                     training.isShowPrepare = true;
                     training.main_text = Tasks.task3.introduction; //Tasks.task3.introduction1+' '+Tasks.task3.introduction2;
-                    speak(Tasks.task3.introduction1, () => { speak(Tasks.task3.introduction2, () => { training.isShowRecorder = true; this.Level(); }) });
+                    speak(Tasks.task3.introduction1, 0, () => { speak(Tasks.task3.introduction2, 0, () => { training.isShowRecorder = true; this.Level(); }) });
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
                     //playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[0],()=>{startRecording();});
                     //prepair('', '', '', 30)
                     //recAnswers(Tasks.task3.Interviewer, 40);
@@ -288,6 +306,8 @@ let training = new Vue({
                     training.micStatus = MicStatus.AUTORECORDING;
                     training.recTime = 0;
                     training.main_text = '';// Tasks.task3.interviewer[0];
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
 
                     /*
                     playSoundAndCallFunction('sounds/line_open.mp3',
@@ -311,6 +331,8 @@ let training = new Vue({
                     training.recTime = 0;
                     training.main_text = '';// Tasks.task3.interviewer[1];
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[1], () => { startRecording(false, false, true, training.maxRecTime); });
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
 
                     break;
                 case 'task33':
@@ -328,6 +350,8 @@ let training = new Vue({
                     training.main_text = '';// Tasks.task3.interviewer[2];
                     //speak(Tasks.task3.interviewer[2],()=>{startRecording();    });
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[2], () => { startRecording(false, false, true, training.maxRecTime); });
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
 
                     break;
                 case 'task34':
@@ -345,6 +369,8 @@ let training = new Vue({
                     training.main_text = '';//Tasks.task3.interviewer[3];
                     //speak(Tasks.task3.interviewer[3],()=>{startRecording();    });
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[3], () => { startRecording(false, false, true, training.maxRecTime); });
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
                     break;
                 case 'task35':
                     training.isShowImage1 = false;
@@ -360,8 +386,12 @@ let training = new Vue({
                     training.main_text = '';// Tasks.task3.interviewer[4];
                     //speak(Tasks.task3.interviewer[4],()=>{startRecording();    });
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[4], () => { startRecording(false, false, true, training.maxRecTime); });
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
                     break;
                 case 'prepair4':
+                    training.isShowMain = false;
+                    training.isShowMain2 = true;
                     training.isShowCaption = true;
                     training.isShowImage1 = true;
                     training.image1 = Tasks.task4.images[0]
@@ -386,6 +416,8 @@ let training = new Vue({
                     //training.main_text='';          
                     //training.head1 = 'Read the text aloud';
                     //training.main_text = Tasks.task1.text;
+                    training.isShowMain = false;
+                    training.isShowMain2 = true;
                     training.isShowImage1 = true;
                     training.image1 = Tasks.task4.images[0]
                     training.image2 = Tasks.task4.images[1]
@@ -401,8 +433,9 @@ let training = new Vue({
                     training.micStatus = MicStatus.PREPARE;
                     training.preparationTimeText = 'Preparation 02:30';
                     training.answerTimeText = 'Answer 03:00';
-
                     task('', '', '', 180)
+                    document.getElementById('btnRecNav').disabled = true;
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
                     break
                 case 'download'://download
 
@@ -419,6 +452,7 @@ let training = new Vue({
                     training.isShowNav01 = true;
                     training.isShowRecorder = false;
                     training.isShowMain = true;
+                    training.isShowMain2 = false;
                     training.isShowCountdown = false;
                     training.isStartCountdown = false;
                     training.isShowResult = true;
@@ -501,6 +535,7 @@ function count_down(text_speak = '', head_text = '', main_text = '', countDown =
         training.isShowNav01 = false;
         training.isShowRecorder = false;
         training.isShowMain = false;
+        training.isShowMain2 = false;
         training.isShowCountdown = true;
         training.isShowPrepare = true;
         training.countDown = countDown;
@@ -517,7 +552,7 @@ function prepair(head_text, main_text, text_speak, maxRecTime) {
     //training.main_text = main_text;//mains.html[1];
     training.isShowNav01 = false;
     training.isShowRecorder = true;
-    training.isShowMain = true;
+    //training.isShowMain = true;
     training.isShowCountdown = false;
     training.micStatus = MicStatus.PREPARE;
     training.progressValue = 0;
@@ -536,7 +571,7 @@ function task(head_text, main_text, text_speak, maxRecTime) {
         training.main_text = main_text;
     training.isShowNav01 = false;
     training.isShowRecorder = true;
-    training.isShowMain = true;
+    //training.isShowMain = true;
     //training.isShowImage=true;
     training.isShowCountdown = false;
     training.isStartCountdown = false;
@@ -641,32 +676,36 @@ function audioContainerSet(audioContainerId, chunks) {
         // Создаем элемент аудиоплеера
         if (index == 0) {
             const textElement = document.createElement('p');
+            textElement.style = 'col-4'
             textElement.innerHTML = 'Task 1';
             audioContainer.appendChild(textElement);
         }
         if (index == 1) {
             const textElement = document.createElement('p');
+            textElement.style = 'col-4'
             textElement.innerHTML = 'Task 2';
             audioContainer.appendChild(textElement);
         }
         if (index == 5) {
             const textElement = document.createElement('p');
+            textElement.style = 'col-4'
             textElement.innerHTML = 'Task 3';
             audioContainer.appendChild(textElement);
         }
         if (index == 10) {
             const textElement = document.createElement('p');
+            textElement.style = 'col-4'
             textElement.innerHTML = 'Task 4';
             audioContainer.appendChild(textElement);
         }
 
         const audioElement = document.createElement('audio');
-
         // Устанавливаем данные звукового файла из массива "chunk"
         const audioBlob = new Blob([chunk]);
         const audioURL = URL.createObjectURL(audioBlob);
         audioElement.src = audioURL;
-        const listItem = document.createElement('li');
+        const listItem = document.createElement('span');
+        listItem.style = 'col-4'
         listItem.appendChild(audioElement)
 
         // Устанавливаем атрибуты аудиоплеера

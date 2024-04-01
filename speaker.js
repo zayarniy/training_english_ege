@@ -72,7 +72,7 @@ function playSoundSayTextAndPlaySoundAgain(soundFile, text, callback1) {
   const audio = new Audio(soundFile);
 
   audio.onended = function () {
-    speak(text, function () {
+    speak(text, 0, function () {
       const audioAgain = new Audio(soundFile);
 
       audioAgain.onended = function () {
