@@ -37,7 +37,7 @@
 
         <div class="col-md-3">
 
-          <table v-show='isShowPrepare' border='0'>
+          <table v-show='isShowPrepare'>
             <tr>
               <td rowspan="2">
                 <i class='fa-solid fa-clock'></i>
@@ -55,6 +55,14 @@
         </div>
       </div>
     </header>
+
+    <div v-if="isShowSelect" class="row text-center">
+      <ul>
+        <li><button class="btn btn-primary" onclick="variant(1)">Вариант 1</button></li>
+        <li></li>
+        <li><button class="btn btn-primary" onclick="variant(2)">Вариант 2</button></li>
+      </ul>
+    </div>
     <!--Main-->
     <div v-if="isShowMain">
       <div v-if='isShowMain' class="row">
@@ -70,18 +78,20 @@
           <div v-html='text2' class="col-md font-weight-bold">
           </div>
         </div>
-        <div v-if='isShowImage1' class="col-md-6 text-center">
+        <div v-if='isShowImage1' class="row text-center">
           <figure class="figure">
             <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold;">Photo 1</figcaption>
-            <img v-bind:src="'images/' + image1" class="my_image">
+            <img v-bind:src="image1" class="my_image">
           </figure>
         </div>
+        <!--
         <div v-if='isShowImage2' class="col-md-6 text-center">
           <figure class="figure">
             <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold;">Photo 2</figcaption>
-            <img v-bind:src="'images/' + image2" class="my_image">
+            <img v-bind:src="image2" class="my_image">
           </figure>
         </div>
+      -->
       </div>
     </div>
     <!--Main-->
@@ -96,7 +106,7 @@
       <div v-if="isShowMain2" class="row main">
         <div v-html='main_text'>
         </div>
-        <div v-html='text2' class="col-md-12font-weight-bold">
+        <div v-html='text2' class="col-md-12 font-weight-bold">
         </div>
       </div>
 
@@ -106,29 +116,35 @@
           <figure class="figure">
             <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold; font-size: large;">Photo 1
             </figcaption>
-            <img v-bind:src="'images/' + image1" class="my_image">
+            <img v-bind:src="image1" class="my_image">
           </figure>
         </div>
         <div v-if='isShowImage2' class="col-md-6 text-center">
           <figure class="figure">
             <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold; font-size: large;">Photo 2
             </figcaption>
-            <img v-bind:src="'images/' + image2" class="my_image">
+            <img v-bind:src="image2" class="my_image">
           </figure>
         </div>
       </div>
 
     </div>
     <!---->
-    <div class="row">
+    <div v-show="isShowAudioContainer" class="row">
       <!--AudioContainer-->
-      <div v-show="isShowAudioContainer" id='audioContainer' style="margin-left: 20px;">
+      <div id='audioContainer' style="margin-left: 20px;">
 
       </div>
       <div v-if='isShowResult' style='height: 40px;' class='col-6 float-right'>
-        <button class="btn btn-primary" @click='downloadRecording()'>Download recording</button>
+        <button class="btn btn-primary" id="downloadRecording" @click='downloadRecording()'>Скачать все
+          аудизаписи</button>
+
+        <!--AudioContainer-->
+        <details style="margin-left: 100px;">
+          <summary>Просмотреть задания</summary>
+          <embed v-bind:src="task_filename" width="800" height="600" type="application/pdf">
+        </details>
       </div>
-      <!--AudioContainer-->
 
 
     </div>

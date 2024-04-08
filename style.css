@@ -10,9 +10,9 @@ body {
 
 #app {
     /*max-width: 800px;*/
-    height: 800px;
+    #height: 800px;
     /*max-height: 800px;*/
-    min-width: 500px;
+    min-width: 600px;
 
 }
 
@@ -167,7 +167,8 @@ body {
 
 .my_image {
     #display: block;
-    width: 400px;
+    #width: 400px;
+    width: 45vh;
 }
 
 span {
@@ -177,4 +178,8 @@ span {
 
 audio {
     display: inline;
+}
+
+#audioContainer {
+    width: 800px;
 }
