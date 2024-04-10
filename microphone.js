@@ -28,16 +28,23 @@ async function getMic() {
 }
 
 
-function startRecording(record = false, directTimer = true,directProgress=true, time = 90,next=true) {
-  if (mediaRecorder && mediaRecorder.state === 'inactive') {
-    mediaRecorder.start();
+function startRecording(record = false, directTimer = true, directProgress = true, time = 90, next = true) {
+  //if (mediaRecorder && mediaRecorder.state === 'inactive') 
+  {
+    try {
+      mediaRecorder.start();
+    }
+    catch (err) {
+      console.log(err)
+    }
     //timerStart(true, true, training.maxRecTime);
-    timerStart(record, directTimer,directProgress, training.maxRecTime,next);
+    timerStart(record, directTimer, directProgress, training.maxRecTime, next);
     if (training.micStatus != MicStatus.AUTORECORDING)
       training.micStatus = MicStatus.RECORDING;
     //console.log(training.micStatus)
   }
-  else {
+  //else 
+  {
     console.log('Please click "Get Mic" first');
   }
 }
@@ -49,8 +56,8 @@ function stopRecording(needTimerStop = true) {
     mediaRecorder.stop();
     training.progressValue = 0;
     if (needTimerStop) timerStop();
-    if (training.micStatus!=MicStatus.AUTORECORDING)
-       training.micStatus = MicStatus.READYTOPLAY;
+    if (training.micStatus != MicStatus.AUTORECORDING)
+      training.micStatus = MicStatus.READYTOPLAY;
     //console.log('Recording stopped');
   }
   else {

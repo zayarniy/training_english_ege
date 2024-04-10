@@ -21,7 +21,7 @@ let Task1 =
     introduction: "Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.",
     introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss the choice of a future career.",
     introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started",
-    interviewer: ["When was the last time you have been using a gadget. What for?", "What gadgets are the most popular among the teenagers in your region and why?", "How has technology and gadgets changed the way teenagers learn?", "Is it important to limit gadgets usage? Why/ why not?", "How will technology affect society in the future?", "Thank you very much for your interview."]
+    interviewer: ["When was the last time you used a gadget? What for?", "What is the most popular gadget among teenagers in your region and why?", "How have technology and gadgets changed the way teenagers learn?", "Is it important to limit gadgets usage? Why/ why not?", "How will technology affect society in the future?", "Thank you very much for your interview."]
   },
   task4:
   {
@@ -55,7 +55,7 @@ let Task2 =
   task3:
   {
     header: 'Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences). Remember that you have 40 seconds to answer each question.',
-    introduction: "Tapescript for Task 3. Hello everybody! It’s Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss teenagers’ attitude to cultural activities. We’d like to know our guest’s point of view on this issue. Please answer five questions. So, let’s get started.",
+    introduction: "Task 3. Hello everybody! It’s Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss teenagers’ attitude to cultural activities. We’d like to know our guest’s point of view on this issue. Please answer five questions. So, let’s get started.",
     introduction1: "Hello everybody! It’s Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss teenagers’ attitude to cultural activities.",
     introduction2: "We’d like to know our guest’s point of view on this issue. Please answer five questions. So, let’s get started.",
     interviewer: ["Is visiting museums or art galleries popular with Russian teenagers? ", "What cultural activities do you and your friends enjoy? Why do you like them?", "How often do you watch films? Which genre of films do you prefer watching?", "Do you think that joining an English film club is useful for improving your language skills? Why?", "How can we make teenagers be more interested in culture?"]

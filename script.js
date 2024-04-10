@@ -55,13 +55,22 @@ let training = new Vue({
                 case MicStatus.NOTREADY:
                     return 'fa-solid  fa-microphone-slash icon-size';
                 case MicStatus.READYTORECORD:
-                    return 'fa-solid fa-record-vinyl icon-size red';
+                    if (mediaRecorder == null || mediaRecorder.state === 'inactive')
+                        return 'fa-solid fa-record-vinyl icon-size gray';
+                    else
+                        return 'fa-solid fa-record-vinyl icon-size red';
                 case MicStatus.READYTOPLAY:
                     return 'fa-solid fa-circle-play icon-size';
                 case MicStatus.RECORDING:
-                    return 'fa-solid fa-circle-stop icon-size red';
+                    if (mediaRecorder == null || mediaRecorder.state === 'inactive')
+                        return 'fa-solid fa-circle-stop icon-size gray';
+                    else
+                        return 'fa-solid fa-circle-stop icon-size red';
                 case MicStatus.AUTORECORDING:
-                    return 'fa-solid fa-circle-stop icon-size red';
+                    if (mediaRecorder == null || mediaRecorder.state === 'inactive')
+                        return 'fa-solid fa-circle-stop icon-size gray';
+                    else
+                        return 'fa-solid fa-circle-stop icon-size red';
 
                 case MicStatus.PLAY:
                     return 'fa-solid fa-circle-stop icon-size';
@@ -195,7 +204,7 @@ let training = new Vue({
                     training.text2 = '';
                     training.isShowMain = true;
                     // recAnswers(Tasks.task2.questions, 20);
-                    task('', '', '', 20);
+                    task('', '', '', 21);
                     training.isShowRecorder = true;
                     training.isShowMain = true;
                     training.progressValue = 0;
@@ -218,7 +227,7 @@ let training = new Vue({
                     training.isShowRecorder = true;
                     //recAnswers(Tasks.task2.questions, 20);
                     //task(headers1[1], tasks[1], '', 90);
-                    task('', '', '', 20);
+                    task('', '', '', 21);
                     training.isShowRecorder = true;
                     training.isShowMain = true;
                     training.progressValue = 0;
@@ -237,7 +246,7 @@ let training = new Vue({
                     training.isShowRecorder = true;
                     //recAnswers(Tasks.task2.questions, 20);
                     //task(headers1[1], tasks[1], '', 90);
-                    task('', '', '', 20);
+                    task('', '', '', 21);
                     training.isShowRecorder = true;
                     training.isShowMain = true;
                     training.progressValue = 0;
@@ -256,7 +265,7 @@ let training = new Vue({
                     training.isShowRecorder = true;
                     //recAnswers(Tasks.task2.questions, 20);
                     //task(headers1[1], tasks[1], '', 90);
-                    task('', '', '', 20);
+                    task('', '', '', 21);
                     training.isShowRecorder = true;
                     training.isShowMain = true;
                     training.progressValue = 0;

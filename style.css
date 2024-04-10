@@ -82,6 +82,10 @@ body {
     color: red;
 }
 
+.gray {
+    color: #666;
+}
+
 .blue {
     color: blue;
 }
@@ -182,4 +186,10 @@ audio {
 
 #audioContainer {
     width: 800px;
+}
+
+.scrollable {
+    overflow-y: auto;
+    max-height: 530px;
+    ;
 }
