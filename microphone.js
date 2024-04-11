@@ -66,6 +66,7 @@ function stopRecording(needTimerStop = true) {
 }
 
 
+
 function playAudio() {
   if (training.current_chunk != null) {
     const blob = new Blob(training.current_chunk, { type: training.chunks[0].type });
@@ -95,3 +96,12 @@ function stopAudio(needTimerStop = true) {
   training.micStatus = MicStatus.READYTOPLAY;
 
 }
+
+navigator.permissions.query({ name: 'microphone' }).then((permissionStatus) => {
+  permissionStatus.onchange = () => {
+    console.log('Изменение доступа к микрофону');
+    //training.mic_message = 'микрофон не доступен'
+    // Дополнительные действия при изменении доступа к микрофону
+  };
+});
+

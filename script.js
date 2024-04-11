@@ -39,7 +39,8 @@ let data = {
     preparationTimeText: 'Preparation 01:30',
     answerTimeText: 'Answer 01:30',
     primary_button: 'Понятно',
-    task_filename: 'tasks/2/task2.pdf'
+    task_filename: 'tasks/2/task2.pdf',
+    mic_message: ''
 }
 
 
@@ -55,19 +56,21 @@ let training = new Vue({
                 case MicStatus.NOTREADY:
                     return 'fa-solid  fa-microphone-slash icon-size';
                 case MicStatus.READYTORECORD:
-                    if (mediaRecorder == null || mediaRecorder.state === 'inactive')
-                        return 'fa-solid fa-record-vinyl icon-size gray';
+
+                    if (mediaRecorder == null || mediaRecorder.state == 'inactive')
+                        return 'fa-solid fa-record-vinyl icon-size red';
                     else
                         return 'fa-solid fa-record-vinyl icon-size red';
                 case MicStatus.READYTOPLAY:
                     return 'fa-solid fa-circle-play icon-size';
                 case MicStatus.RECORDING:
-                    if (mediaRecorder == null || mediaRecorder.state === 'inactive')
+                    if (mediaRecorder == null || mediaRecorder.state == 'inactive')
                         return 'fa-solid fa-circle-stop icon-size gray';
                     else
                         return 'fa-solid fa-circle-stop icon-size red';
+
                 case MicStatus.AUTORECORDING:
-                    if (mediaRecorder == null || mediaRecorder.state === 'inactive')
+                    if (mediaRecorder == null || mediaRecorder.state == 'inactive')
                         return 'fa-solid fa-circle-stop icon-size gray';
                     else
                         return 'fa-solid fa-circle-stop icon-size red';
@@ -77,7 +80,10 @@ let training = new Vue({
                 case MicStatus.PREPARE:
                     return 'fas fa-tasks icon-size'
                 case MicStatus.AUTORECORDING:
-                    return 'fa-solid fa-microphone icon-size red';
+                    if (mediaRecorder == null || mediaRecorder.state == 'inactive')
+                        return 'fa-solid fa-microphone icon-size gray';
+                    else
+                        return 'fa-solid fa-microphone icon-size red';
 
 
             }
