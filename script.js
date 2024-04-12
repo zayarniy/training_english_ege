@@ -57,20 +57,20 @@ let training = new Vue({
                     return 'fa-solid  fa-microphone-slash icon-size';
                 case MicStatus.READYTORECORD:
 
-                    if (mediaRecorder == null || mediaRecorder.state == 'inactive')
+                    if (mediaRecorder == null)
                         return 'fa-solid fa-record-vinyl icon-size red';
                     else
                         return 'fa-solid fa-record-vinyl icon-size red';
                 case MicStatus.READYTOPLAY:
                     return 'fa-solid fa-circle-play icon-size';
                 case MicStatus.RECORDING:
-                    if (mediaRecorder == null || mediaRecorder.state == 'inactive')
+                    if (mediaRecorder == null)
                         return 'fa-solid fa-circle-stop icon-size gray';
                     else
                         return 'fa-solid fa-circle-stop icon-size red';
 
                 case MicStatus.AUTORECORDING:
-                    if (mediaRecorder == null || mediaRecorder.state == 'inactive')
+                    if (mediaRecorder == null)
                         return 'fa-solid fa-circle-stop icon-size gray';
                     else
                         return 'fa-solid fa-circle-stop icon-size red';
@@ -80,7 +80,7 @@ let training = new Vue({
                 case MicStatus.PREPARE:
                     return 'fas fa-tasks icon-size'
                 case MicStatus.AUTORECORDING:
-                    if (mediaRecorder == null || mediaRecorder.state == 'inactive')
+                    if (mediaRecorder == null)
                         return 'fa-solid fa-microphone icon-size gray';
                     else
                         return 'fa-solid fa-microphone icon-size red';

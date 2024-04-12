@@ -36,6 +36,8 @@ function startRecording(record = false, directTimer = true, directProgress = tru
     }
     catch (err) {
       console.log(err)
+      console.log(mediaRecorder)
+      training.mic_message = 'Нет доступа к микрофону. Запись не ведется'
     }
     //timerStart(true, true, training.maxRecTime);
     timerStart(record, directTimer, directProgress, training.maxRecTime, next);
