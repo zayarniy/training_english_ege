@@ -127,7 +127,7 @@ let training = new Vue({
         Level() {
             let Levels = ['start', 'mic-test', 'count-down-prepair', 'prepair1',
                 'count-down-task', 'task1', 'count-down-prepair', 'prepair2', 'count-down-task',
-                'task2', 'task22', 'task23', 'task24', 'count-down-prepair', 'prepair3', 'count-down-task', 'task3', 'task31', 'task32', 'task33', 'task34', 'task35', 'count-down-prepair', 'prepair4', 'count-down-task', 'task4', 'download', 'start'];
+                'task2', 'task22', 'task23', 'task24', 'count-down-prepair', 'prepair3', 'count-down-task', 'task31', 'task32', 'task33', 'task34', 'task35', 'count-down-prepair', 'prepair4', 'count-down-task', 'task4', 'download', 'start'];
             //alert(this.level)
             stopRecording();
             stopAudio();
@@ -301,6 +301,8 @@ let training = new Vue({
                         training.main_text = "";
                         training.isShowMain = true;
                         training.micStatus = MicStatus.PREPARE;
+                        //speak(Tasks.task3.introduction1, 0, () => { speak(Tasks.task3.introduction2, 0, () => { training.isShowRecorder = true; this.Level(); }) });
+                        speak(Tasks.task3.introduction1, 0, () => { speak(Tasks.task3.introduction2, 0, () => { }) });
                         //training.preparationTimeText='';
                         //training.answerTimeText='Answer 00:40';
                         prepair('', '', '', 90)
@@ -317,7 +319,7 @@ let training = new Vue({
                     training.isShowPrepare = false;
                     training.isShowPrepare = true;
                     training.main_text = Tasks.task3.introduction; //Tasks.task3.introduction1+' '+Tasks.task3.introduction2;
-                    speak(Tasks.task3.introduction1, 0, () => { speak(Tasks.task3.introduction2, 0, () => { training.isShowRecorder = true; this.Level(); }) });
+                    //speak(Tasks.task3.introduction1, 0, () => { speak(Tasks.task3.introduction2, 0, () => { training.isShowRecorder = true; this.Level(); }) });
                     document.getElementById('btnRecNav').disabled = true;
                     setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
                     //playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[0],()=>{startRecording();});
@@ -407,6 +409,7 @@ let training = new Vue({
                     setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
                     break;
                 case 'task35':
+                    training.head1 = 'Interview. Question 5';
                     training.isShowImage1 = false;
                     training.isShowRecorder = true;
                     //recAnswers(Tasks.task2.questions, 20);
