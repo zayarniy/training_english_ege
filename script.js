@@ -318,113 +318,35 @@ let training = new Vue({
                     training.head1 = 'Interview';
                     training.isShowPrepare = false;
                     training.isShowPrepare = true;
-                    training.main_text = Tasks.task3.introduction; //Tasks.task3.introduction1+' '+Tasks.task3.introduction2;
-                    //speak(Tasks.task3.introduction1, 0, () => { speak(Tasks.task3.introduction2, 0, () => { training.isShowRecorder = true; this.Level(); }) });
-                    document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
-                    //playSoundSayTextAndPlaySoundAgain(Sounds.sound1,Tasks.task3.interviewer[0],()=>{startRecording();});
-                    //prepair('', '', '', 30)
-                    //recAnswers(Tasks.task3.Interviewer, 40);
-                    //task('','', '', 90);                    
-                    break;
-                case 'task31':
-                    training.isShowImage1 = false;
-                    training.isShowHeader1 = true;
-                    training.head1 = 'Interview. Question 1';
-                    training.isShowRecorder = true;
-                    //recAnswers(Tasks.task2.questions, 20);
-                    //task(headers1[1], tasks[1], '', 90);
-                    //task('','', '', 40);
-                    training.isShowMain = true;
-                    training.isShowCountdown = false;
-                    training.progressValue = 0;
-                    training.maxRecTime = 40;
-                    training.micStatus = MicStatus.AUTORECORDING;
-                    training.recTime = 0;
-                    training.main_text = '';// Tasks.task3.interviewer[0];
+                    training.main_text = Tasks.task3.introduction;
                     document.getElementById('btnRecNav').disabled = true;
                     setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
 
-                    /*
-                    playSoundAndCallFunction('sounds/line_open.mp3',
-                    ()=>{speak(Tasks.task3.interviewer[0],
-                        playSoundAndCallFunction('sounds/line_open.mp3', ()=>{startRecording();}))});
-                        */
+                    break;
+                case 'task31':
+                    training.head1 = 'Interview. Question 1';
+                    task3();
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[0], () => { startRecording(false, false, true, training.maxRecTime); });
                     break;
                 case 'task32':
-                    training.isShowImage1 = false;
-                    training.isShowHeader1 = true;
                     training.head1 = 'Interview. Question 2';
-                    training.isShowRecorder = true;
-                    //recAnswers(Tasks.task2.questions, 20);
-                    //task(headers1[1], tasks[1], '', 90);
-                    //task('','', '', 40);
-                    training.isShowMain = true;
-                    training.progressValue = 0;
-                    training.maxRecTime = 40;
-                    training.micStatus = MicStatus.AUTORECORDING;
-                    training.recTime = 0;
-                    training.main_text = '';// Tasks.task3.interviewer[1];
+                    task3();
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[1], () => { startRecording(false, false, true, training.maxRecTime); });
-                    document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
-
                     break;
                 case 'task33':
-                    training.isShowHeader1 = true;
                     training.head1 = 'Interview. Question 3';
-                    training.isShowRecorder = true;
-                    //recAnswers(Tasks.task2.questions, 20);
-                    //task(headers1[1], tasks[1], '', 90);
-                    //task('','', '', 40);
-                    training.isShowMain = true;
-                    training.progressValue = 0;
-                    training.maxRecTime = 40;
-                    training.micStatus = MicStatus.AUTORECORDING;
-                    training.recTime = 0;
-                    training.main_text = '';// Tasks.task3.interviewer[2];
-                    //speak(Tasks.task3.interviewer[2],()=>{startRecording();    });
+                    task3();
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[2], () => { startRecording(false, false, true, training.maxRecTime); });
-                    document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
-
                     break;
                 case 'task34':
-                    training.isShowHeader1 = true;
                     training.head1 = 'Interview. Question 4';
-                    training.isShowRecorder = true;
-                    //recAnswers(Tasks.task2.questions, 20);
-                    //task(headers1[1], tasks[1], '', 90);
-                    //task('','', '', 40);
-                    training.isShowMain = true;
-                    training.progressValue = 0;
-                    training.maxRecTime = 40;
-                    training.micStatus = MicStatus.AUTORECORDING;
-                    training.recTime = 0;
-                    training.main_text = '';//Tasks.task3.interviewer[3];
-                    //speak(Tasks.task3.interviewer[3],()=>{startRecording();    });
+                    task3();
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[3], () => { startRecording(false, false, true, training.maxRecTime); });
-                    document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
                     break;
                 case 'task35':
                     training.head1 = 'Interview. Question 5';
-                    training.isShowImage1 = false;
-                    training.isShowRecorder = true;
-                    //recAnswers(Tasks.task2.questions, 20);
-                    //task(headers1[1], tasks[1], '', 90);
-                    //task('','', '', 40);
-                    training.isShowMain = true;
-                    training.progressValue = 0;
-                    training.maxRecTime = 40;
-                    training.micStatus = MicStatus.AUTORECORDING;
-                    training.recTime = 0;
-                    training.main_text = '';// Tasks.task3.interviewer[4];
-                    //speak(Tasks.task3.interviewer[4],()=>{startRecording();    });
+                    task3();
                     playSoundSayTextAndPlaySoundAgain(Sounds.sound1, Tasks.task3.interviewer[4], () => { startRecording(false, false, true, training.maxRecTime); });
-                    document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
                     break;
                 case 'prepair4':
                     training.isShowMain = false;
@@ -629,6 +551,22 @@ function recAnswers(tasks, maxRecTime) {
     training.recTime = 0;
     startRecording(next = false);
 
+}
+
+
+function task3() {
+    training.isShowImage1 = false;
+    training.isShowHeader1 = true;
+    training.isShowRecorder = true;
+    training.isShowMain = true;
+    training.isShowCountdown = false;
+    training.progressValue = 0;
+    training.maxRecTime = 40;
+    training.micStatus = MicStatus.AUTORECORDING;
+    training.recTime = 0;
+    training.main_text = '';
+    document.getElementById('btnRecNav').disabled = true;
+    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
 }
 
 function read_task(head_text, main_text, text_speak, maxRecTime) {
