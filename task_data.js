@@ -3,7 +3,9 @@ let Task1 =
   task1:
   {
     header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
-    text: 'Critical thinking has a long tradition in both psychological and educational research, but with different emphases. There is cross-disciplinary agreement on defining Critical Thinking as the ability to evaluate the content of information and to derive conclusions about the extent to which one can believe this information or discuss what one should think of it. Especially against the background of the increasing information density of the past three decades - since the breakthrough of the World Wide Web - the various Internet search engines and now developed chatbots - Critical Thinking is to be considered a key competence in university teaching. The promotion of Critical Thinking is one of the central educational tasks and is identified as a target category in the European Qualifications Framework for Lifelong Learning.'
+    text: 'Critical thinking has a long tradition in both psychological and educational research, but with different emphases. There is cross-disciplinary agreement on defining Critical Thinking as the ability to evaluate the content of information and to derive conclusions about the extent to which one can believe this information or discuss what one should think of it. Especially against the background of the increasing information density of the past three decades - since the breakthrough of the World Wide Web - the various Internet search engines and now developed chatbots - Critical Thinking is to be considered a key competence in university teaching. The promotion of Critical Thinking is one of the central educational tasks and is identified as a target category in the European Qualifications Framework for Lifelong Learning.',
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
   },
   task2:
   {
@@ -39,7 +41,9 @@ let Task2 =
   task1:
   {
     header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation, and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
-    text: 'What do you do to unwind? Presumably something you like doing. And that’s what leisure is (literally—it comes from Old French, meaning to enjoy oneself). But do we really enjoy our free time? On average, in Western society, we get about 5 hours of leisure time a day. That is plenty of time to get involved in all sorts of things—but instead, most of us spend that time watching TV. In a 294-person study from the University of Maryland, those with positive attitudes towards leisure activities, as well as active engagement generally feel healthier, and are more motivated to succeed. In short, we need to take a more active approach to our leisure time. And there are so many options—choice between an ever-growing number of leisure activities. So next time you’ve got some free time, take some time to think about what you’re doing, and why.'
+    text: 'What do you do to unwind? Presumably something you like doing. And that’s what leisure is (literally—it comes from Old French, meaning to enjoy oneself). But do we really enjoy our free time? On average, in Western society, we get about 5 hours of leisure time a day. That is plenty of time to get involved in all sorts of things—but instead, most of us spend that time watching TV. In a 294-person study from the University of Maryland, those with positive attitudes towards leisure activities, as well as active engagement generally feel healthier, and are more motivated to succeed. In short, we need to take a more active approach to our leisure time. And there are so many options—choice between an ever-growing number of leisure activities. So next time you’ve got some free time, take some time to think about what you’re doing, and why.',
+    introduction1: ' Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation, and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
 
   },
   task2:
@@ -76,7 +80,9 @@ let Task3 =
   task1:
   {
     header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
-    text: 'The term “human migration” forms a major part of human history. It has been practiced from historic times in various parts of the globe and for various reasons. Generally, the concept is defined as the movement or change from one geographical area to another, as well as across the border. It involves external migration, which means movement across an internationally recognized border, i.e. moving from one country to the other or one continent to another.  Internal migration means movement within a recognized border, located in the same state or country, including rural migrations. There are some core truths and joys about country living and rural migrations. Urban areas typically have a large population, a high population density and much social and economic infrastructure and amenities.  Moving to a favourable rural area to live and work there discover once they’ve made the move. However, the rates of such migrate movements differ, with generally high rates seen in developing nations.'
+    text: 'The term “human migration” forms a major part of human history. It has been practiced from historic times in various parts of the globe and for various reasons. Generally, the concept is defined as the movement or change from one geographical area to another, as well as across the border. It involves external migration, which means movement across an internationally recognized border, i.e. moving from one country to the other or one continent to another.  Internal migration means movement within a recognized border, located in the same state or country, including rural migrations. There are some core truths and joys about country living and rural migrations. Urban areas typically have a large population, a high population density and much social and economic infrastructure and amenities.  Moving to a favourable rural area to live and work there discover once they’ve made the move. However, the rates of such migrate movements differ, with generally high rates seen in developing nations.',
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
   },
   task2:
   {
@@ -89,7 +95,7 @@ let Task3 =
     3) age restrictions<br>
     4) organized tours<br>`,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['membership fee', 'frequency of online meetings', 'duration of group discussions', 'if members receive discussion guides']
+    questions: ['location', 'opening hours', 'age restrictions', 'organized tours']
   },
   task3:
   {
@@ -135,9 +141,12 @@ let Task4 =
     or community center. If you're interested in the environment, you could join a
     conservation group and help clean up parks and beaches, plant trees, or protect
     endangered species. Whatever type of volunteering you choose, it's important to
-    remember that your time and effort can make a big difference.`
+    remember that your time and effort can make a big difference.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
 
   },
+
   task2:
   {
     header1: "Task 2. Study the advertisement.",
@@ -191,8 +200,9 @@ let Task5 =
     header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
     text: `Choosing a job is one of the most important decisions we make in our lives. We spend a lot of time at work, so it's important to choose something we enjoy and that makes us happy.
     Some people choose a job because it pays well. Others choose a job because their friends or family work in it. Some people choose a job because it's interesting or exciting. Other people choose a job because they want to help others.
-    When I was at school, I didn't know what job I wanted to do. I liked maths and science, so I thought about being a doctor or an engineer. But then I realised I didn't like hospitals and I didn't want to be in an office all day. In the end, I started studying languages, and now I'm a translator. I love my job because I can work from home and I can travel a lot.
-    `
+    When I was at school, I didn't know what job I wanted to do. I liked maths and science, so I thought about being a doctor or an engineer. But then I realised I didn't like hospitals and I didn't want to be in an office all day. In the end, I started studying languages, and now I'm a translator. I love my job because I can work from home and I can travel a lot.`,
+    introduction1: ' Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
 
   },
   task2:
@@ -202,12 +212,12 @@ let Task5 =
     header3: `You are considering going to the job interview and now you’d like to get more information.<br>
     In 1.5 minutes you are to ask four direct questions to find out about the following:`,
     image: 'tasks/5/2.jpg',
-    text1: `1. Location<br>
-    2. Duration<br>
-    3. Salary<br>
-    4. Bonuses`,
+    text1: `1. location<br>
+    2. duration<br>
+    3. salary<br>
+    4. bonuses`,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['Location', 'Duration', 'Salary', 'Bonuses']
+    questions: ['location', 'duration', 'salary', 'bonuses']
   },
   task3:
   {
@@ -215,11 +225,11 @@ let Task5 =
     Remember that you have 40 seconds to answer each question.`,
     introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
     Remember that you have 40 seconds to answer each question`,
-    introduction1: "You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).",    
+    introduction1: "You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).",
     introduction2: "Remember that you have 40 seconds to answer each question.",
     interviewer: ["What are some common career paths for teenagers in Russia? What are you going to be?",
-     "What challenges do Russian teenagers face when trying to find a job?", 
-     "What role do parents play in helping their children choose a future job in Russia? Do your parents help you to choose your future career?",
+      "What challenges do Russian teenagers face when trying to find a job?",
+      "What role do parents play in helping their children choose a future job in Russia? Do your parents help you to choose your future career?",
       "How has the job market for teenagers in Russia changed over the years?",
       "In your opinion, what is the most important factor for Russian teenagers to consider when choosing a future job?"]
   },

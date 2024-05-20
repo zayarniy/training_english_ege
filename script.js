@@ -164,6 +164,7 @@ let training = new Vue({
                         training.main_text = Tasks.task1.text;
                         training.isShowMain = true;
                         prepair('', '', '', 90)
+                        //setTimeout(speak(Tasks.task1.introduction1, 0, () => { speak(Tasks.task1.introduction2, 0, () => { }) }), 3000);
                     }, 3500);
                     break;
                 case 'task1'://task
@@ -499,6 +500,7 @@ function count_down(text_speak = '', head_text = '', main_text = '', countDown =
 }
 function prepair(head_text, main_text, text_speak, maxRecTime) {
     timerStop();
+
     //training.isShowPrepare=true;
     //training.head1 = head_text;
     //training.main_text = main_text;//mains.html[1];
