@@ -557,6 +557,7 @@ function recAnswers(tasks, maxRecTime) {
 
 
 function task3() {
+    timerStop();
     training.isShowImage1 = false;
     training.isShowHeader1 = true;
     training.isShowRecorder = true;
