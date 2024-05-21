@@ -93,9 +93,9 @@ let Task3 =
     text1: `1) location<br>
     2) opening hours<br>
     3) age restrictions<br>
-    4) organized tours<br>`,
+    4) organised tours<br>`,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'opening hours', 'age restrictions', 'organized tours']
+    questions: ['location', 'opening hours', 'age restrictions', 'organised tours']
   },
   task3:
   {
@@ -138,7 +138,7 @@ let Task4 =
     help out in their local community. Volunteering can be hard work, but it can also be
     very rewarding and fun. There are many different types of volunteering opportunities
     available. If you enjoy working with children, you could volunteer at a local school
-    or community center. If you're interested in the environment, you could join a
+    or community centre. If you're interested in the environment, you could join a
     conservation group and help clean up parks and beaches, plant trees, or protect
     endangered species. Whatever type of volunteering you choose, it's important to
     remember that your time and effort can make a big difference.`,
@@ -177,7 +177,7 @@ let Task4 =
   },
   task4:
   {
-    header: `Task 4. Imagine that you and your friend are doing a school project “Outstanding hobbies”. You have found
+    header: `Task 4. Imagine that you and your friend are doing a school project “Creative hobbies”. You have found
     some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice
     message to your friend explaining your choice of the photos and sharing some ideas about the
     project. In 2.5 minutes be ready to:`,
