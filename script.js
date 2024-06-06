@@ -1,3 +1,5 @@
+let logoClickCounter = 0;
+
 const MicStatus = { NOTREADY: 0, READYTORECORD: 1, RECORDING: 2, READYTOPLAY: 3, PLAY: 4, AUTORECORDING: 5, PREPARE: 10 }
 let timer;
 let Tasks = Task1;
@@ -699,4 +701,25 @@ function variant(n) {
     training.isShowMain = true;
     training.isShowNav01 = true;
     training.task_filename = Tasks.filename;
+}
+
+
+let lcst = null;
+function logoClick() {
+    if (logoClickCounter > 8) {
+        logoClick = 0;
+        clearTimeout(lcst)
+        showMaterials();
+    }
+    logoClickCounter++;
+    if (lcst == null)
+        lcst = setTimeout(() => {
+            logoClickCounter = 0;
+            clearTimeout(lcst)
+        }, 5000);
+
+}
+
+function showMaterials() {
+    window.location.href = 'materials.html';
 }
