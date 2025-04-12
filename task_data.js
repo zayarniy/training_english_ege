@@ -247,8 +247,64 @@ let Task5 =
   filename: 'tasks/5/task5.pdf'
 }
 
+let Task6 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Household chores are an unavoidable and fundamental part of domestic life. Over the years, the distribution of responsibilities has become more balanced, especially in modern families. In the past, repetitive tasks like vacuuming, dishwashing, and laundry were often the obligation of women. However, a 2021 survey showed that 68% of young adults aged 18 to 29 support equal division of chores between family members. Technological innovations have improved the efficiency of certain tasks. Since 2015, robotic vacuum cleaners and programmable devices have reduced time spent on cleaning. Nevertheless, duties like ironing or scrubbing bathroom tiles still require careful effort and patience. Experts argue that assigning manageable chores to children as young as three can enhance their sense of responsibility and make them more cooperative. Even simple actions, such as sorting recyclables or setting the dinner table, build useful habits and foster independence. Household chores, though often underestimated, play a key role in building life skills and shaping daily routines.`,
+    introduction1: ' Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
 
-const AllTasks = [0, Task1, Task2, Task3, Task4, Task5]
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "Household help service",
+    header3: `You are considering visiting a household help service and now you'd like to get more information.<br>
+    In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/6/image1.jpg',
+    text1: `1) working hours<br>
+2) range of services included<br>
+3) cost of the service<br> 
+4) discounts`,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).",
+    introduction2: "Remember that you have 40 seconds to answer each question.",
+    interviewer: [
+      "What household chores do you usually do at home?",
+      "Which chore do you dislike the most and why?",
+      "Do teenagers in your region help their parents with housework?",
+      "Should children be paid for doing chores? Why or why not?",
+      "How can doing chores prepare you for adult life?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Household responsibilities". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:`,
+    text: `
+explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2)<strong>of the two types of household chores;</strong><br>
+• mention the disadvantages (1-2) <strong>of the two types of household chores;</strong><br>
+• express your opinion on the subject of the project — <strong>which household chore you'd prefer and why.</strong>
+`,
+    images: ['tasks/6/image2.jpg', 'tasks/6/image3.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+
+
+
+const AllTasks = [0, Task1, Task2, Task3, Task4, Task5, Task6]
 
 let Sounds = {
   sound1: 'sounds/sound01.mp3',

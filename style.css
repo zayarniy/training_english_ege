@@ -193,3 +193,15 @@ audio {
     max-height: 530px;
     ;
 }
+
+.two-column-list {
+    column-count: 2; /* Устанавливает количество колонок */
+    column-gap: 20px; /* Расстояние между колонками */   
+}
+
+.two-column-list li{
+    margin-bottom: 10px;
+}
+.no-bullets{
+   list-style-type: none;
+}
