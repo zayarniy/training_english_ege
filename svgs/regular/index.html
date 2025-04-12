@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File List</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    img {
+      max-width: 100px;
+      max-height: 100px;
+    }
+  </style>
+  <script src='data.js'></script>
+</head>
+<body>
+  <h1>File List</h1>
+  <table id="fileTable">
+    <thead>
+      <tr>
+        <th>File Name</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const fileTable = document.getElementById('fileTable').getElementsByTagName('tbody')[0];
+    console.log(data)
+    data.forEach(fileName => {
+      const row = document.createElement('tr');
+
+      const fileNameCell = document.createElement('td');
+      fileNameCell.textContent = fileName;
+      row.appendChild(fileNameCell);
+
+      const imageCell = document.createElement('td');
+      const img = document.createElement('img');
+      img.src = `${fileName}`;
+      imageCell.appendChild(img);
+      row.appendChild(imageCell);
+
+      fileTable.appendChild(row);
+    });
+  </script>
+</body>
+</html>
