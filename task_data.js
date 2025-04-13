@@ -263,7 +263,7 @@ let Task6 =
     header2: "Household help service",
     header3: `You are considering visiting a household help service and now you'd like to get more information.<br>
     In 1.5 minutes you are to ask four direct questions to find out about the following:`,
-    image: 'tasks/6/image1.jpg',
+    image: 'tasks/6/2.jpg',
     text1: `1) working hours<br>
 2) range of services included<br>
 3) cost of the service<br> 
@@ -295,7 +295,7 @@ explain the choice of the illustrations for the project by briefly describing th
 • mention the disadvantages (1-2) <strong>of the two types of household chores;</strong><br>
 • express your opinion on the subject of the project — <strong>which household chore you'd prefer and why.</strong>
 `,
-    images: ['tasks/6/image2.jpg', 'tasks/6/image3.jpg'],
+    images: ['tasks/6/4-1.jpg', 'tasks/6/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
   filename: 'tasks/6-15.pdf'
@@ -303,11 +303,297 @@ explain the choice of the illustrations for the project by briefly describing th
 
 
 
+let Task7 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Shopping is a regular activity that influences many areas of modern life. People shop for food, clothes, electronics, and other daily necessities. Over the last two decades, online shopping has become increasingly popular. Since around 2010, websites and mobile apps have made it more convenient to compare prices, read reviews, and order items from home. However, shopping is not only about comfort and variety. It also requires responsibility. Smart shopping means planning your purchases, avoiding unnecessary spending, and recognizing the impact of consumer choices on the environment. For example, buying reusable products or supporting local businesses can help reduce waste and support the community. Young people are especially influenced by advertisements on social media platforms. A study in 2022 showed that 73% of teenagers are more likely to buy products recommended by influencers. This creates both opportunities and challenges, as trends change quickly and some items may not be affordable for everyone. Shopping habits can say a lot about a person’s values, budget, and lifestyle. Whether online or in a physical store, making thoughtful decisions helps shoppers feel more confident and prepared in everyday life.`,
+    introduction1: ' Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
 
-const AllTasks = [0, Task1, Task2, Task3, Task4, Task5, Task6]
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "ONLINE-STORE",
+    header3: `You are considering buying new outfits in an online shop and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/7/2.jpg',
+    text1: 
+    `1) special offers<br>
+     2) delivery terms<br> 
+     3) payment methods<br>  
+     4) refund policy 
+    `,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss shopping habits.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "How often do you go shopping and what do you usually buy?",
+      "Do you prefer shopping in stores or online? Why?",
+      "Have you ever returned something you bought? What was it?",
+      "Do teenagers in your country usually shop with parents or friends?",
+      "How do advertisements influence your shopping choices?"]
+  },
+  task4:
+  {
+    header: `Imagine that you and your friend are doing a school project "Shopping habits". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:
+`,
+    text: 
+    `
+    explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2) <strong>of the two ways of buying items;</strong><br>
+• mention the disadvantages (1-2) <strong>of the two ways of buying items;</strong><br>
+• express your opinion on the subject of the project — <strong>which way of buying items you'd prefer and why.</strong>
+    `,
+    images: ['tasks/7/4-1.jpg', 'tasks/7/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+let Task8 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Interpersonal relationships are a central part of human experience. Whether at school, at work, or within families, strong relationships are built on trust, communication, and mutual respect. But even healthy relationships can face challenges. For example, when people have different opinions or expectations, a conflict may arise. If not handled properly, it can lead to misunderstanding or distance. In these situations, the ability to listen carefully and show empathy becomes very important. It helps others feel heard and supported, even when there is disagreement. In one recent classroom survey from 2023, students were asked what helps them maintain positive relationships with friends. The most common answers were “being honest,” “sharing problems,” and “spending quality time together.” These responses show that emotional connection is often more important than having the same interests or opinions. A strong relationship doesn’t mean avoiding all problems—it means being supportive, patient, and willing to grow together. By developing these social skills, people become more confident and prepared for real-life situations, both personal and professional.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. ',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "Birthday Parties",
+    header3: `You are considering organising your birthday party in a café and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/8/2.jpg',
+    text1: 
+    `
+1) location<br>
+2) number of guests allowed<br>
+3) activities and entertainment provided<br>
+4) price per person
+    `,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss relationships.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "Who do you usually turn to when you need advice or support?",
+      "Do you find it easy to make new friends? Why or why not?",
+      "What qualities do you value most in a friend?",
+      "How do teenagers in your country usually spend time with friends?",
+      "How can conflicts between friends be resolved in a healthy way?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Birthday celebrations". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:
+`,
+    text: 
+    `
+explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2) <strong>of the two ways of celebrating a birthday party;</strong><br>
+• mention the disadvantages (1-2) <strong>of the two ways of celebrating a birthday party;</strong><br>
+• express your opinion on the subject of the project — <strong>which way of celebrating your birthday party you preferred as a child and why.</strong>
+    `,
+    images: ['tasks/8/4-1.jpg', 'tasks/8/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+let Task9 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Living a healthy lifestyle is more than just eating vegetables and exercising. It involves making daily choices that support both physical and mental well-being. Unfortunately, many people face serious health problems due to unhealthy routines. Obesity is one of the most common issues today. It is often caused by overeating, lack of movement, and poor nutrition. People with obesity are at higher risk of heart problems, diabetes, and joint pain. In many cases, this condition begins in childhood and continues into adulthood. Another concern is insomnia, a sleep disorder that affects concentration, mood, and productivity. It is often linked to stress, screen time, or irregular sleep patterns. In severe cases, extreme exhaustion may lead to accidents or sudden unconsciousness. To live healthily, it’s important to sleep well, eat balanced meals, stay active, and avoid harmful habits like smoking. Even small changes—like drinking more water or walking daily—can improve one’s health over time. A healthy lifestyle helps people feel more energetic, focused, and emotionally balanced. It doesn’t require perfection—just consistency, awareness, and care for your own body and mind.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "ANNUAK CHECK-UP",
+    header3: `You are considering having an annual check up and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/9/2.jpg',
+    text1: 
+    `
+1) cost of a consultation<br>
+2) if online appointment available<br>
+3) doctors’ qualifications<br>
+4) discounts for students  
+    `,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss healthy lifestyle. We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss healthy lifestyle.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "What do you usually do to stay healthy?",
+      "Do teenagers in your country pay much attention to their diet? Why or why not?",
+      "What should be done by schools to encourage teenagers to take care of their health?",
+      "What health facilities are available in your area?",
+      "Are people nowadays healthier than they used to be in the past? Why do you think so?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Medicine of the 21st century". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:
+`,
+    text: 
+    `
+explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2) <strong>of the two methods of receiving medical help;</strong><br>
+• mention the disadvantages (1-2) <strong>of the two methods of receiving medical help;</strong><br>
+• express your opinion on the subject of the project — <strong> which method of receiving medical help you’d prefer and why.</strong>
+`,
+    images: ['tasks/9/4-1.jpg', 'tasks/9/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+let Task10 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Russia has one of the most diverse climates in the world due to its vast territory. From the subtropical shores of Sochi to the frozen plains of Yakutsk, the climate varies greatly depending on location. The country experiences long winters, short summers, and strong seasonal variation, which makes it fascinating for tourists all year round. In Siberia, winters are extremely cold. Temperatures can drop below -50°C, and the ground stays frozen for most of the year. These snowy landscapes attract adventurous travelers interested in winter sports and unique nature experiences. In contrast, Krasnodar Krai in southern Russia offers a much milder climate. Summers are warm, and there is more precipitation throughout the year. The city of Sochi, located on the Black Sea coast, is famous for its beaches, mountain views, and subtropical weather—making it a popular resort destination. Russia’s climate is mostly continental, with hot summers and cold winters. This creates opportunities for skiing, hiking, sightseeing, and cultural tourism in every season. Despite the climate extremes, people have adapted through modern technology and building methods. For tourists, Russia’s varied climate provides a wide range of experiences—from snowy adventures to sunny coastal holidays.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "MOUNTAIN TOURISM",
+    header3: `You are considering going on to the mountains and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/6/2.jpg',
+    text1: 
+    `
+1) weather conditions<br>
+2) average temperature<br>
+3) special equipment needed<br>
+4) duration of the tour
+    `,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss environment.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "What environmental problems are considered the most serious in your country today?",
+      "How can individuals contribute to solving global environmental issues?",
+      "Who is responsible for environmental protection in your opinion?",
+      "How did people take care of the planet 10 years ago?",
+      "Do you approve of the total ban on using plastic bags? Why? Why not?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Contributing to a healthier planet". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:
+`,
+    text: 
+    `
+explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2) <strong>of the two ways of preserving nature;</strong><br>
+• mention the disadvantages (1-2) <strong>of the two ways of preserving nature;</strong><br>
+• express your opinion on the subject of the project — <strong>which way of saving our planet you prefer and why.</strong>
+    `,
+    images: ['tasks/6/4-1.jpg', 'tasks/6/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+
+const AllTasks = [0, Task1, Task2, Task3, Task4, Task5, Task6,Task7,Task8,Task9,Task10]
 
 let Sounds = {
   sound1: 'sounds/sound01.mp3',
   sound2: 'sounds/audio2.mp3',
   sound3: 'sounds/line_open.mp3'
+}
+
+
+let Task =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: ``,
+    introduction1: '',
+    introduction2: ''
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "",
+    header3: ``,
+    image: 'tasks/6/2.jpg',
+    text1: 
+    `
+
+    `,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "",
+    introduction2: "",
+    interviewer: [
+      "",
+      "",
+      "",
+      "",
+      ""]
+  },
+  task4:
+  {
+    header: ``,
+    text: 
+    `
+
+    `,
+    images: ['tasks/6/4-1.jpg', 'tasks/6/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
 }

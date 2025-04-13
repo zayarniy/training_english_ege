@@ -706,7 +706,7 @@ function variant(n) {
 
 let lcst = null;
 function logoClick() {
-    if (logoClickCounter > 8) {
+    if (logoClickCounter > 4) {
         logoClick = 0;
         clearTimeout(lcst)
         showMaterials();
