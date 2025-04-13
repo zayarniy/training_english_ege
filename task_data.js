@@ -493,7 +493,7 @@ let Task10 =
     header1: "Task 2. Study the advertisement.",
     header2: "MOUNTAIN TOURISM",
     header3: `You are considering going on to the mountains and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
-    image: 'tasks/6/2.jpg',
+    image: 'tasks/10/2.jpg',
     text1: 
     `
 1) weather conditions<br>
@@ -531,14 +531,359 @@ explain the choice of the illustrations for the project by briefly describing th
 • mention the disadvantages (1-2) <strong>of the two ways of preserving nature;</strong><br>
 • express your opinion on the subject of the project — <strong>which way of saving our planet you prefer and why.</strong>
     `,
-    images: ['tasks/6/4-1.jpg', 'tasks/6/4-2.jpg'],
+    images: ['tasks/10/4-1.jpg', 'tasks/10/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+let Task11 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Online education has transformed the way people learn and develop new skills. With just an internet connection, students can now join virtual classrooms, complete courses, and even work toward getting a degree from home. One of the main advantages is easy access to materials—videos, readings, and assignments are available anytime, making learning more flexible and convenient. Another benefit is immediate feedback. Many online platforms provide automatic results for quizzes and tests, helping learners understand their mistakes and improve quickly. Regular assessment also keeps students motivated and on track with their progress. Some online programs are connected to accredited institutions and offer official qualifications or certificates. These achievements are valuable for career development, further study, or personal growth. While online education requires discipline and time management, it is a powerful tool for people of all ages. It breaks down barriers of distance, cost, and scheduling, making education more inclusive and personalized. From improving language skills to gaining expert knowledge in technology, online learning continues to grow as a flexible and effective way to study in today’s digital world.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "You are considering entering an educational programme abroad and now you'd like to get more information.",
+    header3: `In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/11/2.jpg',
+    text1: 
+    `
+1) tuition fees<br>
+2) accommodation<br>
+3) number of students in a group<br>
+4) scholarships or financial aid for students
+    `,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss education.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "What was your favourite subject at school when you were a child? Why did you like it?",
+      "How can your school’s learning environment be improved?",
+      "What are your future study plans? Do your parents approve of them?",
+      "What role do extracurricular activities play in your school life?",
+      "Do you think online education will replace traditional one in the future? Why?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Affordable education". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:`,
+    text: 
+    `
+explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2) <strong>of the two ways gaining knowledge;</strong><br>
+• mention the disadvantages (1-2) <strong>of the two ways of gaining knowledge;</strong><br>
+• express your opinion on the subject of the project —<strong> which way of getting new knowledge you prefer and why.</strong>
+`,
+    images: ['tasks/11/4-1.jpg', 'tasks/11/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
   filename: 'tasks/6-15.pdf'
 }
 
 
-const AllTasks = [0, Task1, Task2, Task3, Task4, Task5, Task6,Task7,Task8,Task9,Task10]
+let Task12 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Holidays in Russia are known for their strong traditions, warm atmosphere, and national pride. Many of them are celebrated with friends and family, full of music, food, and joyful celebration. One of the most beloved holidays is New Year. People decorate fir trees, prepare delicious traditional dishes, and exchange gifts with loved ones. Families gather to watch special television programs, listen to the president’s speech, and make wishes for the coming year. At midnight, clocks strike twelve, and people often enjoy this moment together with happiness and excitement. Victory Day, celebrated on May 9, is a deeply respected national holiday. Cities across the country hold grand military parades, concerts, and fireworks displays. People gather in public spaces to honor the memory of courage, unity, and historical strength. The atmosphere is both festive and reflective, filled with patriotic songs and heartfelt moments. In spring, Maslenitsa, a traditional folk festival, marks the end of winter. People eat pancakes, dance in the streets, and enjoy open-air performances. It’s a cheerful and colorful event that brings communities together. For tourists, Russian holidays offer a wonderful chance to experience the country’s culture, hospitality, and deep respect for tradition—all while enjoying a festive and welcoming environment.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "Best Tours",
+    header3: `You are considering going on a trip and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/12/2.jpg',
+    text1: 
+    `
+1) cost of the travel package<br>
+2) excursions included in the price<br>
+3) departure point<br>
+4) cancellation 
+    `,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss travelling. ",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "What was the most memorable trip in your life?",
+      "Do you prefer a sightseeing holiday or a beach holiday? Why?",
+      "What are the most popular travel destinations among teenagers nowadays?",
+      "Why some people prefer to have a guided tour?",
+      "What place in the world would you most like to visit in the future? Why?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Enjoy your holiday". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:`,
+    text: 
+    `explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2)<strong> of each type of holiday;</strong><br>
+• mention the disadvantages (1-2)<strong> of each type of holiday;</strong><br>
+• express your opinion on the subject of the project — <strong> which type of holiday you’d prefer and why.</strong>
+    `,
+    images: ['tasks/12/4-1.jpg', 'tasks/12/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+let Task13 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Russia is the largest country in the world, and its natural landscapes are incredibly diverse and beautiful. From snowy mountains to wide rivers and deep lakes, the scenery offers something unique in every region. One of the most famous rivers is the Volga, the longest river in Europe. It flows through many large cities and is important for transportation, fishing, and tourism. Another great river, the Lena is known for its natural beauty. One of Russia’s most remarkable natural wonders is Lake Baikal, the deepest and one of the clearest freshwater lakes in the world. It is surrounded by forests and mountains and is often called the "Pearl of Siberia." Russia is also known for its high mountain ranges, snowy regions, and remote hiking paths. To the east, the Kamchatka Peninsula features volcanic landscapes, hot springs, and untouched nature. With its forests, tundra, rivers, and mountains, Russia’s landscape is both peaceful and impressive. It attracts scientists, hikers, photographers, and travelers who come to explore the magnificent nature across this vast territory.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "TRAVEL IN RUSSIA",
+    header3: `You are considering travelling around Russia trip and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/13/2.jpg',
+    text1: 
+    `
+1) cities and landmarks included<br>
+2) accommodation options<br>  
+3) duration of the whole trip<br>
+4) family discounts`,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss Russian writers and scientists.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "What can you tell us about some of the Russian writers you know?",
+      "What are your favourite Russian writers and their works?",
+      "Is it important to know about the famous scientists of your country? Why do you think so?",
+      "What do you think are the most popular achievements of Russian scientists?",
+      "If you could choose a project to prepare about any Russian scientist, who would you choose and why?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Travelling in Russia". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:`,
+    text: 
+    `explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2) <strong>of the two types of travelling around Russia;</strong><br>
+• mention the disadvantages (1-2)<strong> of the two types of travelling around Russia;</strong><br>
+• express your opinion on the subject of the project — <strong>which type of travelling around Russia you’d prefer and why.</strong>`,
+    images: ['tasks/13/4-1.jpg', 'tasks/13/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+
+let Task14 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `Volunteering is a meaningful way to help others and make a positive difference in the community. People of all ages volunteer their time, energy, and skills to support various causes, such as education, healthcare, the environment, and animal protection. According to global studies, over 1 billion people worldwide participate in some form of volunteering each year. In 2022, approximately 26% of young adults between the ages of 16 and 25 took part in organized volunteer activities. These experiences help develop important life skills such as teamwork, communication, and responsibility. Volunteering can take many forms. Some people help out at local schools or libraries, while others work with charities or environmental groups. Even small efforts, like collecting donations or cleaning up parks, can have a big impact. Many organizations now offer digital volunteering, where people support projects online. This allows more flexible options for those with busy schedules. Besides helping others, volunteers often report feeling more confident and connected to their communities. Whether it’s a few hours a week or a few days a year, volunteering is a powerful way to give back, grow personally, and create a more caring and supportive world.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "VOLINTEERING PROGRAMME",
+    header3: `You are considering taking part in a volunteering programme in an animal shelter and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/14/2.jpg',
+    text1: 
+    `1) location<br>
+    2) responsibilities<br>
+    3) age limits<br>
+    4) extra expenses 
+    `,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss volunteering.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "What types of volunteering are popular among teenagers in your country today?",
+      "Why do some young people choose to become volunteers?",
+      "In your opinion, what qualities make a good volunteer?",
+      "How can volunteering benefit teenagers both personally and professionally?",
+      "Would you like to take part in an international volunteer project? Why or why not?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Volunteering". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:`,
+    text: 
+    `explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2) <strong>of each type of volunteering;</strong><br>
+• mention the disadvantages (1-2) <strong>of each type of volunteering;</strong><br>
+• express your opinion on the subject of the project — <strong>which type of volunteering you’d prefer and why.</strong>`,
+    images: ['tasks/14/4-1.jpg', 'tasks/14/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+
+let Task15 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `There are two types of people in this world: those who enjoy a 10-mile trek up a steep incline with the goal of getting to the top of a mountain as quickly as possible, and those who prefer something a little more chill. If you fall into the latter category, soft hiking is for you. If you want to stroll through the woods, stop to look at the scenery, pause for snacks — it all counts as hiking, even though it doesn't involve scrambling or buckets of sweat. The original post about soft hiking already has over 340,000 views, as well as comments that show just how much the trend strikes a chord. While seasoned hikers might look for a challenging trek, soft hiking is all about slowing down and meandering through nature. The key is to go slow, take in your surroundings, and stop for regular breaks. You should feel free to go off trail to look at a cool tree, pull over at an overlook to take photos, or explore a historical site. There's no need to rush or push or keep up with others. As long as you remain present, you are doing it right.`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "Soar the skies with our paragliding club!",
+    header3: `You are considering joining the paragliding club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
+    image: 'tasks/15/2.jpg',
+    text1: 
+    `1) location<br>
+2) requirements for beginners<br>
+3) necessary equipment<br>
+4) duration of a flight`,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss sports.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
+    interviewer: [
+      "What kind of sports do you personally enjoy?",
+      "In your opinion is it better to exercise in the morning or in the evening? Why?",
+      "Why do you think some teenagers avoid physical activities and sports?",
+      "Can you say that today sport is more affordable for people than in the past? Why or why not?",
+      "Will people do more sports in the future? Why?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Sweat is the cologne of accomplishment". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
+of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:`,
+    text: 
+    `explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+• mention the advantages (1-2) <strong>of two types of sports;</strong><br>
+• mention the disadvantages (1-2) <strong>of two types of sports;</strong><br>
+• express your opinion on the subject of the project — <strong>whether you would prefer to take part in a team sport and why.</strong>`,
+    images: ['tasks/15/4-1.jpg', 'tasks/15/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/6-15.pdf'
+}
+
+
+let Task16 =
+{
+  task1:
+  {
+    header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
+    text: `When shopping, we usually only care about buying fashionable clothes at a good price without 
+thinking about the people who made them. However, in 2013, a factory in Bangladesh collapsed 
+and over 1,000 people died, which made people start to ask questions about how and where their 
+clothes were made. 
+Some companies have strict rules about the factories that make their clothes, including H&M, 
+Zara, and Primark, who say they only work with safe factories paying fair wages. But other 
+companies don't have such strict rules. 
+To be sure that your clothes are made fairly, you can buy second-hand clothes from shops or 
+apps like Vinted and Depop, or choose ethical fashion brands like People Tree and Everlane, 
+which may cost more but are better for the environment and the people who make them. 
+`,
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
+
+  },
+  task2:
+  {
+    header1: "Task 2. Study the advertisement.",
+    header2: "Be ready for your wedding!",
+    header3: `You are considering buying/renting a wedding dress/suit in the wedding salon and you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out the following: `,
+    image: 'tasks/16/2.jpg',
+    text1: 
+    `1) location<br>
+     2) rental<br>
+     3) booking a fitting<br>
+     4) special offers`,
+    text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
+    questions: ['location', 'duration', 'salary', 'bonuses']
+  },
+  task3:
+  {
+    header: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question.`,
+    introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
+    Remember that you have 40 seconds to answer each question`,
+    introduction1: "Hello everybody! It’s Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss shopping and fashion.",
+    introduction2: "We’d like to know our guest’s point of view on this issue. Please answer five questions. So, let’s get started.",
+    interviewer: [
+      "How often do you shop for clothes and for food? Do you turn to delivery?",
+      "What style of clothing do you prefer? Why?",
+      "Where do you usually find fashion ideas?",
+      "Do you follow fashion trends? Why is it important for some people?",
+      "Is it crucial to wear original brands? What do you think of buying cheaper replicas?"]
+  },
+  task4:
+  {
+    header: `Task 4. Imagine that you and your friend are doing a school project "Places to shop". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:`,
+    text: 
+    `• explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+     • mention the advantages (1–2) <strong>of the two places to shop at;</strong><br>
+     • mention the disadvantages (1–2) <strong>of the two places to shop at;</strong><br>
+     • express your opinion on the subject of the project  — <strong>where did you prefer to go shopping when you were a child?</strong>`,
+    images: ['tasks/16/4-1.jpg', 'tasks/6/4-2.jpg'],
+    text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
+  },
+  filename: 'tasks/16/6-15.pdf'
+}
+
+
+const AllTasks = [0, Task1, Task2, Task3, Task4, Task5, Task6,Task7,Task8,Task9,Task10,Task11,Task12,Task13,Task14,Task15,Task16]
 
 let Sounds = {
   sound1: 'sounds/sound01.mp3',
@@ -553,8 +898,8 @@ let Task =
   {
     header: 'Task 1. Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.',
     text: ``,
-    introduction1: '',
-    introduction2: ''
+    introduction1: 'Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend.',
+    introduction2: 'You have 1.5 minutes to read the text silently, then be ready to read it out aloud. You will not have more than 1.5 minutes to read it.'
 
   },
   task2:
