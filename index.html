@@ -106,15 +106,17 @@
         <div v-if="isShowMain" class="col-md main">
           <div v-html='main_text'>
           </div>
+          <div v-if='isShowImage1' class="row text-center">
+            <figure class="figure">
+              <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold;">Photo 1</figcaption>
+              <img v-bind:src="image1" class="my_image">
+            </figure>
+          </div>          
           <div v-html='text2' class="col-md font-weight-bold">
           </div>
+
         </div>
-        <div v-if='isShowImage1' class="row text-center">
-          <figure class="figure">
-            <figcaption v-if="isShowCaption" class="figure-caption" style="font-weight: bold;">Photo 1</figcaption>
-            <img v-bind:src="image1" class="my_image">
-          </figure>
-        </div>
+
         <!--
         <div v-if='isShowImage2' class="col-md-6 text-center">
           <figure class="figure">

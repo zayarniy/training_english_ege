@@ -269,7 +269,7 @@ let Task6 =
 3) cost of the service<br> 
 4) discounts`,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['working hours', 'range of services included', 'cost of the service', 'discounts']
   },
   task3:
   {
@@ -326,7 +326,7 @@ let Task7 =
      4) refund policy 
     `,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['special offers', 'delivery terms', 'payment methods', 'refund policy']
   },
   task3:
   {
@@ -385,7 +385,7 @@ let Task8 =
 4) price per person
     `,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['location', 'number of guests allowed', 'activities and entertainment provided', 'price per person']
   },
   task3:
   {
@@ -433,7 +433,7 @@ let Task9 =
   task2:
   {
     header1: "Task 2. Study the advertisement.",
-    header2: "ANNUAK CHECK-UP",
+    header2: "ANNUAL CHECK-UP",
     header3: `You are considering having an annual check up and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:`,
     image: 'tasks/9/2.jpg',
     text1: 
@@ -444,7 +444,7 @@ let Task9 =
 4) discounts for students  
     `,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['cost of a consultation', 'if online appointment available', 'doctors’ qualifications', 'discounts for students']
   },
   task3:
   {
@@ -502,7 +502,7 @@ let Task10 =
 4) duration of the tour
     `,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['weather conditions', 'average temperature', 'special equipment needed', 'duration of the tour']
   },
   task3:
   {
@@ -560,7 +560,7 @@ let Task11 =
 4) scholarships or financial aid for students
     `,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['tuition fees', 'accommodation', 'number of students in a group', 'scholarships or financial aid for students']
   },
   task3:
   {
@@ -619,7 +619,7 @@ let Task12 =
 4) cancellation 
     `,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['cost of the travel package', 'excursions included in the price', 'departure point', 'cancellation']
   },
   task3:
   {
@@ -675,7 +675,7 @@ let Task13 =
 3) duration of the whole trip<br>
 4) family discounts`,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['cities and landmarks included', 'accommodation options', 'duration of the whole trip', 'family discounts']
   },
   task3:
   {
@@ -727,11 +727,11 @@ let Task14 =
     text1: 
     `1) location<br>
     2) responsibilities<br>
-    3) age limits<br>
+    3) age limitations<br>
     4) extra expenses 
     `,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['location', 'responsibilities', 'age limitations', 'extra expenses']
   },
   task3:
   {
@@ -786,7 +786,7 @@ let Task15 =
 3) necessary equipment<br>
 4) duration of a flight`,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['location', 'requirements for beginners', 'necessary equipment', 'duration of a flight']
   },
   task3:
   {
@@ -808,7 +808,7 @@ let Task15 =
     header: `Task 4. Imagine that you and your friend are doing a school project "Sweat is the cologne of accomplishment". You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice
 of the photos and sharing some ideas about the project. In 2.5 minutes be ready to:`,
     text: 
-    `explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
+    `• explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
 • mention the advantages (1-2) <strong>of two types of sports;</strong><br>
 • mention the disadvantages (1-2) <strong>of two types of sports;</strong><br>
 • express your opinion on the subject of the project — <strong>whether you would prefer to take part in a team sport and why.</strong>`,
@@ -851,7 +851,7 @@ which may cost more but are better for the environment and the people who make t
      3) booking a fitting<br>
      4) special offers`,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['location', 'duration', 'salary', 'bonuses']
+    questions: ['location', 'rental', 'booking a fitting', 'special offers']
   },
   task3:
   {
