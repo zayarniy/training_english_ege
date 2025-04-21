@@ -18,7 +18,7 @@ function populateVoiceList() {
 
 setTimeout(() => {
 
-  populateVoiceList();
+  //populateVoiceList();
 }, 1000);
 
 if (synth.onvoiceschanged !== undefined) {

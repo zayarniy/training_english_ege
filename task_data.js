@@ -183,10 +183,10 @@ let Task4 =
     project. In 2.5 minutes be ready to:`,
     text: `• explain the choice of the illustrations for the project by briefly describing
 them and noting the differences;<br>
-• mention the advantages (1–2) of the two hobbies;<br>
-• mention the disadvantages (1–2) of the two hobbies;<br>
-• express your opinion on the subject of the project – which of the hobbies presented in the
-pictures you’d prefer and why.`,
+• mention the advantages (1–2) <strong>of the two hobbies;</strong><br>
+• mention the disadvantages (1–2) <strong>of the two hobbies;</strong><br>
+• express your opinion on the subject of the project – <strong>which of the hobbies presented in the
+pictures you’d prefer and why.</strong>`,
     images: ['tasks/4/4-1.jpg', 'tasks/4/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
@@ -225,8 +225,8 @@ let Task5 =
     Remember that you have 40 seconds to answer each question.`,
     introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
     Remember that you have 40 seconds to answer each question`,
-    introduction1: "You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).",
-    introduction2: "Remember that you have 40 seconds to answer each question.",
+    introduction1: "Interviewer: Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss career opportunities .",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
     interviewer: ["What are some common career paths for teenagers in Russia? What are you going to be?",
       "What challenges do Russian teenagers face when trying to find a job?",
       "What role do parents play in helping their children choose a future job in Russia? Do your parents help you to choose your future career?",
@@ -277,8 +277,8 @@ let Task6 =
     Remember that you have 40 seconds to answer each question.`,
     introduction: `Task 3. You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).
     Remember that you have 40 seconds to answer each question`,
-    introduction1: "You are going to give an interview. You have to answer five questions. Give full answers to the questions (2-3 sentences).",
-    introduction2: "Remember that you have 40 seconds to answer each question.",
+    introduction1: "Interviewer: Hello everyone! It's the Teenagers Round the World Channel. Our guest today is a teenager from Russia and we are going to discuss household chores.",
+    introduction2: "We'd like to know our guest's point of view on this issue. Please answer five questions. So, let's get started.",
     interviewer: [
       "What household chores do you usually do at home?",
       "Which chore do you dislike the most and why?",
@@ -554,7 +554,7 @@ let Task11 =
     image: 'tasks/11/2.jpg',
     text1: 
     `
-1) tuition fees<br>
+1) tuition fee<br>
 2) accommodation<br>
 3) number of students in a group<br>
 4) scholarships or financial aid for students
@@ -584,7 +584,7 @@ of the photos and sharing some ideas about the project. In 2.5 minutes be ready 
     text: 
     `
 explain the choice of the illustrations for the project by briefly describing them and noting the differences;<br>
-• mention the advantages (1-2) <strong>of the two ways gaining knowledge;</strong><br>
+• mention the advantages (1-2) <strong>of the two ways of gaining knowledge;</strong><br>
 • mention the disadvantages (1-2) <strong>of the two ways of gaining knowledge;</strong><br>
 • express your opinion on the subject of the project —<strong> which way of getting new knowledge you prefer and why.</strong>
 `,

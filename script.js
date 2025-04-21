@@ -177,7 +177,7 @@ let training = new Vue({
                         task('', '', '', 90)
                         training.answerTimeText = "Answer 00:20"
                         document.getElementById('btnRecNav').disabled = true;
-                        setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
+                        setTimeout(() => document.getElementById('btnRecNav').disabled = false, 1000);
                     });
 
                     break
@@ -225,7 +225,7 @@ let training = new Vue({
                     training.answerTimeText = '';
                     training.preparationTimeText = '';
                     document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 1000);
                     //startRecording();                    
                     break
                 case 'task22'://task
@@ -245,7 +245,7 @@ let training = new Vue({
                     training.main_text = 'Question 2: ' + Tasks.task2.questions[1];
                     training.recTime = 0;
                     document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 1000);
                     //startRecording();                    
                     break
                 case 'task23'://task
@@ -264,7 +264,7 @@ let training = new Vue({
                     training.main_text = 'Question 3: ' + Tasks.task2.questions[2];
                     training.recTime = 0;
                     document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 1000);
                     //startRecording();                    
                     break
                 case 'task24'://task
@@ -285,7 +285,7 @@ let training = new Vue({
                     training.preparationTimeText = "Preparation 01:30"
                     training.answerTimeText = 'Answer 00:40';
                     document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 1000);
                     //startRecording();                    
                     break
                 case 'prepair3':
@@ -397,7 +397,7 @@ let training = new Vue({
                     training.answerTimeText = 'Answer 03:00';
                     task('', '', '', 180)
                     document.getElementById('btnRecNav').disabled = true;
-                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 5000);
+                    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 1000);
                     break
                 case 'download'://download
 
@@ -571,7 +571,7 @@ function task3() {
     training.recTime = 0;
     training.main_text = '';
     document.getElementById('btnRecNav').disabled = true;
-    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 15000);
+    setTimeout(() => document.getElementById('btnRecNav').disabled = false, 13500);
 }
 
 function read_task(head_text, main_text, text_speak, maxRecTime) {
