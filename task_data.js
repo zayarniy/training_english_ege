@@ -560,7 +560,7 @@ let Task11 =
 4) scholarships or financial aid for students
     `,
     text2: '<br><strong>You have 20 seconds to ask each question.</strong>',
-    questions: ['tuition fees', 'accommodation', 'number of students in a group', 'scholarships or financial aid for students']
+    questions: ['tuition fee', 'accommodation', 'number of students in a group', 'scholarships or financial aid for students']
   },
   task3:
   {
