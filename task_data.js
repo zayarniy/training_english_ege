@@ -298,7 +298,8 @@ explain the choice of the illustrations for the project by briefly describing th
     images: ['tasks/6/4-1.jpg', 'tasks/6/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/6/task6.pdf'
+  
 }
 
 
@@ -358,7 +359,7 @@ of the photos and sharing some ideas about the project. In 2.5 minutes be ready 
     images: ['tasks/7/4-1.jpg', 'tasks/7/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/7/task7.pdf'
 }
 
 let Task8 =
@@ -417,7 +418,7 @@ explain the choice of the illustrations for the project by briefly describing th
     images: ['tasks/8/4-1.jpg', 'tasks/8/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/8/task8.pdf'
 }
 
 let Task9 =
@@ -475,7 +476,7 @@ explain the choice of the illustrations for the project by briefly describing th
     images: ['tasks/9/4-1.jpg', 'tasks/9/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/9/task9.pdf'
 }
 
 let Task10 =
@@ -534,7 +535,7 @@ explain the choice of the illustrations for the project by briefly describing th
     images: ['tasks/10/4-1.jpg', 'tasks/10/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/10/task10.pdf'
 }
 
 let Task11 =
@@ -591,7 +592,7 @@ explain the choice of the illustrations for the project by briefly describing th
     images: ['tasks/11/4-1.jpg', 'tasks/11/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/11/task11.pdf'
 }
 
 
@@ -649,7 +650,7 @@ of the photos and sharing some ideas about the project. In 2.5 minutes be ready 
     images: ['tasks/12/4-1.jpg', 'tasks/12/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/12/task12.pdf'
 }
 
 let Task13 =
@@ -704,7 +705,7 @@ of the photos and sharing some ideas about the project. In 2.5 minutes be ready 
     images: ['tasks/13/4-1.jpg', 'tasks/13/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/13/task13.pdf'
 }
 
 
@@ -760,7 +761,7 @@ of the photos and sharing some ideas about the project. In 2.5 minutes be ready 
     images: ['tasks/14/4-1.jpg', 'tasks/14/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/14/task14.pdf'
 }
 
 
@@ -815,7 +816,7 @@ of the photos and sharing some ideas about the project. In 2.5 minutes be ready 
     images: ['tasks/15/4-1.jpg', 'tasks/15/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/15/task15.pdf'
 }
 
 
@@ -879,7 +880,7 @@ which may cost more but are better for the environment and the people who make t
     images: ['tasks/16/4-1.jpg', 'tasks/16/4-2.jpg'],
     text2: "<strong>You will speak for not more than 3 minutes (12-15 sentences). You have to talk continuously.</strong>"
   },
-  filename: 'tasks/6-16.pdf'
+  filename: 'tasks/16/task16.pdf'
 }
 
 
